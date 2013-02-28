@@ -10,7 +10,7 @@ read -p "Is that okay? [Yn] " confirm
 echo
 echo Downloading and installing...
 wget -q https://github.com/stephenyu/dotfiles/archive/master.zip
-unzip -q master.zip
+unzip -q master.zip && rm master.zip
 
 cd 'dotfiles-master'
 
