@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf
+END
+line.vim
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/line.vim
+END
+mrucmd.vim
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/mrucmd.vim
+END
+help.vim
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/help.vim
+END
+coveragefile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/coveragefile.vim
+END
+taggedfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/taggedfile.vim
+END
+givencmd.vim
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/givencmd.vim
+END
+callbackfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/callbackfile.vim
+END
+mrufile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/mrufile.vim
+END
+bookmarkdir.vim
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/bookmarkdir.vim
+END
+buffertag.vim
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/buffertag.vim
+END
+bookmarkfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/bookmarkfile.vim
+END
+jumplist.vim
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/jumplist.vim
+END
+givendir.vim
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/givendir.vim
+END
+givenfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/givenfile.vim
+END
+buffer.vim
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/buffer.vim
+END
+callbackitem.vim
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/callbackitem.vim
+END
+tag.vim
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/tag.vim
+END
+dir.vim
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/dir.vim
+END
+file.vim
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/file.vim
+END
+changelist.vim
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/changelist.vim
+END
+quickfix.vim
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/autoload/fuf/quickfix.vim
+END

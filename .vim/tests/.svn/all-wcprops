@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/tests
+END
+vimrc_test
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/tests/vimrc_test
+END
+test-movement.vim
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/tests/test-movement.vim
+END
+test-graph.vim
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/tests/test-graph.vim
+END
+test-preview.vim
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/tests/test-preview.vim
+END
+test-toggle.vim
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/tests/test-toggle.vim
+END
+run-tests.sh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/tests/run-tests.sh
+END
+README.markdown
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn-repos/!svn/ver/45222/people/stepheny/vim/main-vim/tests/README.markdown
+END
