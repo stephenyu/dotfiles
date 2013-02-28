@@ -10,7 +10,7 @@ echo The dotfiles will be installed in "$(pwd)"/dotfiles-master
 
 echo
 echo Downloading and installing...
-wget -q https://github.com/stephenyu/dotfiles/archive/master.zip
+wget -q https://github.com/stephenyu/dotfiles/archive/master.zip -O master.zip
 unzip -q master.zip && rm master.zip
 
 cd 'dotfiles-master'
