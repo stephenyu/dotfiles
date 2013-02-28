@@ -19,3 +19,23 @@ dotfiles=()
 for f in $(find . -maxdepth 1 -name ".[^.]*" -exec basename {} \; | grep -v "^.git$"); do
   dotfiles+=("$f")
 done
+
+echo
+echo Symlinking the following dotfiles: $dotfiles
+echo Existing files will be backed up with the .old extension
+
+for f in "${dotfiles[@]}"; do
+  # Back it up if it already exists
+  if [[ -f ~/$f ]]; then
+    cp -f ~/$f ~/$f.old
+  elif [[ -d ~/$f ]]; then
+    cp -rf ~/$f ~/$f.old
+  fi
+  # And symlink it to the relative directory!
+  abs_path=$(readlink -f $f)
+  rel_path="${abs_path#$HOME/}"
+  ln -sf $rel_path ~/$f
+done
+
+echo
+echo -e "\[\033[1;32m\]Everything succesfully installed.\[\033[0m\]"
