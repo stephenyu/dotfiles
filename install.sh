@@ -1,11 +1,12 @@
+red='\e[0;31m'
+NC='\e[0m' # No Color
+
 set -e  # Enables checking of all commands
 
 echo This bash script will download and install the dotfiles from
 echo http://github.com/stephenyu/dotfiles.
-echo If you want to update, please run this script from the dotfiles directory
 echo
-echo The dotfiles will be installed in "$(pwd)"/dotfiles
-read -p "Is that okay? [Yn] " confirm
+echo The dotfiles will be installed in "$(pwd)"/dotfiles-master
 
 echo
 echo Downloading and installing...
@@ -38,4 +39,4 @@ for f in "${dotfiles[@]}"; do
 done
 
 echo
-echo -e "\[\033[1;32m\]Everything succesfully installed.\[\033[0m\]"
+echo -e "${red}Everything successfully installed.${NC}"
