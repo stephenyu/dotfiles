@@ -1,4 +1,4 @@
-red='\e[0;31m'
+green='\e[0;32m'
 NC='\e[0m' # No Color
 
 set -e  # Enables checking of all commands
@@ -39,4 +39,4 @@ for f in "${dotfiles[@]}"; do
 done
 
 echo
-echo -e "${red}Everything successfully installed.${NC}"
+echo -e "${green}Everything successfully installed.${NC}"
