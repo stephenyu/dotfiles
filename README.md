@@ -1,4 +1,4 @@
-dotfiles
+Stephen's dotfiles
 ========
 
-All my dotfiles, allowing for easy installation
+bash < <(curl --silent https://raw.github.com/stephenyu/dotfiles/master/install.sh)
