@@ -10,14 +10,11 @@ set tags=ctags;/*/
 map <C-T> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 let g:NERDTreeWinSize = 50
+let g:NERDTreeShowHidden = 1
 
 " AutoFocus
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
-
-" Vim-Indent-Guides
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
 
 " Tabular
 nmap <Leader>t= :Tabularize /=<CR>

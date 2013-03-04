@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='.vim'
+let g:netrw_dirhist_2='.vim/vimrc'
+let g:netrw_dirhist_3='/home/stepheny/Downloads/dotfiles-master'
+let g:netrw_dirhist_4='/home/stepheny/Downloads/dotfiles-master/.vim'
+let g:netrw_dirhist_5='/home/stepheny/Downloads/dotfiles-master/.vim/vimrc'
