@@ -71,5 +71,8 @@ hi Cursor guifg=white guibg=#FC583F
 
 hi Visual guibg=#440000
 
+" Highlight Extra White Space
+highlight SpecialKey ctermbg=lightblue guifg=#ffc000 guibg=#6e00b7
+
 " Highlight all occurances of the currently selected word
 au CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
