@@ -37,7 +37,7 @@ installUnzip(){
   echo
   echo 'Downloading Git Master Archive...'
 
-  wget -q https://github.com/stephenyu/dotfiles/archive/master.zip -O master.zip
+  wget --no-check-certificate -q https://github.com/stephenyu/dotfiles/archive/master.zip -O master.zip
   unzip -q master.zip && rm master.zip
 
   mv 'dotfiles-master' 'dotfiles'
