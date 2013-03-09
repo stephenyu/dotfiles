@@ -4,48 +4,18 @@ NC='\e[0m' # No Color
 
 set -e  # Enables checking of all commands
 
-# Are we going to install via Git or Unzip?
-#
-# Unzip obviously worked for bare minimal of systems
-# Git will allow the checkout to 'git pull'
-install(){
-  read -p "Do you wish to install via [g]it or [u]nzip? [gu]" yn
-  case $yn in
-      [Gg]* ) installGit; break;;
-      [Uu]* ) installUnzip; break;;
-      * ) echo "Please answer [g]it or [u]nzip.";;
-  esac
-}
-
 # Install Via Git
-installGit(){
+install(){
   checkGitDependencies
 
   echo
   echo 'Cloning Git Repository...'
 
-  git clone --quiet https://github.com/stephenyu/dotfiles.git
+  git clone --quiet -b vundle https://github.com/stephenyu/dotfiles.git
 }
 
 checkGitDependencies(){
   type git &> /dev/null || echo -e "${red}Git is a required dependency.${NC}"
-}
-
-installUnzip(){
-  checkUnzipDependencies
-
-  echo
-  echo 'Downloading Git Master Archive...'
-
-  wget --no-check-certificate -q https://github.com/stephenyu/dotfiles/archive/master.zip -O master.zip
-  unzip -q master.zip && rm master.zip
-
-  mv 'dotfiles-master' 'dotfiles'
-}
-
-checkUnzipDependencies(){
-  type unzip &> /dev/null || echo -e "${red}wget is a required dependency.${NC}"
-  type wget &> /dev/null || echo -e "${red}unzip is a required dependency.${NC}"
 }
 
 echo This bash script will download and install the dotfiles from
@@ -62,7 +32,7 @@ while true; do
     esac
 done
 
-cd 'dotfiles'
+cd dotfiles
 
 # Build up a list of all the dotfiles (ignoring .git)
 dotfiles=()
@@ -86,6 +56,12 @@ for f in "${dotfiles[@]}"; do
   rel_path="${abs_path#$HOME/}"
   ln -sf $rel_path ~/$f
 done
+
+# Install 
+echo
+echo -e "Installing Vim Plugins"
+git clone --quiet https://github.com/gmarik/vundle.git .vim/bundle/vundle
+vim +BundleInstall +qall < /dev/tty # necessary to avoid vim: Input not from terminal warning
 
 echo
 echo -e "${green}Everything successfully installed.${NC}"
