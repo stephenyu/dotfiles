@@ -1,13 +1,6 @@
-" This is for Pathogen to load all the bundles
-call pathogen#runtime_append_all_bundles()
-call pathogen#infect()
-
 " Update CTags When Saving
 au BufWritePost .php silent! !ctags -R &
 set tags=ctags;/*/
-
-" Open Definition in a New Tab
-map <C-T> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 let g:NERDTreeWinSize = 50
 let g:NERDTreeShowHidden = 1
