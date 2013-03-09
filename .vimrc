@@ -10,7 +10,7 @@ source $HOME/.vim/vimrc/fkeys.vim
 source $HOME/.vim/vimrc/work.vim
 source $HOME/.vim/vimrc/os.vim
 source $HOME/.vim/vimrc/vundle-plugins.vim
-"source $HOME/.vim/vimrc/plugin-configs.vim
+source $HOME/.vim/vimrc/plugin-configs.vim
 
 " Source a local vimrc if it exists
 if filereadable(expand("$HOME/.vimrc.local"))

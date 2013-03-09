@@ -32,3 +32,29 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'gregsexton/MatchTag'
 " Rainbow parentheses!! :)
 Bundle 'kien/rainbow_parentheses.vim'
+
+" ----------------------------
+" --- Editing enhancements ---
+" ----------------------------
+" Shortcuts to comment code. Use <Leader>cc or <Leader>c<Space>
+Bundle 'scrooloose/nerdcommenter'
+" Simple shortcuts to deal with surrounding symbols
+Bundle 'tpope/vim-surround'
+" Text filtering and alignment
+Bundle 'godlygeek/tabular'
+" Insert-mode autocompletion for quotes, parens, brackets, etc.
+Bundle 'Raimondi/delimitMate'
+" Syntax checking in Vim!
+Bundle 'scrooloose/syntastic'
+" Perform all vim insert mode completions with Tab!
+Bundle 'ervandew/supertab'
+"
+" snipMate
+Bundle 'garbas/vim-snipmate'
+" snipMate dependences
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'scrooloose/snipmate-snippets'
+
+" Vim Text Objects
+Bundle 'bkad/CamelCaseMotion'
