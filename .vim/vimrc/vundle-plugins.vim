@@ -49,12 +49,13 @@ Bundle 'Lokaltog/vim-powerline'
 "" Perform all vim insert mode completions with Tab!
 "" Bundle 'ervandew/supertab'
 ""
-"" snipMate
-"Bundle 'garbas/vim-snipmate'
-"" snipMate dependences
-"Bundle 'MarcWeber/vim-addon-mw-utils'
-"Bundle 'tomtom/tlib_vim'
-"Bundle 'scrooloose/snipmate-snippets'
+
+" snipMate dependences
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'scrooloose/snipmate-snippets'
+" snipMate
+Bundle 'garbas/vim-snipmate'
 "
 "" Vim Text Objects
 "Bundle 'bkad/CamelCaseMotion'
