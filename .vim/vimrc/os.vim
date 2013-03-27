@@ -1,6 +1,6 @@
 " MacVim Setting
 if has("gui_macvim")
-  let mapleader='`'
+	let mapleader='`'
 else
-  let mapleader='\'
+	let mapleader='\'
 endif

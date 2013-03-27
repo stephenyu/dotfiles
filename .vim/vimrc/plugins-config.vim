@@ -1,7 +1,4 @@
-" Update CTags When Saving
-au BufWritePost .php silent! !ctags -R &
-set tags=ctags;/*/
-
+" NERDTree
 let g:NERDTreeWinSize = 50
 let g:NERDTreeShowHidden = 1
 
@@ -23,11 +20,10 @@ nmap <F2> <ESC>:NERDTreeToggle<RETURN>
 nmap <S-F2> <ESC>:NERDTreeFind<RETURN>
 
 " F3 MRU
-nmap <F3> <ESC>:MRU<RETURN>
+"nmap <F3> <ESC>:MRU<RETURN>
 
 " F4 Tagbar Settings
 nnoremap <silent> <F4> :TagbarToggle<CR>
 
 " F5 Tabnew
 nmap <F5> <ESC>:tabnew<RETURN>
-
