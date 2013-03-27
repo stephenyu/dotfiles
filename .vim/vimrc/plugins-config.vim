@@ -27,3 +27,8 @@ nnoremap <silent> <F4> :TagbarToggle<CR>
 
 " F5 Tabnew
 nmap <F5> <ESC>:tabnew<RETURN>
+
+" PHP documenter script bound to Control-P
+autocmd FileType php inoremap <C-p> <ESC>:call PhpDocSingle()<CR>i
+autocmd FileType php nnoremap <C-p> :call PhpDocSingle()<CR>
+autocmd FileType php vnoremap <C-p> :call PhpDocRange()<CR>
