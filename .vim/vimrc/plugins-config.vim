@@ -20,7 +20,7 @@ nmap <F2> <ESC>:NERDTreeToggle<RETURN>
 nmap <S-F2> <ESC>:NERDTreeFind<RETURN>
 
 " F3 MRU
-"nmap <F3> <ESC>:MRU<RETURN>
+nmap <F3> <ESC>:MRU<RETURN>
 
 " F4 Tagbar Settings
 nnoremap <silent> <F4> :TagbarToggle<CR>

@@ -13,6 +13,10 @@ Bundle 'mutewinter/vim-indent-guides'
 Bundle 'scrooloose/nerdtree'
 " Ultimate Vim statusline utility
 Bundle 'Lokaltog/vim-powerline'
+" Bubble Movements
+Bundle 'tpope/vim-unimpaired'
+" Most Recent Updates Toggle
+Bundle 'mru.vim'
 
 "" ----------------------------
 "" --- Editing enhancements ---
