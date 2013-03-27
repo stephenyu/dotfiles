@@ -47,7 +47,7 @@ Bundle 'Raimondi/delimitMate'
 " Syntax checking in Vim!
 Bundle 'scrooloose/syntastic'
 " Perform all vim insert mode completions with Tab!
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 "
 " snipMate
 Bundle 'garbas/vim-snipmate'
