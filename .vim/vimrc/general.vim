@@ -31,7 +31,7 @@ nmap <leader>l :set list!<CR>
 set list
 
 " Using same symbols as TextMate
-set listchars=tab:▸\ ,trail:·
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+
 
 " Adds the dictionary to Vim
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words

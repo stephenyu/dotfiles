@@ -32,3 +32,11 @@ nmap <F5> <ESC>:tabnew<RETURN>
 autocmd FileType php inoremap <C-p> <ESC>:call PhpDocSingle()<CR>i
 autocmd FileType php nnoremap <C-p> :call PhpDocSingle()<CR>
 autocmd FileType php vnoremap <C-p> :call PhpDocRange()<CR>
+
+" Ident-Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 3
+
+" PDV PHP
+let g:DisableAutoPHPFolding = 1

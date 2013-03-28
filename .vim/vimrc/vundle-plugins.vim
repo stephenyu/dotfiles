@@ -17,6 +17,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-unimpaired'
 " Most Recent Updates Toggle
 Bundle 'mru.vim'
+" Easy Motion
+Bundle 'Lokaltog/vim-easymotion'
 
 "" ----------------------------
 "" --- Editing enhancements ---
@@ -43,6 +45,10 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
+
+"" --------------------------------------
+"" --- Language Specific Enhancements ---
+"" --------------------------------------
 
 " SnipMate
 Bundle "garbas/vim-snipmate"
