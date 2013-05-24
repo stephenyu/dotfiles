@@ -42,3 +42,7 @@ let g:indent_guides_start_level = 3
 
 " PDV PHP
 let g:DisableAutoPHPFolding = 1
+
+" Syntanstic
+" PHP - Run Code Style
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']

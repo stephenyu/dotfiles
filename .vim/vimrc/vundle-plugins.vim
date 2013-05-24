@@ -1,5 +1,5 @@
 " let Vundle manage Vundle
-" required! 
+" required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -49,7 +49,6 @@ Bundle "honza/snipmate-snippets"
 "" --------------------------------------
 "" --- Language Specific Enhancements ---
 "" --------------------------------------
-
 " SnipMate
 Bundle "garbas/vim-snipmate"
 

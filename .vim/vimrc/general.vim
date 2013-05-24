@@ -43,9 +43,6 @@ set complete-=k complete+=k
 " menu will come up even if there's only one match
 set completeopt=longest,menuone
 
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ?  "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 " Bubble single lines
 nmap <C-k> [e
 nmap <C-j> ]e
