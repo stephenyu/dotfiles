@@ -53,3 +53,6 @@ Bundle "honza/snipmate-snippets"
 " SnipMate
 Bundle "garbas/vim-snipmate"
 
+" Dash Integration (Mac Only)
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'

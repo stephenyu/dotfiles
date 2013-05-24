@@ -19,6 +19,8 @@ nnoremap <F1> :GundoToggle<CR>
 nmap <F2> <ESC>:NERDTreeToggle<RETURN>
 nmap <S-F2> <ESC>:NERDTreeFind<RETURN>
 
+let NERDTreeIgnore = ['\.DS_Store$']
+
 " F3 MRU
 nmap <F3> <ESC>:MRU<RETURN>
 

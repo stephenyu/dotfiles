@@ -1,26 +1,26 @@
 " Color Scheme
 if has("gui_running")
-	"    colorscheme mayansmoke
-	colorscheme wombat
+  "    colorscheme mayansmoke
+  colorscheme wombat
 
-	" Hack to Remove Scrollbars
-	set guioptions+=LlRrbh
-	set guioptions-=LlRrbh
+  " Hack to Remove Scrollbars
+  set guioptions+=LlRrbh
+  set guioptions-=LlRrbh
 
-	" Always Show Tabbar, because it's fucked
-	set stal=2
+  " Always Show Tabbar, because it's fucked
+  set stal=2
 
-	set guioptions-=m  "remove menu bar
-	set guioptions-=T  "remove toolbar
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
 
-	" Non GUI Tabs
-	set go-=e
+  " Non GUI Tabs
+  set go-=e
 
-	" Display Filename within Tab Headerset cursorcolumn
-	set guitablabel=%t
+  " Display Filename within Tab Headerset cursorcolumn
+  set guitablabel=%t
 
-	" Blindmode
-	let &guifont = "Droid Sans Mono 9"
+  " Blindmode
+  let &guifont = "Droid Sans Mono 9"
 endif
 
 set cursorline
