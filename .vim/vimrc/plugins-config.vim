@@ -13,17 +13,19 @@ nmap <Leader>t: :Tabularize /:\zs<CR>
 vmap <Leader>t: :Tabularize /:\zs<CR>
 
 " F1 Toggle Gundo (Changes)
-nnoremap <F1> :GundoToggle<CR>
+" nnoremap <F1> :GundoToggle<CR>
 
 " F2 NERDTreeToggle
 nmap <F2> <ESC>:NERDTreeToggle<RETURN>
 nmap <S-F2> <ESC>:NERDTreeFind<RETURN>
 
+let NERDTreeMapHelp='<f12>'
+
 " F3 MRU
 nmap <F3> <ESC>:MRU<RETURN>
 
 " F4 Tagbar Settings
-nnoremap <silent> <F4> :TagbarToggle<CR>
+" nnoremap <silent> <F4> :TagbarToggle<CR>
 
 " F5 Tabnew
 nmap <F5> <ESC>:tabnew<RETURN>
