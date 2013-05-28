@@ -46,9 +46,12 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
 
-" SnipMate
-Bundle "garbas/vim-snipmate"
-
 "" --------------------------------------
 "" --- Language Specific Enhancements ---
 "" --------------------------------------
+" SnipMate
+Bundle "garbas/vim-snipmate"
+
+" Dash Integration (Mac Only)
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
