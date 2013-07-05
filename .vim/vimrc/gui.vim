@@ -18,9 +18,14 @@ if has("gui_running")
 
   " Display Filename within Tab Headerset cursorcolumn
   set guitablabel=%t
+endif
 
-  " Blindmode
-  let &guifont = "Droid Sans Mono 9"
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=inhere
+  elseif has("gui_win32")
+    set guifont=ffs
+  endif
 endif
 
 set cursorline

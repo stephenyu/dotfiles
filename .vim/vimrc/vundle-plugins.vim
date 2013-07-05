@@ -12,7 +12,7 @@ Bundle 'mutewinter/vim-indent-guides'
 """ File explorer within Vim
 Bundle 'scrooloose/nerdtree'
 " Ultimate Vim statusline utility
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 " Bubble Movements
 Bundle 'tpope/vim-unimpaired'
 " Most Recent Updates Toggle
@@ -44,7 +44,7 @@ Bundle 'bkad/CamelCaseMotion'
 " SnipMate Dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
+Bundle "timmywil/snipmate-snippets"
 
 "" --------------------------------------
 "" --- Language Specific Enhancements ---

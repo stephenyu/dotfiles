@@ -48,3 +48,6 @@ let g:DisableAutoPHPFolding = 1
 " Syntanstic
 " PHP - Run Code Style
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+
+" Powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
