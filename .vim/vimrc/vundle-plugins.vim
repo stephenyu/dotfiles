@@ -9,21 +9,24 @@ Bundle 'gmarik/vundle'
 "" -----------------------
 "" Highlight levels of indentation
 Bundle 'mutewinter/vim-indent-guides'
-""" File explorer within Vim
+"""" File explorer within Vim
 Bundle 'scrooloose/nerdtree'
-" Ultimate Vim statusline utility
-Bundle 'Lokaltog/powerline'
-" Bubble Movements
+"" Ultimate Vim statusline utility
+" 23/Jul 'Something going on with this plugin, used to work. Very slow over sshfs:'
+" https://github.com/Lokaltog/powerline/issues/549
+"Bundle 'Lokaltog/powerline'
+Bundle 'Lokaltog/vim-powerline'
+"" Bubble Movements
 Bundle 'tpope/vim-unimpaired'
-" Most Recent Updates Toggle
+"" Most Recent Updates Toggle
 Bundle 'mru.vim'
-" Easy Motion
+"" Easy Motion
 Bundle 'Lokaltog/vim-easymotion'
-
-"" ----------------------------
-"" --- Editing enhancements ---
-"" ----------------------------
-"" Shortcuts to comment code. Use <Leader>cc or <Leader>c<Space>
+"
+""" ----------------------------
+""" --- Editing enhancements ---
+""" ----------------------------
+""" Shortcuts to comment code. Use <Leader>cc or <Leader>c<Space>
 Bundle 'scrooloose/nerdcommenter'
 """ Simple shortcuts to deal with surrounding symbols
 Bundle 'tpope/vim-surround'
