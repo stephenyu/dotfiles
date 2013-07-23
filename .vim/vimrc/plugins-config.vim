@@ -49,5 +49,11 @@ let g:DisableAutoPHPFolding = 1
 " PHP - Run Code Style
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
+" Gist
+" Open Browser Once Gist is Created"
+let g:gist_open_browser_after_post = 1
+" Default is a Private Gist
+let g:gist_post_private = 1
+
 " Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim

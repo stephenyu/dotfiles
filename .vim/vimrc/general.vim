@@ -1,6 +1,3 @@
-" Highlight Extra White Space
-highlight SpecialKey ctermbg=lightblue guifg=#ffc000 guibg=#6e00b7
-
 set nu   " Show Line Numbers
 set ls=2 " Always show Status Bar
 
