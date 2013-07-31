@@ -1,6 +1,12 @@
 " Color Scheme
 if has("gui_running")
+
+  if has("gui_gtk2")
+    set guifont=Anonymous\ Pro\ 12
+  endif
+
   colorscheme wombat
+
 
   " Hack to Remove Scrollbars
   set guioptions+=LlRrbh
@@ -15,15 +21,11 @@ if has("gui_running")
   " Non GUI Tabs
   set go-=e
 
-  " Display Filename within Tab Headerset cursorcolumn
-  set guitablabel=%t
+  " Display Filename within Tab Headerset cursorcolumn set guitablabel=%t
 
   " Highlight the Line Cursor is current on
   set cursorline
   hi CursorLine gui=none guibg=#333333
-
-  " Cursor Color - White Text, Reddish Block"
-  hi Cursor guifg=white guibg=#fc583f
 
   " Visual Selection
   hi Visual guibg=#440000
@@ -44,8 +46,14 @@ else " Terminal Based"
   hi Normal ctermbg=NONE
 
   " Background Colour for the Line Numbers
-  hi LineNr ctermfg=58 ctermbg=59
+  hi LineNr ctermfg=226 ctermbg=234
 
   hi IndentGuidesOdd  ctermbg=black
   hi IndentGuidesEven ctermbg=darkgrey
+
+  " Visual Selection
+  hi Visual ctermbg=58
 endif
+
+" Cursor Color - White Text, Reddish Block"
+hi Cursor ctermbg=59 guifg=white guibg=#fc583f
