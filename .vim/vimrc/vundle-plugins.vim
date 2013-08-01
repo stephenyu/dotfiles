@@ -33,6 +33,9 @@ Bundle 'mru.vim'
 Bundle 'Lokaltog/vim-easymotion'
 " Startify
 Bundle 'mhinz/vim-startify'
+" Ctrl-P
+Bundle 'kien/ctrlp.vim'
+
 "
 """ ----------------------------
 """ --- Editing enhancements ---
