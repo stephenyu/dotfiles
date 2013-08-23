@@ -7,7 +7,6 @@ if has("gui_running")
 
   colorscheme wombat
 
-
   " Hack to Remove Scrollbars
   set guioptions+=LlRrbh
   set guioptions-=LlRrbh
@@ -21,17 +20,6 @@ if has("gui_running")
   " Non GUI Tabs
   set go-=e
 
-  " Display Filename within Tab Headerset cursorcolumn set guitablabel=%t
-
-  " Highlight the Line Cursor is current on
-  set cursorline
-  hi CursorLine gui=none guibg=#333333
-
-  " Visual Selection
-  hi Visual guibg=#440000
-
-  " Highlight Extra White Space
-  highlight SpecialKey ctermbg=lightblue guifg=#ffc000 guibg=#6e00b7
 
   "Highlight all occurrences of the currently selected word
   au CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
@@ -42,8 +30,6 @@ else " Terminal Based"
 
   colorscheme wombat256mod
 
-  " No Background Colour for Normal Text
-  hi Normal ctermbg=NONE
 
   " Background Colour for the Line Numbers
   hi LineNr ctermfg=226 ctermbg=234
@@ -51,9 +37,31 @@ else " Terminal Based"
   hi IndentGuidesOdd  ctermbg=black
   hi IndentGuidesEven ctermbg=darkgrey
 
-  " Visual Selection
-  hi Visual ctermbg=58
+
+  if has("autocmd")
+    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape ibeam"
+    au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block"
+    au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape ibeam"
+  endif
+
+  silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block"
+
 endif
 
+set background=dark
+
+" Highlight the Line Cursor is current on
+set cursorline
+hi CursorLine ctermbg=234 guibg=#333333
+"
+" Highlight Extra White Space
+highlight SpecialKey ctermbg=57 ctermfg=227 guifg=#ffc000 guibg=#6e00b7
+
+" Visual Selection
+hi Visual ctermbg=234 guibg=#440000
+
 " Cursor Color - White Text, Reddish Block"
-hi Cursor ctermbg=59 guifg=white guibg=#fc583f
+hi Cursor ctermbg=124 ctermfg=white guifg=white guibg=#fc583f
+
+" No Background Colour for Normal Text
+hi Normal ctermbg=black ctermfg=white

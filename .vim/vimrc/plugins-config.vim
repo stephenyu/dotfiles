@@ -12,12 +12,9 @@ vmap <Leader>t= :Tabularize /=<CR>
 nmap <Leader>t: :Tabularize /:\zs<CR>
 vmap <Leader>t: :Tabularize /:\zs<CR>
 
-" F1 Toggle Gundo (Changes)
-" nnoremap <F1> :GundoToggle<CR>
-
 " F2 NERDTreeToggle
 nmap <F2> <ESC>:NERDTreeToggle<RETURN>
-nmap <S-F2> <ESC>:NERDTreeFind<RETURN>
+nmap <Leader><F2> <ESC>:NERDTreeFind<RETURN>
 
 let NERDTreeMapHelp='<f12>'
 
@@ -47,7 +44,8 @@ let g:DisableAutoPHPFolding = 1
 
 " Syntanstic
 " PHP - Run Code Style
-let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+"let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+let g:syntastic_php_checkers=['php']
 
 " Gist
 " Open Browser Once Gist is Created"

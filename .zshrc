@@ -45,6 +45,7 @@ source $ZSH/oh-my-zsh.sh
 plugins=(git svn)
 
 alias tm="tmux attach || tmux new"
+alias sc="svn commit"
 
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
@@ -55,7 +56,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export TERM=xterm-256color
 
-PROMPT='[%{$fg[red]%}%B%n%b%{$reset_color%}@%{$fg[green]%}%B%M%b%{$reset_color%}:%d] %{$fg[cyan]%}%B~%b%{$reset_color%} '
+PROMPT='[%{$fg[red]%}%B%n%b%{$reset_color%}@%{$fg[green]%}%B%M%b%{$reset_color%}:%3d] %{$fg[cyan]%}%B~%b%{$reset_color%} '
 RPROMPT='[%*]' # prompt for right side of screen
 
 # Auto-attach to tmux

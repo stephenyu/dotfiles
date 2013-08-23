@@ -14,7 +14,7 @@ set nobackup
 set nowb
 set noswapfile
 
-set paste
+set nopaste
 set ignorecase
 
 set smartindent
