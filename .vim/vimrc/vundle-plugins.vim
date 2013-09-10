@@ -7,7 +7,7 @@ Bundle 'gmarik/vundle'
 " -------------------------
 " --- Cool enhancements ---
 " -------------------------
- WebAPI Functionality
+" WebAPI Functionality
 Bundle 'mattn/webapi-vim'
 
 " Instantly post to Gist
