@@ -36,16 +36,6 @@ else " Terminal Based"
 
   hi IndentGuidesOdd  ctermbg=black
   hi IndentGuidesEven ctermbg=darkgrey
-
-
-  if has("autocmd")
-    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape ibeam"
-    au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block"
-    au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape ibeam"
-  endif
-
- "silent execute \"!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block\"
-
 endif
 
 set background=dark
