@@ -44,7 +44,7 @@ else " Terminal Based"
     au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape ibeam"
   endif
 
-  silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block"
+ "silent execute \"!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block\"
 
 endif
 
