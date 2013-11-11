@@ -1,6 +1,3 @@
-" Highlight Extra White Space
-highlight SpecialKey ctermbg=lightblue guifg=#ffc000 guibg=#6e00b7
-
 set nu   " Show Line Numbers
 set ls=2 " Always show Status Bar
 
@@ -17,7 +14,7 @@ set nobackup
 set nowb
 set noswapfile
 
-set paste
+set nopaste
 set ignorecase
 
 set smartindent
@@ -31,7 +28,7 @@ nmap <leader>l :set list!<CR>
 set list
 
 " Using same symbols as TextMate
-set listchars=tab:▸\ ,trail:·
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+
 
 " Adds the dictionary to Vim
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
@@ -42,9 +39,6 @@ set complete-=k complete+=k
 " popup menu doesn't select the first completion item
 " menu will come up even if there's only one match
 set completeopt=longest,menuone
-
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Bubble single lines
 nmap <C-k> [e
