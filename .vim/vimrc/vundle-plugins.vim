@@ -18,6 +18,7 @@ Bundle 'mattn/gist-vim'
 "" -----------------------
 " Highlight levels of indentation
 Bundle 'nathanaelkane/vim-indent-guides'
+
 " File explorer within Vim
 Bundle 'scrooloose/nerdtree'
 " Ultimate Vim statusline utility
@@ -25,6 +26,7 @@ Bundle 'scrooloose/nerdtree'
 " https://github.com/Lokaltog/powerline/issues/549
 "Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/vim-powerline'
+
 " Bubble Movements
 Bundle 'tpope/vim-unimpaired'
 " Most Recent Updates Toggle
