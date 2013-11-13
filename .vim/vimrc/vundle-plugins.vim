@@ -80,3 +80,6 @@ Bundle "vim-ruby/vim-ruby"
 " Dash Integration (Mac Only)
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+
+" Go Lang
+Bundle "jnwhiteh/vim-golang"
