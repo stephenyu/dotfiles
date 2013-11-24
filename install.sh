@@ -11,7 +11,7 @@ install(){
   echo
   echo 'Cloning Git Repository...'
 
-  git clone --quiet -b vundle https://github.com/stephenyu/dotfiles.git
+  git clone --quiet -b master https://github.com/stephenyu/dotfiles.git
 }
 
 checkGitDependencies(){
