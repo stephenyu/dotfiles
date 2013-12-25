@@ -1,17 +1,5 @@
-" let Vundle manage Vundle
-" required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
-
-" -------------------------
-" --- Cool enhancements ---
-" -------------------------
-" WebAPI Functionality
-Bundle 'mattn/webapi-vim'
-
-" Instantly post to Gist
-Bundle 'mattn/gist-vim'
 
 "" -----------------------
 "" --- UI enhancements ---
@@ -20,7 +8,9 @@ Bundle 'mattn/gist-vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " File explorer within Vim
-Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-vinegar'
+
 " Ultimate Vim statusline utility
 " 23/Jul 'Something going on with this plugin, used to work. Very slow over sshfs:'
 " https://github.com/Lokaltog/powerline/issues/549
@@ -68,6 +58,9 @@ Bundle "timmywil/snipmate-snippets"
 "" --------------------------------------
 "" --- Language Specific Enhancements ---
 "" --------------------------------------
+" HTML
+Bundle "tristen/vim-sparkup"
+
 " SnipMate
 Bundle "garbas/vim-snipmate"
 

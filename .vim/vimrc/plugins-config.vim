@@ -1,7 +1,3 @@
-" NERDTree
-let g:NERDTreeWinSize = 50
-let g:NERDTreeShowHidden = 1
-
 " AutoFocus
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
@@ -13,12 +9,7 @@ nmap <Leader>t: :Tabularize /:\zs<CR>
 vmap <Leader>t: :Tabularize /:\zs<CR>
 
 " F2 NERDTreeToggle
-nmap <F2> <ESC>:NERDTreeToggle<RETURN>
-nmap <Leader><F2> <ESC>:NERDTreeFind<RETURN>
-
-let NERDTreeMapHelp='<f12>'
-
-let NERDTreeIgnore = ['\.DS_Store$']
+nmap <F2> <Plug>VinegarUp
 
 " F3 MRU
 nmap <F3> <ESC>:MRU<RETURN>

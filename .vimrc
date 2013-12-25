@@ -1,8 +1,5 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
-syntax on
-
-colorscheme default
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -17,4 +14,5 @@ source $HOME/.vim/vimrc/general.vim
 source $HOME/.vim/vimrc/gui.vim
 source $HOME/.vim/vimrc/work.vim
 
+syntax enable
 filetype plugin indent on     " required!
