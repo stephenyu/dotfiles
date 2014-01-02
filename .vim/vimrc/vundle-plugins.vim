@@ -8,8 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " File explorer within Vim
-"Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-vinegar'
+Bundle 'scrooloose/nerdtree'
 
 " Ultimate Vim statusline utility
 " 23/Jul 'Something going on with this plugin, used to work. Very slow over sshfs:'
