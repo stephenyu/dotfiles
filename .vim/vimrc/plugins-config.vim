@@ -9,7 +9,12 @@ nmap <Leader>t: :Tabularize /:\zs<CR>
 vmap <Leader>t: :Tabularize /:\zs<CR>
 
 " F2 NERDTreeToggle
-nmap <F2> <Plug>VinegarUp
+nmap <F2> <ESC>:NERDTreeToggle<RETURN>
+nmap <Leader><F2> <ESC>:NERDTreeFind<RETURN>
+
+let NERDTreeMapHelp='<f12>'
+
+let NERDTreeIgnore = ['\.DS_Store$']
 
 " F3 MRU
 nmap <F3> <ESC>:MRU<RETURN>
