@@ -14,6 +14,11 @@ alias si="svn info"
 alias su="svn up"
 alias sa="svn add"
 
+# mkdir, then cd
+mkcd () {
+  mkdir -p "$@" && cd "$@"
+}
+
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
