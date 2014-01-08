@@ -75,3 +75,6 @@ Bundle 'rizzatti/dash.vim'
 
 " Go Lang
 Bundle "jnwhiteh/vim-golang"
+
+" CoffeeScript
+Bundle 'kchmck/vim-coffee-script'
