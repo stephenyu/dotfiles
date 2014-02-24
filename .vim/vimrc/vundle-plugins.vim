@@ -78,3 +78,6 @@ Bundle "jnwhiteh/vim-golang"
 
 " CoffeeScript
 Bundle 'kchmck/vim-coffee-script'
+
+" Markdown
+Bundle "plasticboy/vim-markdown"

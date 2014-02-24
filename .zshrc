@@ -4,7 +4,7 @@ source $ZSH/oh-my-zsh.sh
 
 plugins=(git svn)
 
-alias tm="tmux attach || tmux new"
+alias tm="tmux attach -t main || tmux new -s main"
 alias irssi='TERM=screen-256color irssi'
 
 # SVN Aliases
@@ -14,9 +14,15 @@ alias si="svn info"
 alias su="svn up"
 alias sa="svn add"
 
+alias hw=_tmux()
+
 # mkdir, then cd
 mkcd () {
   mkdir -p "$@" && cd "$@"
+}
+
+function _tmux () {
+  echo 'Hello World'
 }
 
 # Customize to your needs...
@@ -31,6 +37,3 @@ PROMPT='[%{$fg[red]%}%B%n%b%{$reset_color%}@%{$fg[green]%}%B%M%b%{$reset_color%}
 RPROMPT='[%*]' # prompt for right side of screen
 
 compinit -D
-
-# Auto-attach to tmux
-#if [ "$TMUX" = "" ]; then tm; fi

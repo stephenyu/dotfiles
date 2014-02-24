@@ -61,6 +61,10 @@ vnoremap <Leader>c "+y
 vnoremap <Leader>v "+p
 nnoremap <Leader>v "+p
 
+" Split Vim: Vertical
+nnoremap <Leader>s<bar> :vsplit<CR>
+nnoremap <Leader>s- :split<CR>
+
 " Add a Blank Line, stay in command mode
 nnoremap o o<ESC>
 nnoremap O O<ESC>
