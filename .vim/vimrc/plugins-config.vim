@@ -2,6 +2,10 @@
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 
+" NERDTree
+let g:NERDTreeWinSize = 50
+let g:NERDTreeShowHidden = 1
+
 " Tabular
 nmap <Leader>t= :Tabularize /=<CR>
 vmap <Leader>t= :Tabularize /=<CR>
@@ -18,9 +22,6 @@ let NERDTreeIgnore = ['\.DS_Store$']
 
 " F3 MRU
 nmap <F3> <ESC>:MRU<RETURN>
-
-" F4 Tagbar Settings
-" nnoremap <silent> <F4> :TagbarToggle<CR>
 
 " F5 Tabnew
 nmap <F5> <ESC>:tabnew<RETURN>
@@ -40,14 +41,4 @@ let g:DisableAutoPHPFolding = 1
 
 " Syntanstic
 " PHP - Run Code Style
-"let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_php_checkers=['php']
-
-" Gist
-" Open Browser Once Gist is Created"
-let g:gist_open_browser_after_post = 1
-" Default is a Private Gist
-let g:gist_post_private = 1
-
-" Powerline
-" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim

@@ -21,10 +21,6 @@ mkcd () {
   mkdir -p "$@" && cd "$@"
 }
 
-function _tmux () {
-  echo 'Hello World'
-}
-
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -37,3 +33,5 @@ PROMPT='[%{$fg[red]%}%B%n%b%{$reset_color%}@%{$fg[green]%}%B%M%b%{$reset_color%}
 RPROMPT='[%*]' # prompt for right side of screen
 
 compinit -D
+
+zstyle ':completion:*' accept-exact '*(N)'

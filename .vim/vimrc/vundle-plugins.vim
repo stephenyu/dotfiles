@@ -57,8 +57,14 @@ Bundle "timmywil/snipmate-snippets"
 "" --------------------------------------
 "" --- Language Specific Enhancements ---
 "" --------------------------------------
+" Javascript
+Bundle "pangloss/vim-javascript"
+
+" CoffeeScript
+Bundle "kchmck/vim-coffee-script"
+
 " HTML
-Bundle "tristen/vim-sparkup"
+Bundle "othree/html5.vim"
 
 " SnipMate
 Bundle "garbas/vim-snipmate"
@@ -72,6 +78,12 @@ Bundle "vim-ruby/vim-ruby"
 " Dash Integration (Mac Only)
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+
+" PHP
+Bundle 'StanAngeloff/php.vim'
+
+" Ruby: Rails
+Bundle 'tpope/vim-rails'
 
 " Go Lang
 Bundle "jnwhiteh/vim-golang"
