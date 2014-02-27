@@ -18,7 +18,7 @@ nmap <Leader><F2> <ESC>:NERDTreeFind<RETURN>
 
 let NERDTreeMapHelp='<f12>'
 
-let NERDTreeIgnore = ['\.DS_Store$']
+let NERDTreeIgnore = ['\.DS_Store$', '\.svn$']
 
 " F3 MRU
 nmap <F3> <ESC>:MRU<RETURN>

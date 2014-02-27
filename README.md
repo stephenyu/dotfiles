@@ -1,9 +1,21 @@
-Stephen's dotfiles - Master
-========
+Stephen's Dotfiles
+==================
 
-Legacy way of Branch of the DotFiles.
-This allows those machines which do not have git installed to download the files using wget.
+Basically all my dotfiles in one handy repository, storing all my settings for the following tools:
 
-"branch:vundle is the future." - sy
+ * vim
+ * tmux
+ * zsh
+ * screen
+ * bash
 
-bash <(curl --silent https://raw.github.com/stephenyu/dotfiles/master/install.sh)
+There are a few _duplicate_ programs in there, which complete the same tasks: basically I work on a lot of legacy
+servers which simply do not have the alternatives - nor can I install my prefered work-stack.
+
+However, the installation method will only attempt installation in a single way:
+
+ * git
+
+This actually limits me in places where git isn't installed (I know, I know)
+
+  bash <(curl --silent https://raw.github.com/stephenyu/dotfiles/master/install.sh)
