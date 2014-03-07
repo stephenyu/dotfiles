@@ -69,8 +69,8 @@ Bundle "othree/html5.vim"
 " SnipMate
 Bundle "garbas/vim-snipmate"
 
-" Sass
-Bundle "cakebaker/scss-syntax.vim"
+" Haml, Sass, and SCSS
+Bundle "tpope/vim-haml"
 
 " Ruby
 Bundle "vim-ruby/vim-ruby"
