@@ -55,4 +55,4 @@ hi Visual ctermbg=234 guibg=#440000
 "hi Cursor ctermbg=124 ctermfg=white guifg=white guibg=#fc583f
 
 " No Background Colour for Normal Text
-hi Normal ctermbg=black ctermfg=white
+hi Normal ctermbg=NONE ctermfg=white
