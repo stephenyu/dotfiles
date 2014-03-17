@@ -17,9 +17,10 @@ alias sa="svn add"
 alias hw=_tmux()
 
 # mkdir, then cd
-mkcd () {
-  mkdir -p "$@" && cd "$@"
-}
+mkcd () { mkdir -p "$@" && cd "$@" }
+
+# extract tar
+untar () { tar -zxvf "$@" }
 
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/bin
