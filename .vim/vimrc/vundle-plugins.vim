@@ -27,6 +27,10 @@ Bundle 'mhinz/vim-startify'
 " Ctrl-P
 Bundle 'kien/ctrlp.vim'
 
+" tmux-complete.vim
+" Vim plugin for insert mode completion of words in adjacent tmux panes
+Bundle 'wellle/tmux-complete.vim'
+
 "
 """ ----------------------------
 """ --- Editing enhancements ---
@@ -65,6 +69,7 @@ Bundle "kchmck/vim-coffee-script"
 
 " HTML
 Bundle "othree/html5.vim"
+Bundle "tristen/vim-sparkup"
 
 " SnipMate
 Bundle "garbas/vim-snipmate"
