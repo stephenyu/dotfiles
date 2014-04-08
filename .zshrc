@@ -6,6 +6,7 @@ plugins=(git svn)
 
 alias tm="tmux attach -t main || tmux new -s main"
 alias irssi='TERM=screen-256color irssi'
+alias balsamiq="'/opt'/'Balsamiq Mockups'/bin/'Balsamiq Mockups'"
 
 # SVN Aliases
 alias sc="svn commit"

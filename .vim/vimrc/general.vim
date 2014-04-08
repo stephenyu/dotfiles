@@ -1,4 +1,3 @@
-set nu   " Show Line Numbers
 set ls=2 " Always show Status Bar
 
 set background=dark
@@ -28,7 +27,7 @@ nmap <leader>l :set list!<CR>
 set list
 
 " Using same symbols as TextMate
-set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+
+set listchars=tab:▸\ ,trail:~,extends:>,precedes:<,nbsp:+
 
 " Adds the dictionary to Vim
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
@@ -47,6 +46,10 @@ nmap <C-j> ]e
 " Bubble multiple lines
 vmap <C-k> [egv
 vmap <C-j> ]egv
+
+" Delete Windows Carriage Returns
+nnoremap <Leader>w :w<CR>
+vnoremap <Leader>w :w<CR>
 
 " Delete Windows Carriage Returns
 nnoremap <Leader>dwcr :%s/\r\+$//e<CR>
