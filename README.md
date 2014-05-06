@@ -18,4 +18,4 @@ However, the installation method will only attempt installation in a single way:
 
 This actually limits me in places where git isn't installed (I know, I know)
 
-curl --silent https://raw.githubusercontent.com/stephenyu/dotfiles/master/install.sh | bash
+bash <(curl --silent https://raw.githubusercontent.com/stephenyu/dotfiles/master/install.sh)
