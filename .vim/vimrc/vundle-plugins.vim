@@ -23,7 +23,7 @@ Bundle 'mru.vim'
 " Easy Motion
 Bundle 'Lokaltog/vim-easymotion'
 " Startify
-Bundle 'mhinz/vim-startify'
+"Bundle 'mhinz/vim-startify'
 " Ctrl-P
 Bundle 'kien/ctrlp.vim'
 
@@ -65,7 +65,10 @@ Bundle "timmywil/snipmate-snippets"
 Bundle "pangloss/vim-javascript"
 
 " CoffeeScript
-Bundle "kchmck/vim-coffee-script"
+"Bundle "kchmck/vim-coffee-script"
+
+" PHP
+Bundle '2072/PHP-Indenting-for-VIm'
 
 " HTML
 Bundle "othree/html5.vim"
