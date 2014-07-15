@@ -78,6 +78,9 @@ nnoremap <leader>orc :vsplit $MYVIMRC<cr>
 " Load Vimrc in a VSplit
 nnoremap <leader>lrc :source $MYVIMRC<cr>
 
+"Disable Ex-mode!!1
+nnoremap Q <nop>
+
 " VIMDIFF COMMANDS
 " Ignore Whitespace within VimDif
 set diffopt+=iwhite
