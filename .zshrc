@@ -4,6 +4,8 @@ source $ZSH/oh-my-zsh.sh
 
 plugins=(git svn)
 
+export SVN_EDITOR=vim
+
 alias tm="tmux attach -t main || tmux new -s main"
 alias irssi='TERM=screen-256color irssi'
 alias balsamiq="'/opt'/'Balsamiq Mockups'/bin/'Balsamiq Mockups'"
