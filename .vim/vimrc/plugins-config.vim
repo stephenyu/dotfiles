@@ -2,23 +2,14 @@
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 
-" NERDTree
-let g:NERDTreeWinSize = 50
-let g:NERDTreeShowHidden = 1
-
 " Tabular
 nmap <Leader>t= :Tabularize /=<CR>
 vmap <Leader>t= :Tabularize /=<CR>
 nmap <Leader>t: :Tabularize /:\zs<CR>
 vmap <Leader>t: :Tabularize /:\zs<CR>
 
-" F2 NERDTreeToggle
-nmap <F2> <ESC>:NERDTreeToggle<RETURN>
-nmap <Leader><F2> <ESC>:NERDTreeFind<RETURN>
-
-let NERDTreeMapHelp='<f12>'
-
-let NERDTreeIgnore = ['\.DS_Store$', '\.svn$']
+" Standard Explore
+nnoremap <F2> :Explore<CR>
 
 " F3 MRU
 nmap <F3> <ESC>:MRU<RETURN>
@@ -42,3 +33,17 @@ let g:DisableAutoPHPFolding = 1
 " Syntanstic
 " PHP - Run Code Style
 let g:syntastic_php_checkers=['php']
+
+" vim-php-refactoring-toolbox
+nnoremap <unique> <Leader>rrlv :call PhpRenameLocalVariable()<CR>
+nnoremap <unique> <Leader>rrcv :call PhpRenameClassVariable()<CR>
+nnoremap <unique> <Leader>rrm :call PhpRenameMethod()<CR>
+nnoremap <unique> <Leader>reu :call PhpExtractUse()<CR>
+vnoremap <unique> <Leader>rec :call PhpExtractConst()<CR>
+nnoremap <unique> <Leader>rep :call PhpExtractClassProperty()<CR>
+vnoremap <unique> <Leader>rem :call PhpExtractMethod()<CR>
+nnoremap <unique> <Leader>rnp :call PhpCreateProperty()<CR>
+nnoremap <unique> <Leader>rdu :call PhpDetectUnusedUseStatements()<CR>
+vnoremap <unique> <Leader>r== :call PhpAlignAssigns()<CR>
+nnoremap <unique> <Leader>rsg :call PhpCreateSettersAndGetters()<CR>
+nnoremap <unique> <Leader>rda :call PhpDocAll()<CR>

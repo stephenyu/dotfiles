@@ -36,3 +36,4 @@ function __private_changeset()
 
 alias ls='ls -A --color'
 alias ll='ls -lA --color'
+PATH="$PATH:/home/stepheny/Downloads/flow/"

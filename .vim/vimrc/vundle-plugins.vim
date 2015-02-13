@@ -7,9 +7,6 @@ Bundle 'gmarik/vundle'
 " Highlight levels of indentation
 Bundle 'nathanaelkane/vim-indent-guides'
 
-" File explorer within Vim
-Bundle 'scrooloose/nerdtree'
-
 " Ultimate Vim statusline utility
 " 23/Jul 'Something going on with this plugin, used to work. Very slow over sshfs:'
 " https://github.com/Lokaltog/powerline/issues/549
@@ -18,12 +15,13 @@ Bundle 'Lokaltog/vim-powerline'
 
 " Bubble Movements
 Bundle 'tpope/vim-unimpaired'
+
 " Most Recent Updates Toggle
 Bundle 'mru.vim'
+
 " Easy Motion
 Bundle 'Lokaltog/vim-easymotion'
-" Startify
-"Bundle 'mhinz/vim-startify'
+
 " Ctrl-P
 Bundle 'kien/ctrlp.vim'
 
@@ -31,7 +29,6 @@ Bundle 'kien/ctrlp.vim'
 " Vim plugin for insert mode completion of words in adjacent tmux panes
 Bundle 'wellle/tmux-complete.vim'
 
-"
 """ ----------------------------
 """ --- Editing enhancements ---
 """ ----------------------------
@@ -64,11 +61,17 @@ Bundle "timmywil/snipmate-snippets"
 " Javascript
 Bundle "pangloss/vim-javascript"
 
-" CoffeeScript
-"Bundle "kchmck/vim-coffee-script"
+" Restructred Test
+Bundle "rest.vim"
+
+" React
+Bundle "mxw/vim-jsx"
+Bundle "justinj/vim-react-snippets"
 
 " PHP
 Bundle '2072/PHP-Indenting-for-VIm'
+Bundle 'StanAngeloff/php.vim'
+Bundle 'adoy/vim-php-refactoring-toolbox'
 
 " HTML
 Bundle "othree/html5.vim"
@@ -87,17 +90,14 @@ Bundle "vim-ruby/vim-ruby"
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 
-" PHP
-Bundle 'StanAngeloff/php.vim'
-
 " Ruby: Rails
 Bundle 'tpope/vim-rails'
 
 " Go Lang
-Bundle "jnwhiteh/vim-golang"
+"Bundle "jnwhiteh/vim-golang"
 
 " CoffeeScript
-Bundle 'kchmck/vim-coffee-script'
+"Bundle 'kchmck/vim-coffee-script'
 
 " Markdown
 Bundle "plasticboy/vim-markdown"

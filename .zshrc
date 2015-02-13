@@ -25,6 +25,16 @@ mkcd () { mkdir -p "$@" && cd "$@" }
 # extract tar
 untar () { tar -zxvf "$@" }
 
+cs () {
+  if [[ $1 == '--sum' ]]; then
+    ((prev = $2 - 1))
+    svn log -l 1 -r$2 "https://trac.maglabs.net/svn-repos/"
+    svn diff -r$prev:$2 --summarize 'https://trac.maglabs.net/svn-repos/'
+  else
+    svn log -l 1 -r$1 "https://trac.maglabs.net/svn-repos/"
+  fi
+}
+
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
