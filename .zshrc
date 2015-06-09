@@ -28,9 +28,16 @@ untar () { tar -zxvf "$@" }
 cs () {
   if [[ $1 == '--sum' ]]; then
     ((prev = $2 - 1))
+    echo "Websvn URL: http://trac.maglabs.net/websvn/listing.php?repname=Main&path=%2F&rev=$2&sc=1"
     svn log -l 1 -r$2 "https://trac.maglabs.net/svn-repos/"
     svn diff -r$prev:$2 --summarize 'https://trac.maglabs.net/svn-repos/'
+  elif [[ $1 == '--diff' ]]; then
+    ((prev = $2 - 1))
+    echo "Websvn URL: http://trac.maglabs.net/websvn/listing.php?repname=Main&path=%2F&rev=$2&sc=1"
+    svn log -l 1 -r$2 "https://trac.maglabs.net/svn-repos/"
+    svn diff -r$prev:$2 'https://trac.maglabs.net/svn-repos/'
   else
+    echo "Websvn URL: http://trac.maglabs.net/websvn/listing.php?repname=Main&path=%2F&rev=$1&sc=1"
     svn log -l 1 -r$1 "https://trac.maglabs.net/svn-repos/"
   fi
 }

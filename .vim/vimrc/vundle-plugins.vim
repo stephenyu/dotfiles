@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " Ultimate Vim statusline utility
-" 23/Jul 'Something going on with this plugin, used to work. Very slow over sshfs:'
+" 23/Jul/13 'Something going on with this plugin, used to work. Very slow over sshfs:'
 " https://github.com/Lokaltog/powerline/issues/549
 "Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/vim-powerline'
@@ -22,28 +22,39 @@ Bundle 'mru.vim'
 " Easy Motion
 Bundle 'Lokaltog/vim-easymotion'
 
+
+" Display Marks
+Bundle 'kshenoy/vim-signature'
+
 " Ctrl-P
-Bundle 'kien/ctrlp.vim'
+" Bundle 'kien/ctrlp.vim'
 
 " tmux-complete.vim
 " Vim plugin for insert mode completion of words in adjacent tmux panes
-Bundle 'wellle/tmux-complete.vim'
+" 25/Feb/15 Doesn't actually work
+" Bundle 'wellle/tmux-complete.vim'
 
 """ ----------------------------
 """ --- Editing enhancements ---
 """ ----------------------------
 " Shortcuts to comment code. Use <Leader>cc or <Leader>c<Space>
 Bundle 'scrooloose/nerdcommenter'
+
 " Simple shortcuts to deal with surrounding symbols
 Bundle 'tpope/vim-surround'
+
 " Text filtering and alignment
 Bundle 'godlygeek/tabular'
+
 " Insert-mode autocompletion for quotes, parens, brackets, etc.
 Bundle 'Raimondi/delimitMate'
+
 " Syntax checking in Vim!
 Bundle 'scrooloose/syntastic'
+
 " Perform all vim insert mode completions with Tab!
 Bundle 'ervandew/supertab'
+
 " Add PHP Docs
 Bundle 'PDV--phpDocumentor-for-Vim'
 
@@ -54,6 +65,9 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "timmywil/snipmate-snippets"
+
+" Sublime Text's awesome multiple selection
+Bundle "terryma/vim-multiple-cursors"
 
 "" --------------------------------------
 "" --- Language Specific Enhancements ---
@@ -69,7 +83,6 @@ Bundle "mxw/vim-jsx"
 Bundle "justinj/vim-react-snippets"
 
 " PHP
-Bundle '2072/PHP-Indenting-for-VIm'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'adoy/vim-php-refactoring-toolbox'
 
@@ -87,14 +100,14 @@ Bundle "tpope/vim-haml"
 Bundle "vim-ruby/vim-ruby"
 
 " Dash Integration (Mac Only)
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
+" Bundle 'rizzatti/funcoo.vim'
+" Bundle 'rizzatti/dash.vim'
 
 " Ruby: Rails
-Bundle 'tpope/vim-rails'
+" Bundle 'tpope/vim-rails'
 
 " Go Lang
-"Bundle "jnwhiteh/vim-golang"
+" Bundle 'jnwhiteh/vim-golang'
 
 " CoffeeScript
 "Bundle 'kchmck/vim-coffee-script'

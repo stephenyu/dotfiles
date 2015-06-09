@@ -29,15 +29,12 @@ set list
 " Using same symbols as TextMate
 set listchars=tab:▸\ ,trail:~,extends:>,precedes:<,nbsp:+
 
-" Adds the dictionary to Vim
-set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
-
-" CTRL-N CTRL-N SpellCheck
-set complete-=k complete+=k
+" scan other loaded buffers that are in the buffer list
+set complete-=.,w,b,u,t,i complete+=.,w,b,u,t,i
 
 " popup menu doesn't select the first completion item
 " menu will come up even if there's only one match
-set completeopt=longest,menuone
+set completeopt=menuone
 
 " Bubble single lines
 nmap <C-k> [e
