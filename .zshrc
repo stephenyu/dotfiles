@@ -16,6 +16,7 @@ alias ss="svn status"
 alias si="svn info"
 alias su="svn up"
 alias sa="svn add"
+alias shame="svn blame"
 
 alias hw=_tmux()
 
@@ -24,6 +25,11 @@ mkcd () { mkdir -p "$@" && cd "$@" }
 
 # extract tar
 untar () { tar -zxvf "$@" }
+
+replace-phpcs () {
+  cat "$1" | phpcbf --standard=~/.vim/phpcs/maglabs-php-codestyle.xml > /tmp/file
+  cp /tmp/file "$1"
+}
 
 cs () {
   if [[ $1 == '--sum' ]]; then

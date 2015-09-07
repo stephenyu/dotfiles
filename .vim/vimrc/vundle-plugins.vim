@@ -76,11 +76,15 @@ Bundle "terryma/vim-multiple-cursors"
 Bundle "pangloss/vim-javascript"
 
 " Restructred Test
-Bundle "rest.vim"
+" Bundle 'rest.vim'
+
+" Angular JS
+Bundle "othree/javascript-libraries-syntax.vim"
+Bundle "matthewsimo/angular-vim-snippets"
 
 " React
-Bundle "mxw/vim-jsx"
-Bundle "justinj/vim-react-snippets"
+" Bundle 'mxw/vim-jsx'
+" Bundle 'justinj/vim-react-snippets'
 
 " PHP
 Bundle 'StanAngeloff/php.vim'
@@ -98,19 +102,6 @@ Bundle "tpope/vim-haml"
 
 " Ruby
 Bundle "vim-ruby/vim-ruby"
-
-" Dash Integration (Mac Only)
-" Bundle 'rizzatti/funcoo.vim'
-" Bundle 'rizzatti/dash.vim'
-
-" Ruby: Rails
-" Bundle 'tpope/vim-rails'
-
-" Go Lang
-" Bundle 'jnwhiteh/vim-golang'
-
-" CoffeeScript
-"Bundle 'kchmck/vim-coffee-script'
 
 " Markdown
 Bundle "plasticboy/vim-markdown"
