@@ -41,10 +41,11 @@ set statusline+=%*
 
 " PHP - Run Code Style
 let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=~/.vim/phpcs/maglabs-php-codestyle.xml"
+let g:syntastic_php_phpcs_args = "--standard=PSR2"
 
 let g:syntastic_javascript_checkers = ['jslint']
 let g:syntastic_javascript_jslint_args = ""
+
 
 " vim-php-refactoring-toolbox
 nnoremap <unique> <Leader>rrlv :call PhpRenameLocalVariable()<CR>

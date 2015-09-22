@@ -2,29 +2,13 @@
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-plugins=(git svn)
+plugins=(symfony2 git docker)
 
 export SVN_EDITOR=vim
 
 alias tm="tmux attach -t main || tmux new -s main"
-alias irssi='TERM=screen-256color irssi'
-alias balsamiq="'/opt'/'Balsamiq Mockups'/bin/'Balsamiq Mockups'"
-
-# SVN Aliases
-alias sc="svn commit"
-alias ss="svn status"
-alias si="svn info"
-alias su="svn up"
-alias sa="svn add"
-alias shame="svn blame"
 
 alias hw=_tmux()
-
-# mkdir, then cd
-mkcd () { mkdir -p "$@" && cd "$@" }
-
-# extract tar
-untar () { tar -zxvf "$@" }
 
 replace-phpcs () {
   cat "$1" | phpcbf --standard=~/.vim/phpcs/maglabs-php-codestyle.xml > /tmp/file

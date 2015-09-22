@@ -1,0 +1,19 @@
+snippet class
+	<?php
+	
+	namespace ${1:`substitute(substitute(expand("%:h"), 'v^w+/(u)', '1', ''), '/', '\', 'g')`};
+	
+	class ${2:`Filename('', 'myClass')`}
+	{
+	    ${3}
+	}
+snippet pf
+	/**
+	 * ${1:description}
+	 *
+	 * @${2}
+	 */
+	public function ${3}()
+	{
+	${4}
+	}

@@ -74,21 +74,19 @@ Bundle "terryma/vim-multiple-cursors"
 "" --------------------------------------
 " Javascript
 Bundle "pangloss/vim-javascript"
+Bundle "maksimr/vim-jsbeautify"
 
-" Restructred Test
-" Bundle 'rest.vim'
+" Twig
+Bundle "evidens/vim-twig"
 
 " Angular JS
 Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "matthewsimo/angular-vim-snippets"
 
-" React
-" Bundle 'mxw/vim-jsx'
-" Bundle 'justinj/vim-react-snippets'
-
 " PHP
 Bundle 'StanAngeloff/php.vim'
 Bundle 'adoy/vim-php-refactoring-toolbox'
+Bundle 'stephpy/vim-php-cs-fixer'
 
 " HTML
 Bundle "othree/html5.vim"
