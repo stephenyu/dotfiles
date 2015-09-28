@@ -57,7 +57,11 @@ for f in "${dotfiles[@]}"; do
   ln -sf $rel_path ~/$f
 done
 
-# Install 
+# Copying Fish Config
+mkdir -p ~/.config/fish
+cp config.fish ~/.config/fish/config.fish
+
+# Install
 echo
 echo -e "Installing Vim Plugins"
 git clone --quiet https://github.com/gmarik/vundle.git .vim/bundle/vundle

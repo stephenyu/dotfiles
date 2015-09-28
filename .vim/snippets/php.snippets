@@ -9,11 +9,15 @@ snippet class
 	}
 snippet pf
 	/**
-	 * ${1:description}
 	 *
-	 * @${2}
 	 */
-	public function ${3}()
+	public function ${1}(${2})
 	{
-	${4}
+	${3}
 	}
+snippet @R
+	@Route("${1}"${2})
+snippet @T
+	@Template(${1})
+snippet @M
+	@Method("${1}")

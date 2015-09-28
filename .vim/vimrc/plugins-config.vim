@@ -46,6 +46,7 @@ let g:syntastic_php_phpcs_args = "--standard=PSR2"
 let g:syntastic_javascript_checkers = ['jslint']
 let g:syntastic_javascript_jslint_args = ""
 
+" phpunit compilation
 
 " vim-php-refactoring-toolbox
 nnoremap <unique> <Leader>rrlv :call PhpRenameLocalVariable()<CR>

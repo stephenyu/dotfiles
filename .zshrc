@@ -2,7 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-plugins=(symfony2 git docker)
+plugins=(git docker)
 
 export SVN_EDITOR=vim
 
@@ -46,3 +46,6 @@ RPROMPT='[%*]' # prompt for right side of screen
 compinit -D
 
 zstyle ':completion:*' accept-exact '*(N)'
+
+#Alias
+

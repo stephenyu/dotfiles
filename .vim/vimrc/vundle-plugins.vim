@@ -90,7 +90,7 @@ Bundle 'stephpy/vim-php-cs-fixer'
 
 " HTML
 Bundle "othree/html5.vim"
-Bundle "tristen/vim-sparkup"
+Bundle "rstacruz/sparkup"
 
 " SnipMate
 Bundle "garbas/vim-snipmate"

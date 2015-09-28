@@ -1,11 +1,12 @@
 set ls=2 " Always show Status Bar
 
-set background=dark
-
 set showmatch
 set nowrap
 
 set nocompatible
+
+" Auto Refresh File
+set autoread
 
 set incsearch
 
@@ -23,6 +24,8 @@ set bs=2
 " Hide / Show Invisible Chars
 nmap <leader>l :set list!<CR>
 set list
+
+set shell=bash
 
 " Using same symbols as TextMate
 set listchars=tab:▸\ ,trail:~,extends:>,precedes:<,nbsp:+
@@ -81,6 +84,7 @@ nnoremap Q <nop>
 set diffopt+=iwhite
 
 vnorem // y/<c-r>"<cr>"
+
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
