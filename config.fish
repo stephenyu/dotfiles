@@ -1,5 +1,8 @@
 function fish_greeting
+end
 
+function watch-commit --argument-names person
+  command watch --differences=permanent --interval 3600 "svn log --search $person 'https://trac.maglabs.net/svn-repos/' | head -n 2"
 end
 
 function tm
@@ -25,3 +28,6 @@ function cs --argument-names command cs
   end
 end
 
+function last-commit-by --argument-names person
+  command svn log --search $person 'https://trac.maglabs.net/svn-repos/' | head -n 2
+end

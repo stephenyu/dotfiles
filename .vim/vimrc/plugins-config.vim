@@ -43,8 +43,8 @@ set statusline+=%*
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=PSR2"
 
-let g:syntastic_javascript_checkers = ['jslint']
-let g:syntastic_javascript_jslint_args = ""
+let g:syntastic_javascript_checkers = ['jscs']
+let g:syntastic_javascript_jscs_args = "-c /home/stepheny/dotfiles/.jscsrc"
 
 " phpunit compilation
 
