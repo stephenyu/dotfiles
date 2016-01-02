@@ -85,7 +85,6 @@ Bundle "matthewsimo/angular-vim-snippets"
 
 " PHP
 Bundle 'StanAngeloff/php.vim'
-Bundle 'adoy/vim-php-refactoring-toolbox'
 Bundle 'stephpy/vim-php-cs-fixer'
 
 " HTML
@@ -97,6 +96,9 @@ Bundle "garbas/vim-snipmate"
 
 " Haml, Sass, and SCSS
 Bundle "tpope/vim-haml"
+
+" Go
+Plugin 'fatih/vim-go'
 
 " Ruby
 Bundle "vim-ruby/vim-ruby"
