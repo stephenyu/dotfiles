@@ -15,7 +15,7 @@ set nowb
 set noswapfile
 
 set nopaste
-set ignorecase 
+set ignorecase
 set smartindent
 set expandtab
 set bs=2

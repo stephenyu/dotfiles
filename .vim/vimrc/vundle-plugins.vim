@@ -12,6 +12,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " https://github.com/Lokaltog/powerline/issues/549
 "Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/vim-powerline'
+"Bundle 'bling/vim-airline'
 
 " Bubble Movements
 Bundle 'tpope/vim-unimpaired'
@@ -21,7 +22,6 @@ Bundle 'mru.vim'
 
 " Easy Motion
 Bundle 'Lokaltog/vim-easymotion'
-
 
 " Display Marks
 Bundle 'kshenoy/vim-signature'
@@ -69,6 +69,9 @@ Bundle "timmywil/snipmate-snippets"
 " Sublime Text's awesome multiple selection
 Bundle "terryma/vim-multiple-cursors"
 
+" Dash Integration
+Bundle 'rizzatti/dash.vim'
+
 "" --------------------------------------
 "" --- Language Specific Enhancements ---
 "" --------------------------------------
@@ -85,8 +88,8 @@ Bundle "matthewsimo/angular-vim-snippets"
 
 " PHP
 Bundle 'StanAngeloff/php.vim'
-Bundle 'adoy/vim-php-refactoring-toolbox'
-Bundle 'stephpy/vim-php-cs-fixer'
+"Bundle 'adoy/vim-php-refactoring-toolbox'
+"Bundle 'stephpy/vim-php-cs-fixer'
 
 " HTML
 Bundle "othree/html5.vim"

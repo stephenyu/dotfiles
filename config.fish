@@ -1,3 +1,8 @@
+function start_docker
+  command docker-machine create --driver virtualbox default
+  echo "eval \"(docker-machine env default)\""
+end
+
 function fish_greeting
 end
 
@@ -31,3 +36,5 @@ end
 function last-commit-by --argument-names person
   command svn log --search $person 'https://trac.maglabs.net/svn-repos/' | head -n 2
 end
+
+

@@ -27,6 +27,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 3
 
+" Vim AirLine
+let g:airline_powerline_fonts = 1
+
 " PDV PHP
 let g:DisableAutoPHPFolding = 1
 let g:PHP_vintage_case_default_indent = 1
@@ -44,9 +47,19 @@ let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=PSR2"
 
 let g:syntastic_javascript_checkers = ['jscs']
-let g:syntastic_javascript_jscs_args = "-c /home/stepheny/dotfiles/.jscsrc"
+"let g:syntastic_javascript_jscs_args = "-c /home/stepheny/dotfiles/.jscsrc"
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" phpunit compilation
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" dash compilation
+nmap <silent> <leader>d <Plug>DashSearch
 
 " vim-php-refactoring-toolbox
 nnoremap <unique> <Leader>rrlv :call PhpRenameLocalVariable()<CR>
