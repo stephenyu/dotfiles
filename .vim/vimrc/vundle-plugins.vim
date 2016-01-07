@@ -101,6 +101,9 @@ Bundle "garbas/vim-snipmate"
 " Haml, Sass, and SCSS
 Bundle "tpope/vim-haml"
 
+" Go
+Plugin 'fatih/vim-go'
+
 " Ruby
 Bundle "vim-ruby/vim-ruby"
 
