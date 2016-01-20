@@ -10,9 +10,8 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " Ultimate Vim statusline utility
 " 23/Jul/13 'Something going on with this plugin, used to work. Very slow over sshfs:'
 " https://github.com/Lokaltog/powerline/issues/549
-"Bundle 'Lokaltog/powerline'
-Bundle 'Lokaltog/vim-powerline'
-"Bundle 'bling/vim-airline'
+"Bundle 'powerline/powerline'
+Bundle 'bling/vim-airline'
 
 " Bubble Movements
 Bundle 'tpope/vim-unimpaired'
@@ -78,18 +77,18 @@ Bundle 'rizzatti/dash.vim'
 " Javascript
 Bundle "pangloss/vim-javascript"
 Bundle "maksimr/vim-jsbeautify"
+Bundle "othree/javascript-libraries-syntax.vim"
 
 " Twig
 Bundle "evidens/vim-twig"
 
 " Angular JS
-Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "matthewsimo/angular-vim-snippets"
 
 " PHP
 Bundle 'StanAngeloff/php.vim'
 "Bundle 'adoy/vim-php-refactoring-toolbox'
-"Bundle 'stephpy/vim-php-cs-fixer'
+Bundle 'stephpy/vim-php-cs-fixer'
 
 " HTML
 Bundle "othree/html5.vim"

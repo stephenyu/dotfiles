@@ -28,7 +28,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 3
 
 " Vim AirLine
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 " PDV PHP
 let g:DisableAutoPHPFolding = 1
@@ -47,7 +47,14 @@ let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=PSR2"
 
 let g:syntastic_javascript_checkers = ['jscs']
-"let g:syntastic_javascript_jscs_args = "-c /home/stepheny/dotfiles/.jscsrc"
+let g:syntastic_javascript_jscs_args = "--preset=airbnb"
+
+" othree/javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'underscore,backbone,jquery'
+
+" PhpCsFixerFixFile()
+let g:php_cs_fixer_level = "psr2"
+
 "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
