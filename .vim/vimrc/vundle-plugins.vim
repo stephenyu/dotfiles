@@ -106,5 +106,8 @@ Plugin 'fatih/vim-go'
 " Ruby
 Bundle "vim-ruby/vim-ruby"
 
+" Fish
+Bundle 'dag/vim-fish'
+
 " Markdown
 Bundle "plasticboy/vim-markdown"

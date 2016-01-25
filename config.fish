@@ -36,7 +36,7 @@ function fish_prompt
     echo -n " in "
 
     set_color green
-    echo -n (pwd)
+    echo -n (prompt_pwd)
 
     set_color normal
     printf "\n~ "
