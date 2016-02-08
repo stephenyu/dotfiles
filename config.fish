@@ -2,6 +2,18 @@ function vim
   command nvim $argv
 end
 
+function filedate
+  command date +"%d%m%y_%H%m"
+end
+
+function sass
+  command docker run -ti -v (PWD):/work stephenyu/sass $argv
+end
+
+function bower
+  command docker run -ti -v (PWD):/work stephenyu/bower $argv
+end
+
 function fish_greeting
 end
 
@@ -12,6 +24,11 @@ end
 function d
   command docker $argv
 end
+
+function dm
+  command docker-machine $argv
+end
+
 
 function dr
   command docker run $argv
