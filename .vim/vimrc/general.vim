@@ -82,8 +82,6 @@ nnoremap Q <nop>
 " Ignore Whitespace within VimDif
 set diffopt+=iwhite
 
-
-
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>

@@ -22,7 +22,16 @@ function tm
 end
 
 function d
-  command docker $argv
+        switch $argv[1]
+        case ls
+                set_color green
+                echo -n '→ '
+                set_color normal
+                echo 'alias for \'docker images\''
+                command docker images
+        case '*'
+                command docker $argv
+        end
 end
 
 function dm
