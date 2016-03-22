@@ -44,7 +44,9 @@ set statusline+=%*
 
 " PHP - Run Code Style
 let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=PSR2"
+"let g:syntastic_php_phpcs_args = "--tab-width=4 --standard=PSR2"
+"let g:syntastic_php_phpcs_args = "--tab-width=4"
+let g:syntastic_php_phpcs_args = "--standard=/Users/stephen/temp/code_style.xml"
 
 let g:syntastic_html_checkers = ['']
 
