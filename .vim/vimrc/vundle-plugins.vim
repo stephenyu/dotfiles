@@ -82,6 +82,11 @@ Bundle "othree/javascript-libraries-syntax.vim"
 " Twig
 Bundle "evidens/vim-twig"
 
+" Python
+Bundle "vim-scripts/indentpython.vim"
+Bundle 'nvie/vim-flake8'
+Bundle 'heavenshell/vim-pydocstring'
+
 " Angular JS
 Bundle "matthewsimo/angular-vim-snippets"
 

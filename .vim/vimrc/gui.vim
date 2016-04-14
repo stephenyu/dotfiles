@@ -51,7 +51,7 @@ set background=dark
 "hi CursorLine ctermbg=234 guibg=#333333
 
 " Highlight Extra White Space
-highlight SpecialKey ctermbg=234 ctermfg=240 guifg=#f2f2f2 guibg=#cfcfcf
+highlight SpecialKey ctermbg=232 ctermfg=235 guifg=#f2f2f2 guibg=#cfcfcf
 
 " Visual Selection
 "hi Visual ctermbg=234 guibg=#440000
