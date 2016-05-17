@@ -2,16 +2,12 @@ function vim
   command nvim $argv
 end
 
+function python
+  command python3 $argv
+end
+
 function filedate
   command date +"%d%m%y_%H%m"
-end
-
-function sass
-  command docker run -ti -v (PWD):/work stephenyu/sass $argv
-end
-
-function bower
-  command docker run -ti -v (PWD):/work stephenyu/bower $argv
 end
 
 function fish_greeting
@@ -67,3 +63,5 @@ function fish_prompt
     set_color normal
     printf "\n~ "
 end
+
+set -gx SVN_EDITOR nano

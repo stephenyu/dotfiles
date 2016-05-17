@@ -20,6 +20,8 @@ set smartindent
 set expandtab
 set bs=2
 
+set clipboard=unnamed
+
 " Hide / Show Invisible Chars
 nmap <leader>l :set list!<CR>
 set list

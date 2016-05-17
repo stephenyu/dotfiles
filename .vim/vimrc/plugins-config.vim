@@ -44,14 +44,15 @@ set statusline+=%*
 
 " PHP - Run Code Style
 let g:syntastic_php_checkers = ['php', 'phpcs']
-"let g:syntastic_php_phpcs_args = "--tab-width=4 --standard=PSR2"
-"let g:syntastic_php_phpcs_args = "--tab-width=4"
 let g:syntastic_php_phpcs_args = "--standard=/Users/stephen/temp/code_style.xml"
 
 let g:syntastic_html_checkers = ['']
 
-let g:syntastic_javascript_checkers = ['jscs']
-let g:syntastic_javascript_jscs_args = "--preset=airbnb"
+let g:syntastic_python_checkers = ['pep8']
+
+let g:syntastic_javascript_checkers = ['']
+"let g:syntastic_javascript_checkers = ['jslint']
+"let g:syntastic_javascript_jscs_args = "--preset=airbnb"
 
 " othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'underscore,backbone,jquery'
