@@ -12,3 +12,5 @@ nnoremap <leader>f :call JsBeautify()<cr>
 nnoremap <Leader>rdq V:s/\"/\'/g<CR>
 nnoremap <Leader>rdq V:s/\"/\'/g<CR>
 
+" Wyoming Interactive Specific Commands
+:autocmd BufWritePost *.js set noet|retab! <afile>
