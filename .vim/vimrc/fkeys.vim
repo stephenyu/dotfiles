@@ -1,5 +1,5 @@
 " Standard Explore
-nnoremap <F2> :Explore<CR>
+nnoremap <F2> :Lex<CR>
 
 " Toggle Highlight
 noremap <F4> :set hlsearch! hlsearch?<CR>
