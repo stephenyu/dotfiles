@@ -34,9 +34,6 @@ else " Terminal Based"
 
   " Background Colour for the Line Numbers
   hi LineNr ctermfg=227 ctermbg=232
-
-  hi IndentGuidesOdd  ctermbg=black
-  hi IndentGuidesEven ctermbg=darkgrey
 endif
 
 set background=dark
