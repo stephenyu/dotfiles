@@ -23,7 +23,7 @@ Bundle 'mru.vim'
 Bundle 'Lokaltog/vim-easymotion'
 
 " Display Marks
-Bundle 'kshenoy/vim-signature'
+" Bundle 'kshenoy/vim-signature'
 
 " Ctrl-P
 " Bundle 'kien/ctrlp.vim'
@@ -52,7 +52,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 
 " Perform all vim insert mode completions with Tab!
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 
 " Add PHP Docs
 Bundle 'PDV--phpDocumentor-for-Vim'
@@ -66,10 +66,13 @@ Bundle "tomtom/tlib_vim"
 Bundle "timmywil/snipmate-snippets"
 
 " Sublime Text's awesome multiple selection
-Bundle "terryma/vim-multiple-cursors"
+"Bundle 'terryma/vim-multiple-cursors'
 
 " Dash Integration
 Bundle 'rizzatti/dash.vim'
+
+" Auto-Completion for Multiple Languages
+"Bundle 'Valloric/YouCompleteMe'
 
 "" --------------------------------------
 "" --- Language Specific Enhancements ---
@@ -115,6 +118,3 @@ Bundle "vim-ruby/vim-ruby"
 
 " Fish
 Bundle 'dag/vim-fish'
-
-" Markdown
-Bundle "plasticboy/vim-markdown"

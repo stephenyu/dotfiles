@@ -30,6 +30,8 @@ let g:indent_guides_start_level = 1
 hi IndentGuidesEven guifg=#1a1a1a ctermbg=233 guifg=#333333 ctermfg=236
 hi IndentGuidesOdd guifg=#1a1a1a ctermbg=232 guifg=#333333 ctermfg=235
 
+let g:ycm_server_python_interpreter = "/Users/stephen/anaconda/bin/python"
+
 " Vim AirLine
 let g:airline_powerline_fonts = 0
 
@@ -53,8 +55,8 @@ let g:syntastic_html_checkers = ['']
 
 let g:syntastic_python_checkers = ['pep8']
 
-"let g:syntastic_javascript_checkers = ['']
-let g:syntastic_javascript_checkers = ['jslint']
+let g:syntastic_javascript_checkers = ['']
+"let g:syntastic_javascript_checkers = ['jslint']
 "let g:syntastic_javascript_jscs_args = "--preset=airbnb"
 
 " othree/javascript-libraries-syntax.vim

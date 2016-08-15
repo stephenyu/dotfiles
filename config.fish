@@ -17,6 +17,19 @@ function tm
   command tmux -2 attach -t main; or command tmux -2 new -s main
 end
 
+function svn
+        switch $argv[1]
+        case where
+                command svn info | grep '^URL:' | awk '{print $2}' | pbcopy
+                set_color green
+                echo -n '→ '
+                set_color normal
+                echo 'SVN URL Copied.'
+        case '*'
+             command svn $argv
+        end
+end
+
 function d
         switch $argv[1]
         case ls
@@ -64,4 +77,5 @@ function fish_prompt
     printf "\n~ "
 end
 
-set -gx SVN_EDITOR nano
+set -gx SVN_EDITOR vim
+set -gx PATH ~/.composer/vendor/bin /Users/stephen/.rvm/bin /Users/stephen/anaconda/bin /Users/stephen/.composer/vendor/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin
