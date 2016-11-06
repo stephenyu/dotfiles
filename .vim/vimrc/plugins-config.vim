@@ -26,9 +26,9 @@ autocmd FileType php vnoremap <C-p> :call PhpDocRange()<CR>
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 1
-hi IndentGuidesEven guifg=#1a1a1a ctermbg=233 guifg=#333333 ctermfg=236
-hi IndentGuidesOdd guifg=#1a1a1a ctermbg=232 guifg=#333333 ctermfg=235
+let g:indent_guides_start_level = 2
+hi IndentGuidesEven guifg=#1a1a1a ctermbg=238 guifg=#333333 ctermfg=190
+hi IndentGuidesOdd guifg=#1a1a1a ctermbg=234 guifg=#333333 ctermfg=220
 
 let g:ycm_server_python_interpreter = "/Users/stephen/anaconda/bin/python"
 

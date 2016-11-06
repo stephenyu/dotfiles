@@ -52,7 +52,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 
 " Perform all vim insert mode completions with Tab!
-" Bundle 'ervandew/supertab'
+Bundle 'ervandew/supertab'
 
 " Add PHP Docs
 Bundle 'PDV--phpDocumentor-for-Vim'

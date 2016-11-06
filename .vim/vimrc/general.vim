@@ -32,11 +32,11 @@ set shell=bash
 set listchars=tab:▸\ ,trail:~,extends:>,precedes:<,nbsp:+
 
 " scan other loaded buffers that are in the buffer list
-set complete-=.,w,b,u,t,i complete+=.,w,b,u,t,i
+"set complete-=.,w,b,u,t,i complete+=.,w,b,u,t,i
 
 " popup menu doesn't select the first completion item
 " menu will come up even if there's only one match
-set completeopt=menuone
+"set completeopt=menuone
 
 " Bubble single lines
 nmap <C-k> [e

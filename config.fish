@@ -1,6 +1,6 @@
-function vim
-  command nvim $argv
-end
+#function vim
+  #command nvim $argv
+#end
 
 function python
   command python3 $argv
@@ -17,14 +17,35 @@ function tm
   command tmux -2 attach -t main; or command tmux -2 new -s main
 end
 
+function angular
+        switch $argv[1]
+        case create-component
+                touch $argv[2].component.js
+                touch $argv[2].template.html
+                set_color green
+                echo -n '→ '
+                set_color normal
+                echo 'AngularJS Component Files Created:' $argv[2]
+        end
+end
+
 function svn
         switch $argv[1]
         case where
                 command svn info | grep '^URL:' | awk '{print $2}' | pbcopy
+                command svn info | grep '^URL:' | awk '{print $2}'
                 set_color green
                 echo -n '→ '
                 set_color normal
                 echo 'SVN URL Copied.'
+        case branch
+                set url (svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n')
+                command svn copy $url $argv[2] -m $argv[3]
+                set_color green
+                echo -n '→ '
+                set_color normal
+                echo 'SVN Branch Created at' $argv[2]
+                command echo $argv[2] | pbcopy
         case '*'
              command svn $argv
         end
