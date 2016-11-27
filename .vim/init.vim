@@ -1,1 +1,0 @@
-/Users/stephen/Documents/DotFiles/.vimrc
