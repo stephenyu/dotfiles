@@ -8,3 +8,5 @@
 "     let mapleader='\' " Everything Else
 "   endif
 " endif
+"
+let mapleader=' '

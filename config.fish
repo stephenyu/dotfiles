@@ -1,7 +1,3 @@
-#function vim
-  #command nvim $argv
-#end
-
 function python
   command python3 $argv
 end

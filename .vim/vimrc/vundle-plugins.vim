@@ -7,6 +7,9 @@ Bundle 'gmarik/vundle'
 " Highlight levels of indentation
 Bundle 'nathanaelkane/vim-indent-guides'
 
+" FuzzyFinder
+Bundle "https://bitbucket.org/ns9tks/vim-fuzzyfinder"
+
 " Ultimate Vim statusline utility
 " 23/Jul/13 'Something going on with this plugin, used to work. Very slow over sshfs:'
 " https://github.com/Lokaltog/powerline/issues/549
