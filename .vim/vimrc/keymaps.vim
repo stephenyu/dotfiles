@@ -1,19 +1,13 @@
 let mapleader=" "
 
 " Reload Vimfile
-map <leader>s :source ~/.vimrc<CR>
-
-" Press Esc to stop Search
-nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+map <leader>s :source ~/.vimrc<cr>
 
 " Standard Explore
-nnoremap <F2> :Explore<CR>
-
-" Toggle Highlight
-noremap <F4> :set hlsearch! hlsearch?<CR>
+nmap <F2> :Explore<cr>
 
 " F5 Tabnew
 nmap <F5> <ESC>:tabnew<RETURN>
 
 " F6 Toggles Line Numbers
-nnoremap <F6> :set invnumber<CR>
+nmap <F6> :set invnumber<cr>
