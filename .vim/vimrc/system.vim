@@ -18,3 +18,15 @@ set ttyfast
 "" Directories for swp files
 set nobackup
 set noswapfile
+
+set updatetime=10
+
+function! HighlightWordUnderCursor()
+	if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
+		exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
+	else
+		match none
+	endif
+endfunction
+
+autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()

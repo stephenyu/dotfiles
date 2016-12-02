@@ -19,6 +19,13 @@ end
 
 function angular
         switch $argv[1]
+				case create-route
+                touch $argv[2].route.js
+                touch $argv[2].template.html
+                set_color green
+                echo -n '→ '
+                set_color normal
+                echo 'AngularJS Route Files Created:' $argv[2]
         case create-component
                 touch $argv[2].component.js
                 touch $argv[2].template.html

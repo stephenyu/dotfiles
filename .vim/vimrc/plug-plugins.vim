@@ -11,18 +11,47 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" AirLine
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" NerdTree
 Plug 'scrooloose/nerdtree'
+
+" Fuzzyfinder, Most-Recent-View, Buffer
 Plug 'ctrlpvim/ctrlp.vim'
+
+" Multiple Languages
 Plug 'sheerun/vim-polyglot'
 
-Plug 'Lokaltog/vim-easymotion'
-Plug 'bkad/CamelCaseMotion'
+" SnipMate
+Plug 'garbas/vim-snipmate'
 
 " SnipMate Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'timmywil/snipmate-snippets'
+
+" Allows Bubble Movement
+Plug 'tpope/vim-unimpaired'
+
+" Easy Motion
+Plug 'Lokaltog/vim-easymotion'
+
+" Insert or delete brackets, parens, quotes in pair
+Plug 'jiangmiao/auto-pairs'
+
+" Text Objects
+Plug 'jiangmiao/auto-pairs'
+
+" ---
+" LANGUAGE SPECIFICS
+" ---
+
+Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
+
+Plug 'rstacruz/sparkup'
+
 
 call plug#end()
