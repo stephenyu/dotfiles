@@ -44,9 +44,13 @@ Plug 'jiangmiao/auto-pairs'
 " Text Objects
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'ervandew/supertab'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
+
+Plug 'scrooloose/syntastic'
 
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
