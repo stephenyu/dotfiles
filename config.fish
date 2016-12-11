@@ -21,7 +21,7 @@ function angular
         switch $argv[1]
 				case create-route
                 touch $argv[2].route.js
-                touch $argv[2].template.html
+                touch $argv[2].route.html
                 set_color green
                 echo -n '→ '
                 set_color normal

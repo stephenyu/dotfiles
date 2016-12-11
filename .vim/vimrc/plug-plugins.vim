@@ -46,6 +46,8 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'ervandew/supertab'
 
+Plug 'tmhedberg/matchit'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
@@ -56,6 +58,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 
 Plug 'rstacruz/sparkup'
+
+Plug 'tpope/vim-commentary'
+
+Plug 'Yggdroot/indentLine'
 
 
 call plug#end()

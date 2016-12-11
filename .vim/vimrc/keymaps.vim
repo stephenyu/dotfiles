@@ -39,6 +39,9 @@ vnoremap <Leader>c "+y
 vnoremap <Leader>v "+p
 nnoremap <Leader>v "+p
 
+" Path File Path
+map <leader>pwd :put %<CR>
+
 " Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>

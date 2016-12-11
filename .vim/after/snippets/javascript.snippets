@@ -14,4 +14,11 @@ snippet! fun
 	function ${1:function_name} (${2:argument}) {
 		${3:// body...}
 	}
+snippet component
+	angular.module('${1:module_name}').component('${2:component_name}', {
+	    templateUrl: ''
+		/*controller: ,
+		controllerAs: '',
+		bindings:{}*/
+	});
 
