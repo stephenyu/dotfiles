@@ -52,7 +52,7 @@ Plug 'tmhedberg/matchit'
 " LANGUAGE SPECIFICS
 " ---
 
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'

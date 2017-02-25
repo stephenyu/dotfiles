@@ -1,6 +1,10 @@
 #function vim
   #command nvim $argv
 #end
+#
+function pbcopy
+    command xclip -selection clipboard
+end
 
 function python
   command python3 $argv
@@ -39,8 +43,7 @@ end
 function svn
         switch $argv[1]
         case where
-                command svn info | grep '^URL:' | awk '{print $2}' | pbcopy
-                command svn info | grep '^URL:' | awk '{print $2}'
+                command svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n' | pbcopy
                 set_color green
                 echo -n '→ '
                 set_color normal
@@ -75,6 +78,11 @@ function dm
   command docker-machine $argv
 end
 
+function spotify
+    command docker run -d -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
+    --device /dev/snd:/dev/snd -v $HOME/.spotify/config:/home/spotify/.config/spotify -v $HOME/.spotify/cache:/home/spotify/spotify \
+    r.j3ss.co/spotify
+end
 
 function dr
   command docker run $argv
@@ -106,4 +114,4 @@ function fish_prompt
 end
 
 set -gx SVN_EDITOR vim
-set -gx PATH ~/.composer/vendor/bin /Users/stephen/.rvm/bin /Users/stephen/anaconda/bin /Users/stephen/.composer/vendor/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin
+set -gx PATH ./node_modules/.bin $PATH

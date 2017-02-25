@@ -30,3 +30,5 @@ function! HighlightWordUnderCursor()
 endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+
+set shell=/bin/bash
