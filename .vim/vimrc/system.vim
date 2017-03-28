@@ -32,3 +32,7 @@ endfunction
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 
 set shell=/bin/bash
+
+" Silverstripe Template Files
+au BufEnter,BufRead,BufNewFile *.ss set filetype=html
+au BufEnter,BufRead,BufNewFile .babelrc set filetype=json

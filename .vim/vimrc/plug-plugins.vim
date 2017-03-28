@@ -15,6 +15,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Neocomplete
+Plug 'Shougo/neocomplete.vim'
+
+" Flow
+Plug 'flowtype/vim-flow'
+
 " NerdTree
 Plug 'scrooloose/nerdtree'
 
@@ -62,6 +68,5 @@ Plug 'rstacruz/sparkup'
 Plug 'tpope/vim-commentary'
 
 Plug 'Yggdroot/indentLine'
-
 
 call plug#end()

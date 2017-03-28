@@ -20,6 +20,10 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
+let g:neocomplete#enable_at_startup = 1
+
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_checkers = ['']
+
 
 let NERDTreeShowHidden=1

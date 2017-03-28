@@ -1,81 +1,78 @@
-#function vim
-  #command nvim $argv
-#end
-#
-function pbcopy
-    command xclip -selection clipboard
-end
+# function pbcopy
+#     command xclip -selection clipboard
+# end
 
 function python
-  command python3 $argv
+    command python3 $argv
 end
 
 function filedate
-  command date +"%d%m%y_%H%m"
+    command date +"%d%m%y_%H%m"
 end
 
 function fish_greeting
 end
 
 function tm
-  command tmux -2 attach -t main; or command tmux -2 new -s main
+    command tmux -2 attach -t main; or command tmux -2 new -s main
 end
 
 function angular
-        switch $argv[1]
-				case create-route
-                touch $argv[2].route.js
-                touch $argv[2].route.html
-                set_color green
-                echo -n '→ '
-                set_color normal
-                echo 'AngularJS Route Files Created:' $argv[2]
+    switch $argv[1]
+        case create-route
+            touch $argv[2].route.js
+            touch $argv[2].route.html
+            set_color green
+            echo -n '→ '
+            set_color normal
+            echo 'AngularJS Route Files Created:' $argv[2]
         case create-component
-                touch $argv[2].component.js
-                touch $argv[2].template.html
-                set_color green
-                echo -n '→ '
-                set_color normal
-                echo 'AngularJS Component Files Created:' $argv[2]
-        end
+            touch $argv[2].component.js
+            touch $argv[2].template.html
+            set_color green
+            echo -n '→ '
+            set_color normal
+            echo 'AngularJS Component Files Created:' $argv[2]
+    end
 end
 
 function svn
-        switch $argv[1]
-        case where
-                command svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n' | pbcopy
-                set_color green
-                echo -n '→ '
-                set_color normal
-                echo 'SVN URL Copied.'
-        case branch
-                set url (svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n')
-                command svn copy $url $argv[2] -m $argv[3]
-                set_color green
-                echo -n '→ '
-                set_color normal
-                echo 'SVN Branch Created at' $argv[2]
-                command echo $argv[2] | pbcopy
-        case '*'
-             command svn $argv
-        end
+    switch $argv[1]
+    case where
+        command svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n' | pbcopy
+        set url (svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n')
+        set_color green
+        echo -n '→ '
+        set_color normal
+        echo 'SVN URL Copied: ' $url
+    case branch
+        set url (svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n')
+        command svn copy $url $argv[2] -m $argv[3]
+        set_color green
+        echo -n '→ '
+        set_color normal
+        echo 'SVN Branch Created at' $argv[2]
+        command echo $argv[2] | pbcopy
+    case '*'
+        command svn $argv
+    end
 end
 
 function d
-        switch $argv[1]
-        case ls
-                set_color green
-                echo -n '→ '
-                set_color normal
-                echo 'alias for \'docker images\''
-                command docker images
-        case '*'
-                command docker $argv
-        end
+    switch $argv[1]
+    case ls
+        set_color green
+        echo -n '→ '
+        set_color normal
+        echo 'alias for \'docker images\''
+        command docker images
+    case '*'
+        command docker $argv
+    end
 end
 
 function dm
-  command docker-machine $argv
+    command docker-machine $argv
 end
 
 function spotify
@@ -85,11 +82,11 @@ function spotify
 end
 
 function dr
-  command docker run $argv
+    command docker run $argv
 end
 
 function drit
-  command docker run -ti $argv
+    command docker run -ti $argv
 end
 
 function fish_prompt
@@ -115,3 +112,5 @@ end
 
 set -gx SVN_EDITOR vim
 set -gx PATH ./node_modules/.bin $PATH
+set -gx PATH ~/.local/bin $PATH
+set -gx PATH /usr/local/Cellar/node/7.7.4/bin $PATH
