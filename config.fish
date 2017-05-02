@@ -113,4 +113,4 @@ end
 set -gx SVN_EDITOR vim
 set -gx PATH ./node_modules/.bin $PATH
 set -gx PATH ~/.local/bin $PATH
-set -gx PATH /usr/local/Cellar/node/7.7.4/bin $PATH
+set -gx PATH ~/.rvm/bin $PATH

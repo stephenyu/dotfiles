@@ -10,6 +10,7 @@ let g:ctrlp_map = '<Leader>2'
 let g:ctrlp_working_path_mode = 0
 
 nma <F2> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize = 60
 
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
