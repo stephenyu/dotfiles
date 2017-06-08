@@ -15,11 +15,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Neocomplete
-Plug 'Shougo/neocomplete.vim'
-
-" Flow
-Plug 'flowtype/vim-flow'
+" YouCompleteMe
+Plug 'Valloric/YouCompleteMe'
 
 " NerdTree
 Plug 'scrooloose/nerdtree'
@@ -47,26 +44,32 @@ Plug 'Lokaltog/vim-easymotion'
 " Insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
 
-" Text Objects
-Plug 'jiangmiao/auto-pairs'
-
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 
 Plug 'tmhedberg/matchit'
+
+Plug 'tpope/vim-commentary'
+
+Plug 'Yggdroot/indentLine'
+
+Plug 'vim-syntastic/syntastic'
 
 " ---
 " LANGUAGE SPECIFICS
 " ---
 
-Plug 'vim-syntastic/syntastic'
-
+" Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 
+" HTML
 Plug 'rstacruz/sparkup'
 
-Plug 'tpope/vim-commentary'
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 
-Plug 'Yggdroot/indentLine'
+" React
+" Plug 'mxw/vim-jsx'
 
 call plug#end()

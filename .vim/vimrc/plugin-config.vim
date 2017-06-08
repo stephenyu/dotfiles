@@ -21,10 +21,21 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
-let g:neocomplete#enable_at_startup = 1
-
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers = ['']
 
-
 let NERDTreeShowHidden=1
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+
+let g:ycm_semantic_triggers['typescript'] = ['.']
+
+" Typescript
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']

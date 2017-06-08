@@ -36,3 +36,6 @@ set shell=/bin/bash
 " Silverstripe Template Files
 au BufEnter,BufRead,BufNewFile *.ss set filetype=html
 au BufEnter,BufRead,BufNewFile .babelrc set filetype=json
+
+" Sparkup in JSX
+autocmd FileType javascript.jsx runtime! ftplugin/html/sparkup.vim
