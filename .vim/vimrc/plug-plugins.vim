@@ -27,24 +27,20 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Multiple Languages
 Plug 'sheerun/vim-polyglot'
 
-" SnipMate
-Plug 'garbas/vim-snipmate'
-
-" SnipMate Dependencies
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'timmywil/snipmate-snippets'
-
 " Allows Bubble Movement
 Plug 'tpope/vim-unimpaired'
 
 " Easy Motion
 Plug 'Lokaltog/vim-easymotion'
 
+" UltiSnips
+Plug 'SirVer/ultisnips'
+
+" Snippets
+Plug 'honza/vim-snippets'
+
 " Insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
-
-" Plug 'ervandew/supertab'
 
 Plug 'tmhedberg/matchit'
 

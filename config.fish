@@ -1,6 +1,20 @@
 # function pbcopy
 #     command xclip -selection clipboard
 # end
+#
+function dnginx
+    if count $argv > /dev/null
+        set port $argv[1]
+    else
+        set port '8080'
+    end
+
+    set_color green
+    echo -n '→ '
+    set_color normal
+    echo 'Starting Docker nginx:alpine at :'$port
+    command docker run -it --rm -p $port:80 -v (pwd):/usr/share/nginx/html nginx:alpine
+end
 
 function python
     command python3 $argv

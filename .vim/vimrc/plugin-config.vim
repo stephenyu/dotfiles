@@ -28,6 +28,13 @@ let NERDTreeShowHidden=1
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_key_list_select_completion=[]
+" let g:ycm_key_list_previous_completion=[]
+
+" UltiSnips triggering
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
@@ -39,3 +46,4 @@ let g:ycm_semantic_triggers['typescript'] = ['.']
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+
