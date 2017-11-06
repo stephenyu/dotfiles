@@ -1,0 +1,28 @@
+snippet it
+	it('${1}', function(${2}) {
+		${3}
+	});
+snippet def
+	define([${1}], function(${2}) {
+		${3}
+	});
+snippet req
+	require([${1}], function(${2}) {
+		${3}
+	});
+	function ${1:function_name} (${2:argument}) {
+		${3:// body...}
+	}
+snippet component
+	angular.module('${1:module_name}').component('${2:component_name}', {
+	    templateUrl: ''
+		/*controller: ,
+		controllerAs: '',
+		bindings:{}*/
+	});
+snippet cla
+	class ${1:class_name} {
+		constructor(${2}) {
+			${3}
+		}
+	}
