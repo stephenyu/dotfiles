@@ -11,18 +11,17 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" AirLine
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
+" Status Bar
+Plug 'itchyny/lightline.vim'
+"
 " YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
 
 " NerdTree
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 " Fuzzyfinder, Most-Recent-View, Buffer
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim', {'on': 'CtrlP'}
 
 " Multiple Languages
 Plug 'sheerun/vim-polyglot'
@@ -42,28 +41,33 @@ Plug 'honza/vim-snippets'
 " Insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
 
+" Matching of Elements using %
 Plug 'tmhedberg/matchit'
 
+" Toggle Commenting in and out of lines.
 Plug 'tpope/vim-commentary'
 
+" Shows the indentation of Lines
 Plug 'Yggdroot/indentLine'
 
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+"
+Plug 'w0rp/ale'
 
 " ---
 " LANGUAGE SPECIFICS
 " ---
 
 " Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 
 " HTML
-Plug 'rstacruz/sparkup'
+Plug 'rstacruz/sparkup', {'for': 'html'}
 
 " TypeScript
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'Quramy/tsuquyomi'
 
 " React
 " Plug 'mxw/vim-jsx'

@@ -39,3 +39,5 @@ au BufEnter,BufRead,BufNewFile .babelrc set filetype=json
 
 " Sparkup in JSX
 autocmd FileType javascript.jsx runtime! ftplugin/html/sparkup.vim
+
+au BufEnter,BufRead,BufNewFile *.ejs set filetype=html

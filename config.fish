@@ -126,5 +126,5 @@ end
 
 set -gx SVN_EDITOR vim
 set -gx PATH ./node_modules/.bin $PATH
-set -gx PATH ~/.local/bin $PATH
-set -gx PATH ~/.rvm/bin $PATH
+
+setxkbmap -option caps:escape
