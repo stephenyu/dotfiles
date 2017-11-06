@@ -1,5 +1,6 @@
 set backspace=start,eol,indent
 
+source $HOME/.vim/vimrc/os.vim
 source $HOME/.vim/vimrc/gui.vim
 source $HOME/.vim/vimrc/keymaps.vim
 source $HOME/.vim/vimrc/system.vim
