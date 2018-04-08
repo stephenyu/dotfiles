@@ -19,6 +19,7 @@ set ttyfast
 set nobackup
 set noswapfile
 
+set autoread
 set updatetime=10
 
 function! HighlightWordUnderCursor()
@@ -37,7 +38,8 @@ set shell=/bin/bash
 au BufEnter,BufRead,BufNewFile *.ss set filetype=html
 au BufEnter,BufRead,BufNewFile .babelrc set filetype=json
 
-" Sparkup in JSX
-autocmd FileType javascript.jsx runtime! ftplugin/html/sparkup.vim
+" Emmet in JSX
+" autocmd FileType html,css,javascript.jsx EmmetInstall
 
 au BufEnter,BufRead,BufNewFile *.ejs set filetype=html
+
