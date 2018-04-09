@@ -1,6 +1,3 @@
-" vim-airline
-let g:airline#extensions#syntastic#enabled = 1
-
 " CtrlP
 nmap <F3> :CtrlPMixed<cr>
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git'
@@ -25,6 +22,13 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers = ['']
 
 let NERDTreeShowHidden=1
+
+let g:user_emmet_leader_key='<C-E>'
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\   },
+\}
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1

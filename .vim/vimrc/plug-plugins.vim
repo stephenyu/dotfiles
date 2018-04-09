@@ -54,6 +54,7 @@ Plug 'Yggdroot/indentLine'
 "
 Plug 'w0rp/ale'
 
+Plug 'terryma/vim-multiple-cursors'
 " ---
 " LANGUAGE SPECIFICS
 " ---
@@ -63,7 +64,7 @@ Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 
 " HTML
-Plug 'rstacruz/sparkup', {'for': 'html'}
+Plug 'mattn/emmet-vim'
 
 " TypeScript
 " Plug 'leafgarland/typescript-vim'
