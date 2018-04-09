@@ -1,6 +1,9 @@
 set backspace=start,eol,indent
 
-source $HOME/.vim/vimrc/os.vim
+syntax sync minlines=100
+syntax sync maxlines=240
+set synmaxcol=800
+
 source $HOME/.vim/vimrc/gui.vim
 source $HOME/.vim/vimrc/keymaps.vim
 source $HOME/.vim/vimrc/system.vim

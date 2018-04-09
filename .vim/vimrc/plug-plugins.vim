@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
 
 " Status Bar
 Plug 'itchyny/lightline.vim'
-"
+
 " YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
 
@@ -21,13 +21,20 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 " Fuzzyfinder, Most-Recent-View, Buffer
-Plug 'ctrlpvim/ctrlp.vim', {'on': 'CtrlP'}
+" Plug 'ctrlpvim/ctrlp.vim', {'on': 'CtrlPMixed'}
 
-" Multiple Languages
-Plug 'sheerun/vim-polyglot'
+" fzf vim
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Surround
+Plug 'tpope/vim-surround'
 
 " Allows Bubble Movement
 Plug 'tpope/vim-unimpaired'
+
+" Multiple Cursors
+Plug 'terryma/vim-multiple-cursors'
 
 " Easy Motion
 Plug 'Lokaltog/vim-easymotion'
@@ -38,9 +45,6 @@ Plug 'SirVer/ultisnips'
 " Snippets
 Plug 'honza/vim-snippets'
 
-" Insert or delete brackets, parens, quotes in pair
-Plug 'jiangmiao/auto-pairs'
-
 " Matching of Elements using %
 Plug 'tmhedberg/matchit'
 
@@ -50,27 +54,32 @@ Plug 'tpope/vim-commentary'
 " Shows the indentation of Lines
 Plug 'Yggdroot/indentLine'
 
-" Plug 'vim-syntastic/syntastic'
-"
 Plug 'w0rp/ale'
 
 Plug 'terryma/vim-multiple-cursors'
+
+" Git Wrapper
+Plug 'tpope/vim-fugitive'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
 
 " Javascript
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 
 " HTML
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': ['html', 'javascript.jsx']}
+
+" PHP
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
+
+" Markdown
+" Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " TypeScript
 " Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
-
-" React
-" Plug 'mxw/vim-jsx'
 
 call plug#end()

@@ -1,7 +1,10 @@
 " CtrlP
-nmap <F3> :CtrlPMixed<cr>
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git'
-let g:ctrlp_map = '<Leader>2'
+" nmap <F3> :CtrlPMixed<cr>
+" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git'
+" let g:ctrlp_map = '<Leader>2'
+"
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+nmap <F3> :Files<cr>
 
 " Do not change Current Path
 let g:ctrlp_working_path_mode = 0
@@ -32,6 +35,7 @@ let g:user_emmet_settings = {
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_server_python_interpreter = '/usr/local/bin/python'
 " let g:ycm_key_list_select_completion=[]
 " let g:ycm_key_list_previous_completion=[]
 
@@ -51,3 +55,17 @@ let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
+let g:vim_markdown_folding_disabled = 1
+set nofoldenable
+let g:vim_markdown_override_foldtext = 0
+let g:vim_markdown_conceal = 0
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'php': ['php -l', 'phpcs'],
+\}
+
+" CTags
+nnoremap <leader>. :CtrlPTag<cr>
+
+let g:ale_html_tidy_options = '-q -e -config ~/tidy.conf -language en'
