@@ -62,6 +62,7 @@ let g:vim_markdown_conceal = 0
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'html': [],
 \   'php': ['php -l', 'phpcs'],
 \}
 

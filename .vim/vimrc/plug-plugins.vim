@@ -67,13 +67,16 @@ Plug 'tpope/vim-fugitive'
 
 " Javascript
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
-Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
+" Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 
 " HTML
 Plug 'mattn/emmet-vim', {'for': ['html', 'javascript.jsx']}
 
 " PHP
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
+
+" JSX
+Plug 'mxw/vim-jsx'
 
 " Markdown
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
