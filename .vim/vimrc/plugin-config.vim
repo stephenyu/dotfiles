@@ -9,7 +9,8 @@ nmap <F3> :Files<cr>
 " Do not change Current Path
 let g:ctrlp_working_path_mode = 0
 
-nma <F2> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F1> :NERDTreeFind<CR>
 let g:NERDTreeWinSize = 60
 
 " Syntastic

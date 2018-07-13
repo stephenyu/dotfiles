@@ -18,7 +18,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'Valloric/YouCompleteMe'
 
 " NerdTree
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 
 " Fuzzyfinder, Most-Recent-View, Buffer
 " Plug 'ctrlpvim/ctrlp.vim', {'on': 'CtrlPMixed'}
@@ -61,6 +61,10 @@ Plug 'terryma/vim-multiple-cursors'
 " Git Wrapper
 Plug 'tpope/vim-fugitive'
 
+" Git Gutter
+Plug 'airblade/vim-gitgutter'
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " ---
 " LANGUAGE SPECIFICS
 " ---

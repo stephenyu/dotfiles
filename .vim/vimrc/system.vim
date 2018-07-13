@@ -22,6 +22,8 @@ set noswapfile
 set autoread
 set updatetime=10
 
+set previewheight=40
+
 function! HighlightWordUnderCursor()
 	if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
 		exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
@@ -36,6 +38,7 @@ set shell=/bin/bash
 
 " Silverstripe Template Files
 au BufEnter,BufRead,BufNewFile *.ss set filetype=html
+au BufEnter,BufRead,BufNewFile *.js set filetype=javascript
 au BufEnter,BufRead,BufNewFile .babelrc set filetype=json
 
 " Emmet in JSX
@@ -46,4 +49,3 @@ autocmd Filetype json let g:indentLine_enabled = 0
 let g:vim_json_syntax_conceal = 0
 
 au BufEnter,BufRead,BufNewFile *.ejs set filetype=html
-
