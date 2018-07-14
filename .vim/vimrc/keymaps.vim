@@ -13,12 +13,12 @@ nmap <F5> <ESC>:tabnew<RETURN>
 nmap <F6> :set invnumber<cr>
 
 " Bubble single lines
-nmap <C-k> [e
-nmap <C-j> ]e
+nmap <Up> [e
+nmap <Down> ]e
 
 " Bubble multiple lines
-vmap <C-k> [egv
-vmap <C-j> ]egv
+vmap <Up> [egv
+vmap <Down> ]egv
 
 " Add a Blank Line, stay in Command Mode
 nnoremap o o<ESC>
@@ -27,8 +27,6 @@ nnoremap O O<ESC>
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
 
 " Delete Windows Carriage Returns
 nnoremap <Leader>dwcr :%s/\r\+$//e<CR>
