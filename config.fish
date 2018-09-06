@@ -12,6 +12,13 @@ function dnginx
     command docker run -it --rm -p $port:80 -v (pwd):/usr/share/nginx/html nginx:alpine
 end
 
+function dnginx:h2
+    set_color green
+    echo -n '→ '
+    set_color normal
+    echo 'Starting Docker stephenyu/nginx-http2-ssl at 443 & 80'
+    command docker run -it --rm -p 443:443 -p 80:80 -v (pwd):/usr/share/nginx/html stephenyu:nginx-http2-ssl
+end
 
 function filedate
     command date +"%d%m%y_%H%m"
@@ -22,25 +29,6 @@ end
 
 function tm
     command tmux -2 attach -t main; or command tmux -2 new -s main
-end
-
-function angular
-    switch $argv[1]
-        case create-route
-            touch $argv[2].route.js
-            touch $argv[2].route.html
-            set_color green
-            echo -n '→ '
-            set_color normal
-            echo 'AngularJS Route Files Created:' $argv[2]
-        case create-component
-            touch $argv[2].component.js
-            touch $argv[2].template.html
-            set_color green
-            echo -n '→ '
-            set_color normal
-            echo 'AngularJS Component Files Created:' $argv[2]
-    end
 end
 
 function svn
@@ -96,6 +84,11 @@ function drit
     command docker run -ti $argv
 end
 
+function deit
+    command docker exit -ti $argv
+end
+
+
 function fish_prompt
     set_color white
     printf "[%s] %s" (date +"%H:%M:%S")
@@ -119,5 +112,3 @@ end
 
 set -gx SVN_EDITOR vim
 set -gx PATH ./node_modules/.bin $PATH
-
-setxkbmap -option caps:escape

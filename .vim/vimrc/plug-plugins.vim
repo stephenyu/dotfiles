@@ -20,9 +20,6 @@ Plug 'Valloric/YouCompleteMe'
 " NerdTree
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 
-" Fuzzyfinder, Most-Recent-View, Buffer
-" Plug 'ctrlpvim/ctrlp.vim', {'on': 'CtrlPMixed'}
-
 " fzf vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -81,6 +78,9 @@ Plug 'StanAngeloff/php.vim', {'for': 'php'}
 
 " JSX
 Plug 'mxw/vim-jsx'
+
+" Nginx
+Plug 'chr4/nginx.vim'
 
 " Markdown
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
