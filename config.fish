@@ -17,7 +17,7 @@ function dnginx:h2
     echo -n '→ '
     set_color normal
     echo 'Starting Docker stephenyu/nginx-http2-ssl at 443 & 80'
-    command docker run -it --rm -p 443:443 -p 80:80 -v (pwd):/usr/share/nginx/html stephenyu:nginx-http2-ssl
+    command docker run -it --rm -p 443:443 -p 80:80 -v (pwd):/usr/share/nginx/html stephenyu/nginx-http2-ssl:latest
 end
 
 function filedate
@@ -85,7 +85,7 @@ function drit
 end
 
 function deit
-    command docker exit -ti $argv
+    command docker exec -ti $argv
 end
 
 
