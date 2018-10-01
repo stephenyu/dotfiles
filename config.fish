@@ -112,3 +112,4 @@ end
 
 set -gx SVN_EDITOR vim
 set -gx PATH ./node_modules/.bin $PATH
+set -gx PATH /Users/stepheny/.nvm/versions/node/v8.11.4/bin $PATH

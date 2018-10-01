@@ -86,7 +86,8 @@ Plug 'chr4/nginx.vim'
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " TypeScript
-" Plug 'leafgarland/typescript-vim'
-" Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'   " Syntax
+Plug 'HerringtonDarkholme/yats.vim' " Syntax
+Plug 'Quramy/tsuquyomi'             " YouCompleteMe
 
 call plug#end()

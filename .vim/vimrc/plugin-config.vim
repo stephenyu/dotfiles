@@ -52,8 +52,8 @@ endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 
 " Typescript
-let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_disable_quickfix = 1
+"let g:tsuquyomi_completion_detail = 1
+"let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 let g:vim_markdown_folding_disabled = 1
@@ -71,3 +71,5 @@ let g:ale_linters = {
 nnoremap <leader>. :CtrlPTag<cr>
 
 let g:ale_html_tidy_options = '-q -e -config ~/tidy.conf -language en'
+
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>

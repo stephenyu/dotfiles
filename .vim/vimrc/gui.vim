@@ -16,3 +16,9 @@ set shell=bash
 "
 " Using same symbols as TextMate
 set listchars=tab:▸\ ,trail:~,extends:>,precedes:<,nbsp:+
+
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303000 ctermbg=237
