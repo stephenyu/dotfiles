@@ -2,7 +2,7 @@
 " nmap <F3> :CtrlPMixed<cr>
 " let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git'
 " let g:ctrlp_map = '<Leader>2'
-"
+
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nmap <F3> :Files<cr>
 
@@ -52,8 +52,8 @@ endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 
 " Typescript
-"let g:tsuquyomi_completion_detail = 1
-"let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 let g:vim_markdown_folding_disabled = 1
@@ -72,4 +72,6 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 let g:ale_html_tidy_options = '-q -e -config ~/tidy.conf -language en'
 
+" Typescript
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+autocmd FileType typescript setlocal completeopt+=menu,preview
