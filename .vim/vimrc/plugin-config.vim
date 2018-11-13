@@ -62,10 +62,18 @@ let g:vim_markdown_override_foldtext = 0
 let g:vim_markdown_conceal = 0
 
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': [],
+\   'typescript': ['tsserver'],
 \   'html': [],
 \   'php': ['php -l', 'phpcs'],
 \}
+
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\}
+
+let g:ale_fix_on_save = 1
 
 " CTags
 nnoremap <leader>. :CtrlPTag<cr>

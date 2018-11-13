@@ -21,7 +21,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 
 " fzf vim
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Surround
@@ -89,5 +89,6 @@ Plug 'chr4/nginx.vim'
 Plug 'leafgarland/typescript-vim'   " Syntax
 Plug 'HerringtonDarkholme/yats.vim' " Syntax
 Plug 'Quramy/tsuquyomi'             " YouCompleteMe
+Plug 'ianks/vim-tsx'                " .tsx file format
 
 call plug#end()
