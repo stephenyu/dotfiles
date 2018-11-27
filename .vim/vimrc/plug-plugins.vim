@@ -71,7 +71,7 @@ Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 " Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 
 " HTML
-Plug 'mattn/emmet-vim', {'for': ['html', 'javascript.jsx']}
+Plug 'mattn/emmet-vim', {'for': ['html', 'javascript.jsx', 'typescript.tsx']}
 
 " PHP
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
