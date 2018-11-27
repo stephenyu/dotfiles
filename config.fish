@@ -1,3 +1,27 @@
+function cdfzf
+    set filepath (fzf)
+    echo -n 'Filename: '
+    set_color green
+    echo $filepath
+
+    set dir (dirname $filepath)
+    set_color normal
+    echo -n 'Directory: '
+    set_color blue
+    echo $dir
+
+    cd $dir
+end
+
+function cpfzf
+    set filepath (fzf)
+    echo -n 'Copied: '
+    set_color green
+    echo $filepath
+
+    command echo -n $filepath | pbcopy
+end
+
 function dnginx
     if count $argv > /dev/null
         set port $argv[1]
