@@ -28,6 +28,10 @@ function gitp
    command git push $argv
 end
 
+function vim
+   command nvim $argv
+end
+
 
 function cdfzf
     set filepath (fzf)
