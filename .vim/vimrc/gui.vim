@@ -3,6 +3,7 @@ filetype on
 syntax on
 
 colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow
 
 " Always Show Status
 set laststatus=2

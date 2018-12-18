@@ -85,6 +85,9 @@ Plug 'chr4/nginx.vim'
 " Markdown
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
+" Solarized theme
+Plug 'altercation/vim-colors-solarized'
+
 " TypeScript
 Plug 'leafgarland/typescript-vim'   " Syntax
 Plug 'HerringtonDarkholme/yats.vim' " Syntax

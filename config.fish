@@ -1,3 +1,34 @@
+# Fish git prompt
+set __fish_git_prompt_showdirtystate 'yes'
+set __fish_git_prompt_showstashstate 'yes'
+set __fish_git_prompt_showuntrackedfiles 'yes'
+set __fish_git_prompt_showupstream 'yes'
+set __fish_git_prompt_color_branch blue
+set __fish_git_prompt_color_upstream_ahead green
+set __fish_git_prompt_color_upstream_behind red
+
+# Status Chars
+set __fish_git_prompt_char_dirtystate '+'
+set __fish_git_prompt_char_stagedstate '→'
+set __fish_git_prompt_char_untrackedfiles '?'
+set __fish_git_prompt_char_stashstate '↩'
+set __fish_git_prompt_char_upstream_ahead '+'
+set __fish_git_prompt_char_upstream_behind '-'
+
+# Git Add All (Modified)
+function gitaa
+   command git status | grep "^\s.*\:" | awk '{print $2}' | xargs git add
+end
+
+function gitc
+   command git commit $argv
+end
+
+function gitp
+   command git push $argv
+end
+
+
 function cdfzf
     set filepath (fzf)
     echo -n 'Filename: '
@@ -11,6 +42,14 @@ function cdfzf
     echo $dir
 
     cd $dir
+end
+
+function cppwd
+    set filepath (pwd)
+    command pwd | pbcopy
+    echo -n 'Copied: '
+    set_color green
+    echo $filepath
 end
 
 function cpfzf
@@ -52,7 +91,13 @@ function fish_greeting
 end
 
 function tm
-    command tmux -2 attach -t main; or command tmux -2 new -s main
+    if count $argv > /dev/null
+        set sessionname $argv[1]
+    else
+        set sessionname 'main'
+    end
+
+    command tmux -2 attach -t $sessionname; or command tmux -2 new -s $sessionname
 end
 
 function svn
@@ -114,13 +159,15 @@ end
 
 
 function fish_prompt
+    set -l git_branch (git branch ^/dev/null | sed -n '/\* /s///p')
+
     set_color white
     printf "[%s] %s" (date +"%H:%M:%S")
 
     set_color red
     echo -n (whoami)
     set_color white
-    echo -n " at "
+    echo -n "@"
 
     set_color cyan
     echo -n (hostname)
@@ -130,9 +177,14 @@ function fish_prompt
     set_color green
     echo -n (prompt_pwd)
 
+    echo -n (__fish_git_prompt)
+
     set_color normal
     printf "\n~ "
 end
+
+# 'AutoJump'
+[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
 set -gx SVN_EDITOR vim
 set -gx PATH ./node_modules/.bin $PATH
