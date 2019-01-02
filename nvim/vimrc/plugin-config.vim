@@ -25,7 +25,6 @@ call deoplete#custom#option({
             \ })
 
 " nvim typescript
-let g:nvim_typescript#type_info_on_hold = 1
 let g:nvim_typescript#default_mappings = 1
 
 let NERDTreeShowHidden=1
@@ -59,11 +58,13 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \   'html': [],
 \   'php': ['php -l', 'phpcs'],
+\   'css': ['prettier'],
 \}
 
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
+\   'css': ['prettier'],
 \}
 
 let g:ale_fix_on_save = 1

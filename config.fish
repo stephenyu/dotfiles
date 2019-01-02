@@ -104,6 +104,8 @@ function tm
     command tmux -2 attach -t $sessionname; or command tmux -2 new -s $sessionname
 end
 
+complete --command tm --no-files --arguments '(tmux ls | awk -F ":" \'{print $1}\')'
+
 function svn
     switch $argv[1]
     case where
@@ -190,7 +192,8 @@ end
 # 'AutoJump'
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
-set -gx SVN_EDITOR vim
+set -gx SVN_EDITOR nvim
+set -gx GIT_EDITOR nvim
 set -gx PATH ./node_modules/.bin $PATH
 
 nvm use default
