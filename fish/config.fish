@@ -15,17 +15,20 @@ set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '+'
 set __fish_git_prompt_char_upstream_behind '-'
 
+
+# Aliases
+alias vim="nvim"
+alias gitc="git commit"
+alias gitp="git push"
+alias gita="git push"
+
+alias dr="docker run"
+alias drit="docker run -ti"
+alias deit="docker exec -ti"
+
 # Git Add All (Modified)
 function gitaa
    command git status | grep "^\s.*\:" | awk '{print $2}' | xargs git add
-end
-
-function gitc
-   command git commit $argv
-end
-
-function gitp
-   command git push $argv
 end
 
 function cdfzf
@@ -74,6 +77,15 @@ function dnginx
     command docker run -it --rm -p $port:80 -v (pwd):/usr/share/nginx/html nginx:alpine
 end
 
+function pbcopy
+    switch (uname)
+    case Linux
+        command cat | xclip -i -sel c -f | xclip -i -sel p
+    case Darwin
+        command pbcopy
+    end
+end
+
 function dnginx:h2
     set_color green
     echo -n '→ '
@@ -101,28 +113,6 @@ end
 
 complete --command tm --no-files --arguments '(tmux ls | awk -F ":" \'{print $1}\')'
 
-function svn
-    switch $argv[1]
-    case where
-        command svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n' | pbcopy
-        set url (svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n')
-        set_color green
-        echo -n '→ '
-        set_color normal
-        echo 'SVN URL Copied: ' $url
-    case branch
-        set url (svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n')
-        command svn copy $url $argv[2] -m $argv[3]
-        set_color green
-        echo -n '→ '
-        set_color normal
-        echo 'SVN Branch Created at' $argv[2]
-        command echo $argv[2] | pbcopy
-    case '*'
-        command svn $argv
-    end
-end
-
 function d
     switch $argv[1]
     case ls
@@ -136,28 +126,11 @@ function d
     end
 end
 
-function dm
-    command docker-machine $argv
-end
-
 function spotify
     command docker run -d -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
     --device /dev/snd:/dev/snd -v $HOME/.spotify/config:/home/spotify/.config/spotify -v $HOME/.spotify/cache:/home/spotify/spotify \
     r.j3ss.co/spotify
 end
-
-function dr
-    command docker run $argv
-end
-
-function drit
-    command docker run -ti $argv
-end
-
-function deit
-    command docker exec -ti $argv
-end
-
 
 function fish_prompt
     set -l git_branch (git branch ^/dev/null | sed -n '/\* /s///p')
