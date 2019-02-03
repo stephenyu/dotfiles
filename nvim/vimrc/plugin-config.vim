@@ -48,6 +48,8 @@ if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 
+let g:indentLine_fileTypeExclude = ['tex', 'markdown']
+
 let g:vim_markdown_folding_disabled = 1
 set nofoldenable
 let g:vim_markdown_override_foldtext = 0

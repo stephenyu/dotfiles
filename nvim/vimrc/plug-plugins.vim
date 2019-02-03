@@ -18,8 +18,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " ColorThemes
-" Plug 'chriskempson/base16-vim'
-" Plug 'altercation/vim-colors-solarized'
 Plug 'stephenyu/vim-tomorrow-theme'
 
 " NerdTree
@@ -73,7 +71,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Javascript
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
-" Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 
 " HTML
 Plug 'mattn/emmet-vim', {'for': ['html', 'javascript.jsx', 'typescript.tsx']}
@@ -88,12 +85,10 @@ Plug 'mxw/vim-jsx'
 Plug 'chr4/nginx.vim'
 
 " Markdown
-" Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " TypeScript
 Plug 'HerringtonDarkholme/yats.vim' " Syntax
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-"Plug 'Quramy/tsuquyomi'             " YouCompleteMe
-"Plug 'ianks/vim-tsx'                " .tsx file format
 
 call plug#end()
