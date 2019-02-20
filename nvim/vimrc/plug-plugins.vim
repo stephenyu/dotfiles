@@ -85,7 +85,7 @@ Plug 'mxw/vim-jsx'
 Plug 'chr4/nginx.vim'
 
 " Markdown
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+"Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " TypeScript
 Plug 'HerringtonDarkholme/yats.vim' " Syntax

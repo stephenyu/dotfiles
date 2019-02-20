@@ -101,6 +101,16 @@ end
 function fish_greeting
 end
 
+function dict
+    if count $argv > /dev/null
+        set_color green
+        echo -n '→ '
+        set_color normal
+        echo 'dict' $argv[1] '| colorit | bat'
+        command dict $argv[1] | colorit | bat
+    end
+end
+
 function tm
     if count $argv > /dev/null
         set sessionname $argv[1]
