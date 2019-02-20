@@ -175,3 +175,5 @@ set -gx GIT_EDITOR nvim
 set -gx PATH ./node_modules/.bin $PATH
 
 nvm use default
+
+thefuck --alias | source
