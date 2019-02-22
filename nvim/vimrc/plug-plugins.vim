@@ -84,11 +84,8 @@ Plug 'mxw/vim-jsx'
 " Nginx
 Plug 'chr4/nginx.vim'
 
-" Markdown
-"Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-
 " TypeScript
-Plug 'HerringtonDarkholme/yats.vim' " Syntax
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 call plug#end()
