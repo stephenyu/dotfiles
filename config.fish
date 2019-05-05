@@ -189,11 +189,17 @@ function fish_prompt
     printf "\n~ "
 end
 
-# 'AutoJump'
-[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 
-set -gx SVN_EDITOR nvim
-set -gx GIT_EDITOR nvim
-set -gx PATH ./node_modules/.bin $PATH
+if test (uname) != "Linux"
+     # 'AutoJump'
+     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
-nvm use default
+     set -gx SVN_EDITOR nvim
+     set -gx GIT_EDITOR nvim
+     set -gx PATH ./node_modules/.bin $PATH
+
+    nvm use default
+else
+    [ -f /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish ]; and source /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish
+end
