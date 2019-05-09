@@ -46,8 +46,12 @@ noremap <Leader>v :<C-u>vsplit<CR>
 
 "" no one is really happy until you have this shortcuts
 cnoreabbrev W! w!
+cnoreabbrev W1 w!
 cnoreabbrev Q! q!
+cnoreabbrev Q1 q!
 cnoreabbrev Qall! qall!
+cnoreabbrev Qall1 qall!
+cnoreabbrev qa1 qall!
 cnoreabbrev Wq wq
 cnoreabbrev Wa wa
 cnoreabbrev wQ wq
