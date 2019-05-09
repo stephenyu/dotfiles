@@ -1,7 +1,7 @@
 let mapleader=" "
 
 " Reload Vimfile
-map <leader>s :source ~/.vimrc<cr>
+map <leader>s :source ~/.config/nvim/init.vim<cr>
 
 " Toggle Highlight
 noremap <F4> :set hlsearch! hlsearch?<CR>

@@ -17,6 +17,10 @@ Plug 'itchyny/lightline.vim'
 " Autocompletion Bar
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" Snippets
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+
 " ColorThemes
 Plug 'stephenyu/vim-tomorrow-theme'
 
@@ -38,12 +42,6 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Easy Motion
 Plug 'Lokaltog/vim-easymotion'
-
-" UltiSnips
-Plug 'SirVer/ultisnips'
-
-" Snippets
-Plug 'honza/vim-snippets'
 
 " Matching of Elements using %
 Plug 'tmhedberg/matchit'

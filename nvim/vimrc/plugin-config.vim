@@ -53,6 +53,10 @@ set nofoldenable
 let g:vim_markdown_override_foldtext = 0
 let g:vim_markdown_conceal = 0
 
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
 let g:ale_linters = {
 \   'javascript': [],
 \   'typescript': ['tsserver'],
