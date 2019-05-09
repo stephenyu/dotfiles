@@ -72,6 +72,12 @@ let g:ale_fix_on_save = 1
 " CTags
 nnoremap <leader>. :CtrlPTag<cr>
 
-set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
+if has('unix')
+   set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
+endif
+
+" Stop Yggdroot/indentLine from hiding Double Quotes in JSON
+autocmd Filetype json let g:indentLine_enabled = 0
+autocmd Filetype json :IndentLinesDisable
 
 let g:ale_html_tidy_options = '-q -e -config ~/tidy.conf -language en'
