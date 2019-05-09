@@ -189,17 +189,20 @@ function fish_prompt
     printf "\n~ "
 end
 
-set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
-
-if test (uname) != "Linux"
-     # 'AutoJump'
-     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
-
-     set -gx SVN_EDITOR nvim
-     set -gx GIT_EDITOR nvim
-     set -gx PATH ./node_modules/.bin $PATH
-
+if test -z "$TMUX"
+    echo 'In here'
+    set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
     nvm use default
-else
-    [ -f /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish ]; and source /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish
+    set -gx SVN_EDITOR nvim
+    set -gx GIT_EDITOR nvim
+    set -gx PATH ./node_modules/.bin $PATH
+
+    if test (uname) != "Linux"
+         # 'AutoJump'
+         [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+    else
+        setxkbmap -option caps:escape
+        [ -f /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish ]; and source /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish
+    end
 end
+

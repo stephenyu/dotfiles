@@ -79,20 +79,22 @@ Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mattn/emmet-vim', {'for': ['html', 'javascript.jsx', 'typescript.tsx']}
 
 " PHP
-Plug 'StanAngeloff/php.vim', {'for': 'php'}
+" Plug 'StanAngeloff/php.vim', {'for': 'php'}
 
 " JSX
 Plug 'mxw/vim-jsx'
 
 " Nginx
-Plug 'chr4/nginx.vim'
+" Plug 'chr4/nginx.vim'
 
 " Markdown
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
+Plug 'Shougo/denite.nvim'
+
 " TypeScript
 Plug 'HerringtonDarkholme/yats.vim' " Syntax
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'mhartington/nvim-typescript', {'for': ['typescript', 'tsx'], 'do': './install.sh' }
 "Plug 'Quramy/tsuquyomi'             " YouCompleteMe
 "Plug 'ianks/vim-tsx'                " .tsx file format
 
