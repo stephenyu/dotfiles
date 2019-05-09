@@ -24,6 +24,13 @@ set updatetime=10
 
 set previewheight=40
 
+" Set Clipboard
+if has('unix')
+    set clipboard=unnamedplus " Standard Ctrl+C Clipboard, *not* Copy on Select
+else
+    set clipboard=unnamed
+endif
+
 function! HighlightWordUnderCursor()
 	if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
 		exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
@@ -33,17 +40,3 @@ function! HighlightWordUnderCursor()
 endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
-
-" Silverstripe Template Files
-"au BufEnter,BufRead,BufNewFile *.ss set filetype=html
-"au BufEnter,BufRead,BufNewFile *.js set filetype=javascript
-"au BufEnter,BufRead,BufNewFile .babelrc set filetype=json
-
-" Emmet in JSX
-" autocmd FileType html,css,javascript.jsx EmmetInstall
-
-"autocmd Filetype json let g:indentLine_enabled = 0
-"
-"let g:vim_json_syntax_conceal = 0
-"
-"au BufEnter,BufRead,BufNewFile *.ejs set filetype=html
