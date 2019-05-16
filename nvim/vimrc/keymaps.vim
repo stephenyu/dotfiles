@@ -7,7 +7,8 @@ map <leader>s :source ~/.config/nvim/init.vim<cr>
 noremap <F4> :set hlsearch! hlsearch?<CR>
 
 " F5 Tabnew
-nmap <F5> <ESC>:tabnew<RETURN>
+"nmap <F5> <ESC>:tabnew<RETURN>
+nmap <F5> :echoe "Use :tabnew, or perhaps a buffer ;)"<CR>
 
 " F6 Toggles Line Numbers
 nmap <F6> :set invnumber<cr>
