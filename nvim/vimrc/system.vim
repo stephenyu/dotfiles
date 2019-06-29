@@ -40,3 +40,5 @@ function! HighlightWordUnderCursor()
 endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+
+autocmd FileType css setlocal ts=4 sts=4 sw=4
