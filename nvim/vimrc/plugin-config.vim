@@ -17,13 +17,6 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers = ['']
 
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#option({
-            \ 'auto_complete_delay': 100,
-            \ 'smart_case': v:true,
-            \ })
-
 " nvim typescript
 let g:nvim_typescript#default_mappings = 1
 
@@ -62,13 +55,13 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \   'html': [],
 \   'php': ['php -l', 'phpcs'],
-\   'css': ['prettier'],
+\   'css': [],
 \}
 
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
-\   'css': ['prettier'],
+\   'css': [],
 \}
 
 let g:ale_fix_on_save = 1
@@ -83,5 +76,41 @@ endif
 " Stop Yggdroot/indentLine from hiding Double Quotes in JSON
 autocmd Filetype json let g:indentLine_enabled = 0
 autocmd Filetype json :IndentLinesDisable
+
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.jsx set filetype=typescript.jsx
+
+set shortmess+=c
+
+" https://github.com/neoclide/coc.nvim
+" Configure Examples
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 let g:ale_html_tidy_options = '-q -e -config ~/tidy.conf -language en'

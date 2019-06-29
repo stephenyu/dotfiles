@@ -32,6 +32,21 @@ function vim
    command nvim $argv
 end
 
+function mov2mp4
+   set_color green
+   echo -n 'File Details: '
+   command ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1 "$argv[1]"
+   set_color normal
+   command ffmpeg -i "$argv[1]" -vcodec h264 -acodec an "$argv[2]"
+end
+
+complete --command mov2mp4
+
+function mov2gif
+   command ffmpeg -i "$argv[1]"  -vf scale=$argv[2]:-1 -pix_fmt rgb8 -r 20 -f gif - | gifsicle --optimize=9 --delay=3 > "$argv[3]"
+end
+
+complete --command mov2gif
 
 function cdfzf
     set filepath (fzf)
@@ -150,6 +165,11 @@ function spotify
     --device /dev/snd:/dev/snd -v $HOME/.spotify/config:/home/spotify/.config/spotify -v $HOME/.spotify/cache:/home/spotify/spotify \
     r.j3ss.co/spotify
 end
+
+function gitcam
+    command git commit -am $argv
+end
+
 
 function dr
     command docker run $argv

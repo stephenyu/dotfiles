@@ -15,11 +15,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 
 " Autocompletion Bar
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Snippets
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+"Plug 'Shougo/neosnippet.vim'
+"Plug 'Shougo/neosnippet-snippets'
 
 " ColorThemes
 Plug 'stephenyu/vim-tomorrow-theme'
@@ -67,19 +67,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " ---
 " LANGUAGE SPECIFICS
 " ---
-
-" Javascript
-Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
-
-" HTML
-Plug 'mattn/emmet-vim', {'for': ['html', 'javascript.jsx', 'typescript.tsx']}
-
-Plug 'mxw/vim-jsx'
-
-Plug 'Shougo/denite.nvim'
+"
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 " TypeScript
 Plug 'HerringtonDarkholme/yats.vim' " Syntax
-Plug 'mhartington/nvim-typescript', {'for': ['typescript', 'tsx'], 'do': './install.sh' }
 
 call plug#end()
