@@ -15,17 +15,13 @@ set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '+'
 set __fish_git_prompt_char_upstream_behind '-'
 
-# Git Add All (Modified)
-function gitaa
-   command git status | grep "^\s.*\:" | awk '{print $2}' | xargs git add
+# Git Tweaks
+function gitcam
+    command git commit -am $argv
 end
 
-function gitc
-   command git commit $argv
-end
-
-function gitp
-   command git push $argv
+function git-pr
+    command hub pr list -f "%t %i by %au (%rs) %U%n" | grep 'stephenyu'
 end
 
 function vim
@@ -121,26 +117,29 @@ end
 
 complete --command tm --no-files --arguments '(tmux ls | awk -F ":" \'{print $1}\')'
 
-function svn
-    switch $argv[1]
-    case where
-        command svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n' | pbcopy
-        set url (svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n')
-        set_color green
-        echo -n '→ '
-        set_color normal
-        echo 'SVN URL Copied: ' $url
-    case branch
-        set url (svn info | grep '^URL:' | awk '{print $2}' | tr -d '\n')
-        command svn copy $url $argv[2] -m $argv[3]
-        set_color green
-        echo -n '→ '
-        set_color normal
-        echo 'SVN Branch Created at' $argv[2]
-        command echo $argv[2] | pbcopy
-    case '*'
-        command svn $argv
-    end
+function spotify
+    command docker run -d -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
+    --device /dev/snd:/dev/snd -v $HOME/.spotify/config:/home/spotify/.config/spotify -v $HOME/.spotify/cache:/home/spotify/spotify \
+    r.j3ss.co/spotify
+end
+
+function zoom
+    command docker run -d --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix\$DISPLAY --device /dev/video0 --device /dev/snd:/dev/snd \
+    --device /dev/dri -v /dev/shm:/dev/shm jess/zoom-us
+end
+
+# Docker Tweaks
+
+function dr
+    command docker run $argv
+end
+
+function drit
+    command docker run -ti $argv
+end
+
+function deit
+    command docker exec -ti $argv
 end
 
 function d
@@ -158,29 +157,6 @@ end
 
 function dm
     command docker-machine $argv
-end
-
-function spotify
-    command docker run -d -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
-    --device /dev/snd:/dev/snd -v $HOME/.spotify/config:/home/spotify/.config/spotify -v $HOME/.spotify/cache:/home/spotify/spotify \
-    r.j3ss.co/spotify
-end
-
-function gitcam
-    command git commit -am $argv
-end
-
-
-function dr
-    command docker run $argv
-end
-
-function drit
-    command docker run -ti $argv
-end
-
-function deit
-    command docker exec -ti $argv
 end
 
 
