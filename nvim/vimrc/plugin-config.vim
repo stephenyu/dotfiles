@@ -112,5 +112,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gh :call CocAction('doHover')<CR>
 
 let g:ale_html_tidy_options = '-q -e -config ~/tidy.conf -language en'
