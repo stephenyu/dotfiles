@@ -16,17 +16,13 @@ set __fish_git_prompt_char_upstream_ahead '+'
 set __fish_git_prompt_char_upstream_behind '-'
 
 # Git Tweaks
-function gitcam
-    command git commit -am $argv
-end
+alias gitcam="git commit -am $argv"
 
 function git-pr
-    command hub pr list -f "%t %i by %au (%rs) %U%n" | grep 'stephenyu'
+   command hub pr list -f "%t %i by %au (%rs) %U%n" | grep 'stephenyu'
 end
 
-function vim
-   command nvim $argv
-end
+alias vim="nvim $argv"
 
 function mov2mp4
    set_color green
@@ -98,9 +94,7 @@ function dnginx:h2
     command docker run -it --rm -p 443:443 -p 80:80 -v (pwd):/usr/share/nginx/html stephenyu/nginx-http2-ssl:latest
 end
 
-function filedate
-    command date +"%d%m%y_%H%m"
-end
+alias filedate='date +"%d%m%y_%H%m"'
 
 function fish_greeting
 end
@@ -130,17 +124,10 @@ end
 
 # Docker Tweaks
 
-function dr
-    command docker run $argv
-end
-
-function drit
-    command docker run -ti $argv
-end
-
-function deit
-    command docker exec -ti $argv
-end
+alias dr="docker run $argv"
+alias drit="docker run -ti $argv"
+alias deit="docker exec -ti $argv"
+alias dm="docker-machine $argv"
 
 function d
     switch $argv[1]
@@ -154,11 +141,6 @@ function d
         command docker $argv
     end
 end
-
-function dm
-    command docker-machine $argv
-end
-
 
 function fish_prompt
     set -l git_branch (git branch ^/dev/null | sed -n '/\* /s///p')
@@ -186,16 +168,15 @@ function fish_prompt
 end
 
 if test -z "$TMUX"
-    set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
     nvm use default
     set -gx SVN_EDITOR nvim
     set -gx GIT_EDITOR nvim
-    set -gx PATH ./node_modules/.bin $PATH
 
     switch (uname -s)
     case Darwin
          [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
     case Linux
+        set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
         setxkbmap -option caps:escape
         [ -f /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish ]; and source /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish
     end
