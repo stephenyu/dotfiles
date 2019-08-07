@@ -167,18 +167,15 @@ function fish_prompt
     printf "\n~ "
 end
 
-if test -z "$TMUX"
-    nvm use default
-    set -gx SVN_EDITOR nvim
-    set -gx GIT_EDITOR nvim
+nvm use default
+set -gx SVN_EDITOR nvim
+set -gx GIT_EDITOR nvim
 
-    switch (uname -s)
-    case Darwin
-         [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
-    case Linux
-        set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
-        setxkbmap -option caps:escape
-        [ -f /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish ]; and source /home/linuxbrew/.linuxbrew/share/autojump/autojump.fish
-    end
+switch (uname -s)
+case Darwin
+    [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+case Linux
+    set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
+    setxkbmap -option caps:escape
+    [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
-
