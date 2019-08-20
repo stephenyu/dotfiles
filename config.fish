@@ -17,12 +17,34 @@ set __fish_git_prompt_char_upstream_behind '-'
 
 # Git Tweaks
 alias gitcam="git commit -am $argv"
+alias gitpr="git pull-request"
 
 function git-pr
    command hub pr list -f "%t %i by %au (%rs) %U%n" | grep 'stephenyu'
 end
 
+function gitpu
+  set branchname (git rev-parse --abbrev-ref HEAD)
+  set_color green
+  echo 'Command: git push -u origin '$branchname
+
+  while true
+    read -l -P 'Do you want to continue? [y/N] ' confirm
+
+    switch $confirm
+      case Y y
+        command git push -u origin (git rev-parse --abbrev-ref HEAD)
+        return 1
+      case ''
+        return 0
+    end
+  end
+end
+
 alias vim="nvim $argv"
+
+alias open-storybook 'open -a "Google Chrome" http://localhost:6006'
+alias git 'hub'
 
 function mov2mp4
    set_color green
@@ -35,10 +57,18 @@ end
 complete --command mov2mp4
 
 function mov2gif
-   command ffmpeg -i "$argv[1]"  -vf scale=$argv[2]:-1 -pix_fmt rgb8 -r 20 -f gif - | gifsicle --optimize=9 --delay=3 > "$argv[3]"
+   command ffmpeg -i "$argv[1]"  -vf scale=$argv[2]:-1 -pix_fmt rgb8 -r 30 -f gif - | gifsicle --optimize=9 --delay=3 > "$argv[3]"
 end
 
 complete --command mov2gif
+
+function fzf
+    if count $argv > /dev/null
+        command fzf --query=$argv[1]
+    else
+        command fzf
+    end
+end
 
 function cdfzf
     set filepath (fzf)
@@ -65,11 +95,12 @@ end
 
 function cpfzf
     set filepath (fzf)
+    set path (realpath $filepath)
     echo -n 'Copied: '
     set_color green
-    echo $filepath
+    echo $path
 
-    command echo -n $filepath | pbcopy
+    command echo -n $path | pbcopy
 end
 
 function dnginx
@@ -179,3 +210,5 @@ case Linux
     setxkbmap -option caps:escape
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
+
+thefuck --alias | source

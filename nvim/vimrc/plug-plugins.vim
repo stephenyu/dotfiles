@@ -41,7 +41,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'terryma/vim-multiple-cursors'
 
 " Easy Motion
-Plug 'Lokaltog/vim-easymotion'
+" Plug 'Lokaltog/vim-easymotion'
 
 " Matching of Elements using %
 Plug 'tmhedberg/matchit'
