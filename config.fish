@@ -15,9 +15,19 @@ set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '+'
 set __fish_git_prompt_char_upstream_behind '-'
 
+alias storypoints="node -e \"console.log(Array(11).fill(1).reduce(([a,b, c]) => [b,a+b, c.concat(b)],[0,1, []])[2].join(' '))\""
+
 # Git Tweaks
 alias gitcam="git commit -am $argv"
 alias gitpr="git pull-request"
+alias gits="git status -s --branch"
+alias gitco="git checkout $argv"
+alias checkout="git checkout $argv"
+alias gitdeletebranch="git branch -d (git branch --list | fzf | sed -e 's/^[ \t]*//')"
+alias master="git checkout master"
+alias branches="git branch -v --sort=-committerdate | awk '{print $1}' | grep -vi '*' | grep -vi 'master'"
+alias show-pr="hub pr show $argv"
+alias prs-for-me="open -a \"Google Chrome\" \"https://github.com/pulls?q=is%3Apr+is%3Aopen+archived%3Afalse+sort%3Aupdated-desc+review-requested%3Astephenyu\""
 
 function git-pr
    command hub pr list -f "%t %i by %au (%rs) %U%n" | grep 'stephenyu'
@@ -140,6 +150,7 @@ function tm
     command tmux -2 attach -t $sessionname; or command tmux -2 new -s $sessionname
 end
 
+
 complete --command tm --no-files --arguments '(tmux ls | awk -F ":" \'{print $1}\')'
 
 function spotify
@@ -202,6 +213,8 @@ nvm use default
 set -gx SVN_EDITOR nvim
 set -gx GIT_EDITOR nvim
 
+set -gx TF_VAR_AWS_USER stephen
+
 switch (uname -s)
 case Darwin
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
@@ -210,5 +223,11 @@ case Linux
     setxkbmap -option caps:escape
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
+
+git config --global alias.s "status --short --branch"
+git config --global alias.cam "commit -am"
+git config --global alias.rs "rebase --interactive"
+git config --global alias.ap "add --patch"
+git config --global alias.l1 'log --pretty=format:"%Cblue%h%Creset - %an, %Cred%ar%Creset : %Cgreen%s" --color=always'
 
 thefuck --alias | source
