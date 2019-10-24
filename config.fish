@@ -18,43 +18,63 @@ set __fish_git_prompt_char_upstream_behind '-'
 alias storypoints="node -e \"console.log(Array(11).fill(1).reduce(([a,b, c]) => [b,a+b, c.concat(b)],[0,1, []])[2].join(' '))\""
 
 # Git Tweaks
-alias gitcam="git commit -am $argv"
+alias git="hub"
 alias gitpr="git pull-request"
-alias gits="git status -s --branch"
 alias gitco="git checkout $argv"
 alias checkout="git checkout $argv"
-alias gitdeletebranch="git branch -d (git branch --list | fzf | sed -e 's/^[ \t]*//')"
 alias master="git checkout master"
-alias branches="git branch -v --sort=-committerdate | awk '{print $1}' | grep -vi '*' | grep -vi 'master'"
 alias show-pr="hub pr show $argv"
 alias prs-for-me="open -a \"Google Chrome\" \"https://github.com/pulls?q=is%3Apr+is%3Aopen+archived%3Afalse+sort%3Aupdated-desc+review-requested%3Astephenyu\""
 
-function git-pr
-   command hub pr list -f "%t %i by %au (%rs) %U%n" | grep 'stephenyu'
+function branches
+  command git branch -v --sort=-committerdate | grep -vi '*' | grep -vi 'master' | awk '{ print "\033[34m"$2 "  ""\033[37m" $1}' | cat -n
 end
 
-function gitpu
-  set branchname (git rev-parse --abbrev-ref HEAD)
-  set_color green
-  echo 'Command: git push -u origin '$branchname
+function hub
+    switch $argv[1]
+        case pr
+            if count $argv[2] > /dev/null
+                command hub $argv
+            else
+                command hub pull-request
+            end
+        case ci
+            command hub ci-status -v
+        case pu
+            set branchname (git rev-parse --abbrev-ref HEAD)
+            set_color green
+            echo 'Command: git push -u origin '$branchname
 
-  while true
-    read -l -P 'Do you want to continue? [y/N] ' confirm
-
-    switch $confirm
-      case Y y
-        command git push -u origin (git rev-parse --abbrev-ref HEAD)
-        return 1
-      case ''
-        return 0
+            while true
+                read -l -P 'Do you want to continue? [y/N] ' confirm
+                switch $confirm
+                    case Y y
+                        command git push -u origin (git rev-parse --abbrev-ref HEAD)
+                        return 1
+                    case ''
+                        return 0
+                end
+            end
+        case '*'
+            command hub $argv
     end
-  end
 end
+
+git config --global alias.s "status --short --branch"
+git config --global alias.cam "commit -am"
+git config --global alias.ri "rebase --interactive"
+git config --global alias.ap "add --patch"
+git config --global alias.l1 'log --pretty=format:"%Cblue%h%Creset - %an, %Cred%ar%Creset : %Cgreen%s" --color=always'
 
 alias vim="nvim $argv"
 
-alias open-storybook 'open -a "Google Chrome" http://localhost:6006'
-alias git 'hub'
+function gcal
+    if count $argv > /dev/null
+        command gcalcli $argv
+    else
+        command gcalcli --default-calendar=stephen@canva.com#green agenda --details=location --details=end
+    end
+end
 
 function mov2mp4
    set_color green
@@ -224,10 +244,5 @@ case Linux
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
 
-git config --global alias.s "status --short --branch"
-git config --global alias.cam "commit -am"
-git config --global alias.rs "rebase --interactive"
-git config --global alias.ap "add --patch"
-git config --global alias.l1 'log --pretty=format:"%Cblue%h%Creset - %an, %Cred%ar%Creset : %Cgreen%s" --color=always'
 
 thefuck --alias | source
