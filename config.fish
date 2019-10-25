@@ -26,9 +26,17 @@ alias master="git checkout master"
 alias show-pr="hub pr show $argv"
 alias prs-for-me="open -a \"Google Chrome\" \"https://github.com/pulls?q=is%3Apr+is%3Aopen+archived%3Afalse+sort%3Aupdated-desc+review-requested%3Astephenyu\""
 
-function branches
-  command git branch -v --sort=-committerdate | grep -vi '*' | grep -vi 'master' | awk '{ print "\033[34m"$2 "  ""\033[37m" $1}' | cat -n
-end
+# function branches
+#     if count $argv > /dev/null
+#       set number $argv[1]
+#       set param "$numberp"
+#       echo $param
+#         # command git branch -v --sort=-committerdate | grep -vi '*' | grep -vi 'master' | awk '{ print "\033[34m"$2 "  ""\033[37m" $1}' | cat -n | \
+#         # sed -n $number 'p' | awk '{ print $3}' | gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"
+#     else
+#         command git branch -v --sort=-committerdate | grep -vi '*' | grep -vi 'master' | awk '{ print "\033[34m"$2 "  ""\033[37m" $1}' | cat -n
+#     end
+# end
 
 function hub
     switch $argv[1]
