@@ -198,17 +198,15 @@ function fish_prompt
     printf "\n~ "
 end
 
-nvm use default
-set -gx SVN_EDITOR nvim
 set -gx GIT_EDITOR nvim
 
 switch (uname -s)
 case Darwin
+    nvm use default
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 case Linux
+    nvm use default
     set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
     setxkbmap -option caps:escape
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
-
-thefuck --alias | source
