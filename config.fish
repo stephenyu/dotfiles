@@ -219,7 +219,6 @@ function fish_prompt
     printf "\n~ "
 end
 
-<<<<<<< HEAD
 function fish_right_prompt
   #intentionally left blank
  end
