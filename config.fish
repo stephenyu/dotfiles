@@ -11,7 +11,7 @@ set __fish_git_prompt_color_upstream_behind red
 set __fish_git_prompt_char_dirtystate '+'
 set __fish_git_prompt_char_stagedstate '→'
 set __fish_git_prompt_char_untrackedfiles '?'
-set __fish_git_prompt_char_stashstate '↩'
+set __fish_git_prompt_char_stashstate '§'
 set __fish_git_prompt_char_upstream_ahead '+'
 set __fish_git_prompt_char_upstream_behind '-'
 
@@ -20,23 +20,8 @@ alias storypoints="node -e \"console.log(Array(11).fill(1).reduce(([a,b, c]) => 
 # Git Tweaks
 alias git="hub"
 alias gitpr="git pull-request"
-alias gitco="git checkout $argv"
 alias checkout="git checkout $argv"
 alias master="git checkout master"
-alias show-pr="hub pr show $argv"
-alias prs-for-me="open -a \"Google Chrome\" \"https://github.com/pulls?q=is%3Apr+is%3Aopen+archived%3Afalse+sort%3Aupdated-desc+review-requested%3Astephenyu\""
-
-# function branches
-#     if count $argv > /dev/null
-#       set number $argv[1]
-#       set param "$numberp"
-#       echo $param
-#         # command git branch -v --sort=-committerdate | grep -vi '*' | grep -vi 'master' | awk '{ print "\033[34m"$2 "  ""\033[37m" $1}' | cat -n | \
-#         # sed -n $number 'p' | awk '{ print $3}' | gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"
-#     else
-#         command git branch -v --sort=-committerdate | grep -vi '*' | grep -vi 'master' | awk '{ print "\033[34m"$2 "  ""\033[37m" $1}' | cat -n
-#     end
-# end
 
 function hub
     switch $argv[1]
@@ -178,7 +163,6 @@ function tm
     command tmux -2 attach -t $sessionname; or command tmux -2 new -s $sessionname
 end
 
-
 complete --command tm --no-files --arguments '(tmux ls | awk -F ":" \'{print $1}\')'
 
 function spotify
@@ -213,20 +197,18 @@ function d
 end
 
 function fish_prompt
-    set -l git_branch (git branch ^/dev/null | sed -n '/\* /s///p')
-
     set_color white
-    printf "[%s] %s" (date +"%H:%M:%S")
+    printf "%s %s" (date +"%H:%M:%S")
 
-    set_color red
-    echo -n (whoami)
-    set_color white
-    echo -n "@"
+    # set_color red
+    # echo -n (whoami)
+    # set_color white
+    # echo -n "@"
 
-    set_color cyan
-    echo -n (hostname)
-    set_color white
-    echo -n " in "
+    # set_color cyan
+    # echo -n (hostname)
+    # set_color white
+    # echo -n " in "
 
     set_color green
     echo -n (prompt_pwd)
@@ -236,6 +218,10 @@ function fish_prompt
     set_color normal
     printf "\n~ "
 end
+
+function fish_right_prompt
+  #intentionally left blank
+ end
 
 nvm use default
 set -gx SVN_EDITOR nvim
