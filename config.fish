@@ -223,15 +223,17 @@ function fish_right_prompt
   #intentionally left blank
  end
 
-nvm use default
 set -gx SVN_EDITOR nvim
 
 set -gx TF_VAR_AWS_USER stephen
 switch (uname -s)
 case Darwin
-    nvm use default
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 case Linux
     setxkbmap -option caps:escape
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
+
+# fnm
+set PATH /home/stephenyu/.fnm $PATH
+fnm env --multi | source
