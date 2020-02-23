@@ -3,7 +3,8 @@ filetype on
 syntax on
 
 set background=dark
-colorscheme Tomorrow-Night-Eighties
+colorscheme gruvbox
+highlight Normal ctermfg=223 ctermbg=234 guifg=#ebdbb2 guibg=#1c1c1c
 
 " Always Show Status
 set laststatus=2

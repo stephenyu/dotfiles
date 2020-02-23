@@ -1,10 +1,20 @@
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nmap <F3> :Files<cr>
 
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F1> :NERDTreeFind<CR>
-let g:NERDTreeWinSize = 60
+nmap <F2> :Lexplore<CR>
+nmap <F1> :Explore<CR>
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+let g:netrw_banner = 0
 
+" nmap <F2> :NERDTreeToggle<CR>
+" nmap <F1> :NERDTreeFind<CR>
+" let g:NERDTreeWinSize = 60
+" let NERDTreeShowHidden=1
+
+let g:gruvbox_contrast_dark='hard'
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol='✗'
@@ -20,7 +30,6 @@ let g:syntastic_html_checkers = ['']
 " nvim typescript
 let g:nvim_typescript#default_mappings = 1
 
-let NERDTreeShowHidden=1
 
 let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_settings = {
@@ -55,6 +64,7 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \   'html': [],
 \   'php': ['php -l', 'phpcs'],
+\   'proto': ['protoc-gen-lint'],
 \   'css': [],
 \}
 

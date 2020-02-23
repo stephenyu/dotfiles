@@ -14,18 +14,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Status Bar
 Plug 'itchyny/lightline.vim'
 
-" Autocompletion Bar
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Snippets
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'Shougo/neosnippet-snippets'
-
 " ColorThemes
 Plug 'stephenyu/vim-tomorrow-theme'
-
-" NerdTree
-Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
+Plug 'morhetz/gruvbox'
 
 " fzf vim
 Plug '/usr/local/opt/fzf'
@@ -64,6 +55,9 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Github
+Plug 'ruanyl/vim-gh-line'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
@@ -72,5 +66,11 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 " TypeScript
 Plug 'HerringtonDarkholme/yats.vim' " Syntax
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
+" Proto
+Plug 'uarun/vim-protobuf'
 
 call plug#end()
