@@ -17,20 +17,23 @@ set __fish_git_prompt_char_upstream_behind '-'
 
 alias storypoints="node -e \"console.log(Array(11).fill(1).reduce(([a,b, c]) => [b,a+b, c.concat(b)],[0,1, []])[2].join(' '))\""
 
+function __fish_describe_command
+  return
+end
+
 # Git Tweaks
 alias git="hub"
 alias gitpr="git pull-request"
 alias checkout="git checkout $argv"
+alias green="git checkout green"
 alias master="git checkout master"
+
+alias vimf="vim (f)"
 
 function hub
     switch $argv[1]
         case pr
-            if count $argv[2] > /dev/null
-                command hub $argv
-            else
-                command hub pull-request
-            end
+            echo "You want to use gh"
         case ci
             command hub ci-status -v
         case pu
@@ -92,6 +95,8 @@ function fzf
         command fzf
     end
 end
+
+alias f='ag -g "" | fzf'
 
 function cdfzf
     set filepath (fzf)
@@ -213,7 +218,7 @@ function fish_prompt
     set_color green
     echo -n (prompt_pwd)
 
-    echo -n (__fish_git_prompt)
+    # echo -n (__fish_git_prompt)
 
     set_color normal
     printf "\n~ "
@@ -224,8 +229,11 @@ function fish_right_prompt
  end
 
 set -gx SVN_EDITOR nvim
+set -gx VISUAL nvim
+set -gx EDITOR nvim
 
 set -gx TF_VAR_AWS_USER stephen
+
 switch (uname -s)
 case Darwin
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
@@ -233,6 +241,13 @@ case Linux
     setxkbmap -option caps:escape
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
+
+if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
+  fenv source '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
+end
+
+# Cargo / Rust
+set PATH $HOME/.cargo/bin $PATH
 
 # fnm
 set PATH /home/stephenyu/.fnm $PATH
