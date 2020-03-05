@@ -1,66 +1,20 @@
-# Fish git prompt
-set __fish_git_prompt_showdirtystate 'yes'
-set __fish_git_prompt_showstashstate 'yes'
-set __fish_git_prompt_showuntrackedfiles 'yes'
-set __fish_git_prompt_showupstream 'yes'
-set __fish_git_prompt_color_branch blue
-set __fish_git_prompt_color_upstream_ahead green
-set __fish_git_prompt_color_upstream_behind red
-
-# Status Chars
-set __fish_git_prompt_char_dirtystate '+'
-set __fish_git_prompt_char_stagedstate '→'
-set __fish_git_prompt_char_untrackedfiles '?'
-set __fish_git_prompt_char_stashstate '§'
-set __fish_git_prompt_char_upstream_ahead '+'
-set __fish_git_prompt_char_upstream_behind '-'
-
-alias storypoints="node -e \"console.log(Array(11).fill(1).reduce(([a,b, c]) => [b,a+b, c.concat(b)],[0,1, []])[2].join(' '))\""
-
 function __fish_describe_command
   return
 end
 
 # Git Tweaks
-alias git="hub"
-alias gitpr="git pull-request"
 alias checkout="git checkout $argv"
 alias green="git checkout green"
 alias master="git checkout master"
 
-alias vimf="vim (f)"
-
-function hub
-    switch $argv[1]
-        case pr
-            echo "You want to use gh"
-        case ci
-            command hub ci-status -v
-        case pu
-            set branchname (git rev-parse --abbrev-ref HEAD)
-            set_color green
-            echo 'Command: git push -u origin '$branchname
-
-            while true
-                read -l -P 'Do you want to continue? [y/N] ' confirm
-                switch $confirm
-                    case Y y
-                        command git push -u origin (git rev-parse --abbrev-ref HEAD)
-                        return 1
-                    case ''
-                        return 0
-                end
-            end
-        case '*'
-            command hub $argv
-    end
-end
-
-git config --global alias.s "status --short --branch"
-git config --global alias.cam "commit -am"
-git config --global alias.ri "rebase --interactive"
 git config --global alias.ap "add --patch"
+git config --global alias.cam "commit -am"
 git config --global alias.l1 'log --pretty=format:"%Cblue%h%Creset - %an, %Cred%ar%Creset : %Cgreen%s" --color=always'
+git config --global alias.pu "push -u origin (git rev-parse --abbrev-ref HEAD)"
+git config --global alias.ri "rebase --interactive"
+git config --global alias.s "status --short --branch"
+
+alias vimf="vim (f)"
 
 alias vim="nvim $argv"
 
@@ -205,20 +159,8 @@ function fish_prompt
     set_color white
     printf "%s %s" (date +"%H:%M:%S")
 
-    # set_color red
-    # echo -n (whoami)
-    # set_color white
-    # echo -n "@"
-
-    # set_color cyan
-    # echo -n (hostname)
-    # set_color white
-    # echo -n " in "
-
     set_color green
     echo -n (prompt_pwd)
-
-    # echo -n (__fish_git_prompt)
 
     set_color normal
     printf "\n~ "
@@ -246,9 +188,7 @@ if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
   fenv source '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
 end
 
-# Cargo / Rust
-set PATH $HOME/.cargo/bin $PATH
-
 # fnm
 set PATH /home/stephenyu/.fnm $PATH
+
 fnm env --multi | source
