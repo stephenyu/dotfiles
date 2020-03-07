@@ -15,6 +15,10 @@ set bomb
 set binary
 set ttyfast
 
+syntax sync minlines=100
+syntax sync maxlines=240
+set synmaxcol=800
+
 "" Directories for swp files
 set nobackup
 set noswapfile
@@ -40,5 +44,3 @@ function! HighlightWordUnderCursor()
 endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
-
-autocmd FileType css setlocal ts=4 sts=4 sw=4

@@ -1,5 +1,6 @@
 fish
 nvim/.netrwhist
 nvim/autoload
+nvim/plugged
 .vim/.netrwhist
 .svn

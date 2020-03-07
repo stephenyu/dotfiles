@@ -1,5 +1,15 @@
 let mapleader=" "
 
+nmap <F3> :Files<cr>
+
+nmap <F2> :Lexplore<CR>
+nmap <F1> :Explore<CR>
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+let g:netrw_banner = 0
+
 " Reload Vimfile
 map <leader>s :source ~/.config/nvim/init.vim<cr>
 
@@ -7,7 +17,6 @@ map <leader>s :source ~/.config/nvim/init.vim<cr>
 noremap <F4> :set hlsearch! hlsearch?<CR>
 
 " F5 Tabnew
-"nmap <F5> <ESC>:tabnew<RETURN>
 nmap <F5> :echoe "Use :tabnew, or perhaps a buffer ;)"<CR>
 
 " F6 Toggles Line Numbers
@@ -45,7 +54,7 @@ map <leader>pwd :put %<CR>
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
-"" no one is really happy until you have this shortcuts
+" My Common Typos
 cnoreabbrev W! w!
 cnoreabbrev W1 w!
 cnoreabbrev Q! q!
@@ -61,6 +70,6 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-"" Tabs
+" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT

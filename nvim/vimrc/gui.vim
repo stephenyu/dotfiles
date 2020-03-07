@@ -25,3 +25,13 @@ hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=237
+
+function! HighlightWordUnderCursor()
+  if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
+    exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
+  else
+    match none
+  endif
+endfunction
+
+autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()

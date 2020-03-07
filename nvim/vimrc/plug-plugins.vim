@@ -1,15 +1,14 @@
-let vimplug_exists=expand('~/.local/share/nvim/site/autoload/plug.vim')
+" https://github.com/junegunn/vim-plug
+" Check if Plug is installed.
+let plug_path = stdpath('config') . '/autoload/plug.vim'
 
-if !filereadable(vimplug_exists)
+if !filereadable(plug_path)
   echo "Installing Vim-Plug..."
-  echo "
-  silent !\curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  let g:not_finish_vimplug = "yes"
-
-  autocmd VimEnter * PlugInstall
+  echo ""
+  exe '!curl -fLo ' . plug_path . ' --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
 endif
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Status Bar
 Plug 'itchyny/lightline.vim'
@@ -32,7 +31,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'terryma/vim-multiple-cursors'
 
 " Easy Motion
-" Plug 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
 
 " Matching of Elements using %
 Plug 'tmhedberg/matchit'
@@ -43,17 +42,11 @@ Plug 'tpope/vim-commentary'
 " Shows the indentation of Lines
 Plug 'Yggdroot/indentLine'
 
-Plug 'w0rp/ale'
-
-Plug 'terryma/vim-multiple-cursors'
-
 " Git Wrapper
 Plug 'tpope/vim-fugitive'
 
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
-
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Github
 Plug 'ruanyl/vim-gh-line'
@@ -61,11 +54,13 @@ Plug 'ruanyl/vim-gh-line'
 " ---
 " LANGUAGE SPECIFICS
 " ---
-"
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 " TypeScript
-Plug 'HerringtonDarkholme/yats.vim' " Syntax
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Rust
 Plug 'rust-lang/rust.vim'
