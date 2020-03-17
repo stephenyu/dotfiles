@@ -14,6 +14,49 @@ git config --global alias.pu "push -u origin (git rev-parse --abbrev-ref HEAD)"
 git config --global alias.ri "rebase --interactive"
 git config --global alias.s "status --short --branch"
 
+function git
+    switch $argv[1]
+        case pu
+            set branchname (git rev-parse --abbrev-ref HEAD)
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo 'git push -u origin' $branchname
+
+            while true
+                read -l -P 'Do you want to continue? [y/N] ' confirm
+                switch $confirm
+                    case Y y
+                        command git push -u origin (git rev-parse --abbrev-ref HEAD)
+                        return 1
+                    case ''
+                        return 0
+                end
+            end
+        case 'remove-closed-branches'
+           set_color green
+           echo "The following branches will be removed:"
+           command git fetch --quiet --prune
+           set_color red
+           command git branch -vv | grep 'gone]' | awk '{print $1}'
+           set_color normal
+
+            while true
+                read -l -P 'Do you want to continue? [y/N] ' confirm
+                switch $confirm
+                    case Y y
+                        command git branch -vv | grep 'gone]' | awk '{print $1}' | xargs git branch -D
+                        return 1
+                    case ''
+                        return 0
+                end
+            end
+
+        case '*'
+            command hub $argv
+    end
+end
+
 alias vimf="vim (f)"
 
 alias vim="nvim $argv"
