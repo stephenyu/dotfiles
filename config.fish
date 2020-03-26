@@ -14,6 +14,28 @@ git config --global alias.pu "push -u origin (git rev-parse --abbrev-ref HEAD)"
 git config --global alias.ri "rebase --interactive"
 git config --global alias.s "status --short --branch"
 
+function originname
+   set originName (git rev-parse --symbolic-full-name --abbrev-ref "@{u}" 2> /dev/null)
+
+   switch originName
+        case ""
+            return 0
+        case "*"
+            echo $originName
+    end
+end
+
+function branchname
+   set branchname (git rev-parse --abbrev-ref HEAD 2> /dev/null)
+
+   switch branchname
+        case ""
+            return 0
+        case "*"
+            echo $branchname
+    end
+end
+
 function git
     switch $argv[1]
         case pu
@@ -204,6 +226,9 @@ function fish_prompt
 
     set_color green
     echo -n (prompt_pwd)
+
+    set_color brcyan
+    echo -n  " "(branchname) (originname)
 
     set_color normal
     printf "\n~ "
