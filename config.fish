@@ -2,17 +2,24 @@ function __fish_describe_command
   return
 end
 
+# Because Bat is awesome, but I keep forgetting :|
+alias cat="bat"
+
 # Git Tweaks
 alias checkout="git checkout $argv"
 alias green="git checkout green"
 alias master="git checkout master"
 
 git config --global alias.ap "add --patch"
+git config --global alias.c "commit -m"
 git config --global alias.cam "commit -am"
 git config --global alias.l1 'log --pretty=format:"%Cblue%h%Creset - %an, %Cred%ar%Creset : %Cgreen%s" --color=always'
 git config --global alias.pu "push -u origin (git rev-parse --abbrev-ref HEAD)"
 git config --global alias.ri "rebase --interactive"
-git config --global alias.s "status --short --branch"
+git config --global alias.s "status -uno --short --branch"
+git config --global alias.uno "status -uno"
+git config --global alias.df "diff"
+git config --global alias.pl "pull"
 
 function originname
    set originName (git rev-parse --symbolic-full-name --abbrev-ref "@{u}" 2> /dev/null)
@@ -107,18 +114,10 @@ end
 
 complete --command mov2gif
 
-function fzf
-    if count $argv > /dev/null
-        command fzf --query=$argv[1]
-    else
-        command fzf
-    end
-end
-
 alias f='ag -g "" | fzf'
 
-function cdfzf
-    set filepath (fzf)
+function cdf
+    set filepath (f)
     echo -n 'Filename: '
     set_color green
     echo $filepath
@@ -140,7 +139,7 @@ function cppwd
     echo $filepath
 end
 
-function cpfzf
+function cpf
     set filepath (fzf)
     set path (realpath $filepath)
     echo -n 'Copied: '
@@ -227,8 +226,9 @@ function fish_prompt
     set_color green
     echo -n (prompt_pwd)
 
-    set_color brcyan
-    echo -n  " "(branchname) (originname)
+    set_color cyan
+    # echo -n  " "(branchname) (originname)
+    echo -n  " "(gitstatus_count)
 
     set_color normal
     printf "\n~ "
