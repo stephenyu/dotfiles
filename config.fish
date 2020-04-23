@@ -10,37 +10,24 @@ alias checkout="git checkout $argv"
 alias green="git checkout green"
 alias master="git checkout master"
 
-git config --global alias.ap "add --patch"
-git config --global alias.c "commit -m"
-git config --global alias.cam "commit -am"
-git config --global alias.l1 'log --pretty=format:"%Cblue%h%Creset - %an, %Cred%ar%Creset : %Cgreen%s" --color=always'
-git config --global alias.pu "push -u origin (git rev-parse --abbrev-ref HEAD)"
-git config --global alias.ri "rebase --interactive"
-git config --global alias.s "status -uno --short --branch"
-git config --global alias.uno "status -uno"
-git config --global alias.df "diff"
-git config --global alias.pl "pull"
-
-function originname
-   set originName (git rev-parse --symbolic-full-name --abbrev-ref "@{u}" 2> /dev/null)
-
-   switch originName
-        case ""
-            return 0
-        case "*"
-            echo $originName
+function pull
+    switch $argv[1]
+        case green master
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo 'git checkout' $argv[1]
+            command git checkout $argv[1]
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo 'git pull'
+            command git pull
     end
 end
 
-function branchname
-   set branchname (git rev-parse --abbrev-ref HEAD 2> /dev/null)
-
-   switch branchname
-        case ""
-            return 0
-        case "*"
-            echo $branchname
-    end
+function gitfiles
+    command git status --porcelain | awk '{print $2}' | fzf $argv
 end
 
 function git
@@ -86,8 +73,10 @@ function git
     end
 end
 
-alias vimf="vim (f)"
+# branches doesn't take files as an argument
+complete -c branches -f
 
+alias vimf="vim (f)"
 alias vim="nvim $argv"
 
 function gcal
@@ -106,13 +95,13 @@ function mov2mp4
    command ffmpeg -i "$argv[1]" -vcodec h264 -acodec an "$argv[2]"
 end
 
-complete --command mov2mp4
+complete --command mov2mp4 -f -a "(ls -t *.mov)"
 
 function mov2gif
    command ffmpeg -i "$argv[1]"  -vf scale=$argv[2]:-1 -pix_fmt rgb8 -r 30 -f gif - | gifsicle --optimize=9 --delay=3 > "$argv[3]"
 end
 
-complete --command mov2gif
+complete --command mov2gif -f -a "(ls -t *.mov)"
 
 alias f='ag -g "" | fzf'
 
@@ -227,7 +216,6 @@ function fish_prompt
     echo -n (prompt_pwd)
 
     set_color cyan
-    # echo -n  " "(branchname) (originname)
     echo -n  " "(gitstatus_count)
 
     set_color normal
