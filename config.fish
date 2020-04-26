@@ -23,6 +23,8 @@ function pull
             set_color normal
             echo 'git pull'
             command git pull
+        case '*'
+            command git pull $argv
     end
 end
 
