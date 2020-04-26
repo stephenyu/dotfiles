@@ -79,9 +79,19 @@ complete -c branches -f
 alias vimf="vim (f)"
 alias vim="nvim $argv"
 
+alias vipel="vipe l"
+
 function vipe
-   command rm /tmp/vipe
-   command nvim /tmp/vipe
+   if count $argv > /dev/null
+       switch $argv[1]
+           case l last
+               command nvim /tmp/vipe
+       end
+    else
+       command rm /tmp/vipe
+       command nvim /tmp/vipe
+    end
+
    command sh /tmp/vipe
 end
 
