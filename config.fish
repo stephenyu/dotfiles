@@ -79,6 +79,12 @@ complete -c branches -f
 alias vimf="vim (f)"
 alias vim="nvim $argv"
 
+function vipe
+   command rm /tmp/vipe
+   command nvim /tmp/vipe
+   command sh /tmp/vipe
+end
+
 function gcal
     if count $argv > /dev/null
         command gcalcli $argv
@@ -246,5 +252,8 @@ end
 
 # fnm
 set PATH /home/stephenyu/.fnm $PATH
+
+# Cargo
+set PATH ~/.cargo/bin $PATH
 
 fnm env --multi | source
