@@ -1,9 +1,12 @@
 let mapleader=" "
 
+" FZF Magic
 nmap <F3> :Files<cr>
+nmap <Leader>b :Buffers<cr>
 
 nmap <F2> :Lexplore<CR>
 nmap <F1> :Explore<CR>
+
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 2
 let g:netrw_altv = 1
@@ -56,6 +59,7 @@ noremap <Leader>v :<C-u>vsplit<CR>
 
 " My Common Typos
 cnoreabbrev W! w!
+cnoreabbrev Qa! qa!
 cnoreabbrev W1 w!
 cnoreabbrev Q! q!
 cnoreabbrev Q1 q!

@@ -165,7 +165,7 @@ function dnginx
     echo -n '→ '
     set_color normal
     echo 'Starting Docker nginx:alpine at :'$port
-    command docker run -it --rm -p $port:80 -v (pwd):/usr/share/nginx/html nginx:alpine
+    command docker run -it --rm -p $port:80 -v (pwd):/usr/share/nginx/html nginx:1.18.0-alpine
 end
 
 function dnginx:h2
@@ -254,6 +254,8 @@ case Darwin
 case Linux
     setxkbmap -option caps:escape
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
+
+    alias pbcopy='xsel --clipboard --input'
 end
 
 if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
