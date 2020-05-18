@@ -1,4 +1,3 @@
-" https://github.com/junegunn/vim-plug
 " Check if Plug is installed.
 let plug_path = stdpath('config') . '/autoload/plug.vim'
 
@@ -51,13 +50,16 @@ Plug 'airblade/vim-gitgutter'
 " Github
 Plug 'ruanyl/vim-gh-line'
 
+" Snippets
+Plug 'honza/vim-snippets'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
 
 " TypeScript
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-snippets']
 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
