@@ -10,6 +10,14 @@ alias checkout="git checkout $argv"
 alias green="git checkout green"
 alias master="git checkout master"
 
+function ghv
+   if count $argv > /dev/null
+      command gh pr view $argv -w
+   else
+      command gh pr view -w
+   end
+end
+
 function pull
     switch $argv[1]
         case green master
@@ -29,7 +37,7 @@ function pull
 end
 
 function gitfiles
-    command git status --porcelain | awk '{print $2}' | fzf $argv
+    command git status --short | awk '{print $2}' | fzf $argv
 end
 
 function git
@@ -69,9 +77,8 @@ function git
                         return 0
                 end
             end
-
         case '*'
-            command hub $argv
+            command git $argv
     end
 end
 

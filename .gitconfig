@@ -1,0 +1,26 @@
+[user]
+	name = stephenyu
+	email = stephen@canva.com
+[protocol]
+	version = 2
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	s = status -uno --short --branch
+	co = checkout
+	ri = rebase --interactive
+	rs = rebase --interactive
+	ap = add --patch
+	cam = commit -am
+	diffc = diff --cached
+	l1 = log --pretty=format:\"%Cblue%h%Creset - %an, %Cred%ar%Creset : %Cgreen%s\" --color=always
+	ci = ci-status -v
+	pu = push -u origin (git rev-parse --abbrev-ref HEAD)
+	uno = status -uno
+	ct = commit -m
+	df = diff
+	pl = pull

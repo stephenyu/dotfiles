@@ -1,4 +1,7 @@
 {
     "tsserver.enable": true,
-    "tsserver.log": "verbose"
+    "tsserver.log": "verbose",
+    "eslint.autoFixOnSave": true,
+    "tsserver.maxTsServerMemory": 6144,
+    "coc.preferences.jumpCommand": "drop"
 }
