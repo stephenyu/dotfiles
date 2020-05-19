@@ -35,6 +35,10 @@ else
     set clipboard=unnamed
 endif
 
+" Live Substitutions
+" http://vimcasts.org/episodes/neovim-eyecandy/
+set inccommand=split
+
 function! HighlightWordUnderCursor()
 	if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
 		exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'

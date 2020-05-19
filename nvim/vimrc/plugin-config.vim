@@ -70,4 +70,6 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gh :call CocAction('doHover')<CR>
 
+noremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+
 let g:ale_html_tidy_options = '-q -e -config ~/tidy.conf -language en'
