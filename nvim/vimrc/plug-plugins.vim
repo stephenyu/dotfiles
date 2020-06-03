@@ -53,6 +53,9 @@ Plug 'ruanyl/vim-gh-line'
 " Snippets
 Plug 'honza/vim-snippets'
 
+" Quick Motion
+Plug 'justinmk/vim-sneak'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---

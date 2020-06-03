@@ -21,7 +21,9 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-let g:ale_fix_on_save = 1
+let g:sneak#label = 1
+
+let g:jsdoc_lehre_path = '/usr/local/bin/lehre'
 
 " CTags
 nnoremap <leader>. :CtrlPTag<cr>
