@@ -56,6 +56,9 @@ Plug 'honza/vim-snippets'
 " Quick Motion
 Plug 'justinmk/vim-sneak'
 
+" Highlight Word
+Plug 'RRethy/vim-illuminate'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
@@ -64,11 +67,10 @@ Plug 'justinmk/vim-sneak'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-snippets']
 
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-
-" Rust
-Plug 'rust-lang/rust.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'stephenyu/vim-jsx-typescript'
 
 " Proto
 Plug 'uarun/vim-protobuf'

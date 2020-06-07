@@ -17,13 +17,7 @@ set nofoldenable
 let g:vim_markdown_override_foldtext = 0
 let g:vim_markdown_conceal = 0
 
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 let g:sneak#label = 1
-
-let g:jsdoc_lehre_path = '/usr/local/bin/lehre'
 
 " CTags
 nnoremap <leader>. :CtrlPTag<cr>
@@ -35,9 +29,6 @@ endif
 " Stop Yggdroot/indentLine from hiding Double Quotes in JSON
 autocmd Filetype json let g:indentLine_enabled = 0
 autocmd Filetype json :IndentLinesDisable
-
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.jsx set filetype=typescript.jsx
 
 set shortmess+=c
 
