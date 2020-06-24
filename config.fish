@@ -271,6 +271,9 @@ if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
   fenv source '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
 end
 
+# update Slack Status on WFH or Office
+slack_status_home_office
+
 # fnm
 set PATH /home/stephenyu/.fnm $PATH
 
