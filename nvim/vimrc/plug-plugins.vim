@@ -59,6 +59,12 @@ Plug 'justinmk/vim-sneak'
 " Highlight Word
 Plug 'RRethy/vim-illuminate'
 
+" Spell Checking
+Plug 'kamykn/spelunker.vim'
+
+" WordMotion
+Plug 'chaoren/vim-wordmotion'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
