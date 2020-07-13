@@ -214,11 +214,6 @@ function spotify
     r.j3ss.co/spotify
 end
 
-function zoom
-    command docker run -d --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix\$DISPLAY --device /dev/video0 --device /dev/snd:/dev/snd \
-    --device /dev/dri -v /dev/shm:/dev/shm jess/zoom-us
-end
-
 # Docker Tweaks
 
 alias dr="docker run $argv"
@@ -278,7 +273,9 @@ if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
 end
 
 # update Slack Status on WFH or Office
-slack_status_home_office
+if test -e slack_status_home_office
+  slack_status_home_office
+end
 
 # fnm
 set PATH /home/stephenyu/.fnm $PATH
