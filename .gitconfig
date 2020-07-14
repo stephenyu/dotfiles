@@ -24,3 +24,4 @@
 	ct = commit -m
 	df = diff
 	pl = pull
+	adpi = add -pi
