@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'
 
 " fzf vim
 Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Surround
@@ -68,6 +69,9 @@ Plug 'chaoren/vim-wordmotion'
 " ---
 " LANGUAGE SPECIFICS
 " ---
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 " TypeScript
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
