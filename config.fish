@@ -40,8 +40,14 @@ function gitfiles
     command git status --short | awk '{print $2}' | fzf $argv
 end
 
-function git
+function gh
     switch $argv[1]
+        case push
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo 'git push (repeated until it passes...)'
+            git_push
         case pu
             set branchname (git rev-parse --abbrev-ref HEAD)
             set_color green
@@ -78,7 +84,7 @@ function git
                 end
             end
         case '*'
-            command git $argv
+            command gh $argv
     end
 end
 
