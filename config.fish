@@ -9,6 +9,14 @@ alias cat="bat"
 alias checkout="git checkout $argv"
 alias green="git checkout green"
 alias master="git checkout master"
+alias push="git push $argv"
+
+alias storybook="yarn storybook:single (f)"
+
+function fixup
+  command yarn lint:deps:changed:fix
+  command yarn lint:format:changed:fix
+end
 
 function ghv
    if count $argv > /dev/null
@@ -42,6 +50,12 @@ end
 
 function gh
     switch $argv[1]
+        case diff2html
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo 'git diff' $argv[2] '| diff2html -i stdin'
+            git diff $argv[2] | diff2html -i stdin
         case push
             set_color green
             echo -n '>> '
@@ -273,9 +287,9 @@ if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
 end
 
 # update Slack Status on WFH or Office
-if test -e slack_status_home_office
-  slack_status_home_office
-end
+#if slack_status_home_office
+#  slack_status_home_office
+#end
 
 # fnm
 set PATH /home/stephenyu/.fnm $PATH

@@ -12,8 +12,8 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	s = status -uno --short --branch
 	co = checkout
-	ri = rebase --interactive
-	rs = rebase --interactive
+	c- = checkout -
+	rb = rebase --interactive
 	ap = add --patch
 	cam = commit -am
 	diffc = diff --cached

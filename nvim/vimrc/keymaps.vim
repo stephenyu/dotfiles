@@ -3,6 +3,11 @@ let mapleader=" "
 nmap <F3> :Files<cr>
 nmap <leader>b :Buffers<cr>
 
+" Insert a Single Char in Normal
+nnoremap <Leader>i i_<Esc>r
+" Insert a Single Char in Normal
+nnoremap <Leader>a a_<Esc>r
+
 nmap <F2> :Lexplore<CR>
 nmap <F1> :Explore<CR>
 let g:netrw_liststyle = 3
