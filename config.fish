@@ -14,7 +14,7 @@ alias push="git push $argv"
 alias storybook="yarn storybook:single (f)"
 
 function fixup
-  command yarn lint:deps:changed:fix
+  command yarn lint:deps:fix
   command yarn lint:format:changed:fix
 end
 
