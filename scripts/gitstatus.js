@@ -4,7 +4,7 @@ const child_process = require("child_process");
 
 const exec = (command) => {
   return new Promise((resolve, reject) => {
-    child_process.exec(command, (error, stdout, stderr) => {
+    child_process.exec(command, {maxBuffer: 1024 * 500}, (error, stdout, stderr) => {
       if (error || stderr) reject(error);
       resolve(stdout);
     });
