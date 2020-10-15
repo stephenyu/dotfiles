@@ -3,5 +3,7 @@
     "tsserver.log": "verbose",
     "eslint.autoFixOnSave": true,
     "tsserver.maxTsServerMemory": 6144,
-    "coc.preferences.jumpCommand": "drop"
+    "coc.preferences.jumpCommand": "drop",
+    "javascript.suggestionActions.enabled": false,
+    "typescript.suggestionActions.enabled": false
 }

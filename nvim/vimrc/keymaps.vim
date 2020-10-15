@@ -2,6 +2,7 @@ let mapleader=" "
 
 nmap <F3> :Files<cr>
 nmap <leader>b :Buffers<cr>
+nnoremap <leader><leader> :b#<cr>
 
 " Insert a Single Char in Normal
 nnoremap <Leader>i i_<Esc>r

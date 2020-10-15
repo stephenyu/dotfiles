@@ -8,3 +8,6 @@ tasklist/!
 arity/!
 canva/!
 screenshot/!
+keypress
+keyup
+findCategories/!

@@ -25,3 +25,5 @@
 	df = diff
 	pl = pull
 	adpi = add -pi
+[pull]
+	rebase = false

@@ -11,11 +11,14 @@ alias green="git checkout green"
 alias master="git checkout master"
 alias push="git push $argv"
 
+# Work Specific
 alias storybook="yarn storybook:single (f)"
+alias rbgreen="git checkout green; git pull; git checkout -; git rebase origin/green"
 
 function fixup
   command yarn lint:deps:fix
   command yarn lint:format:changed:fix
+  command unvar
 end
 
 function ghv
@@ -249,21 +252,35 @@ function d
 end
 
 function fish_prompt
-    set_color white
-    printf "%s %s" (date +"%H:%M:%S")
+    if test $status -eq 0
+       set failed 0
+    else
+       set failed 1
+    end
 
-    set_color green
-    echo -n (prompt_pwd)
+    set gitstatus (gitstatus_count)
+    if test -n "$gitstatus"
+        printf "\n"
+        set_color cyan
+        echo -n $gitstatus
+    end
 
-    set_color cyan
-    echo -n  " "(gitstatus_count)
-
-    set_color normal
-    printf "\n~ "
+    if test $failed -eq 0
+        set_color normal
+        printf "\n; "
+    else
+        set_color red
+        printf "\n; "
+        set_color normal
+    end
 end
 
 function fish_right_prompt
-  #intentionally left blank
+  # set_color green
+  # echo -n (prompt_pwd)
+
+  # set_color white
+  # printf " %s %s" (date +"%H:%M:%S")
  end
 
 set -gx SVN_EDITOR nvim
@@ -287,9 +304,9 @@ if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
 end
 
 # update Slack Status on WFH or Office
-#if slack_status_home_office
-#  slack_status_home_office
-#end
+if slack_status_home_office
+  slack_status_home_office
+end
 
 # fnm
 set PATH /home/stephenyu/.fnm $PATH

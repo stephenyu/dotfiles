@@ -1,3 +1,7 @@
+let g:spelunker_highlight_type = 1
+highlight SpelunkerSpellBad cterm=underline gui=underline
+let g:spelunker_disable_acronym_checking = 1
+
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 let g:gruvbox_contrast_dark='hard'
@@ -33,7 +37,7 @@ autocmd Filetype json :IndentLinesDisable
 set shortmess+=c
 
 " https://github.com/neoclide/coc.nvim
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']
 
 " always show signcolumns
 set signcolumn=yes
@@ -62,6 +66,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gh :call CocAction('doHover')<CR>
+nmap <silent> qf  <Plug>(coc-fix-current)
 
 noremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
