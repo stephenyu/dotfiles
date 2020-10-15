@@ -258,11 +258,14 @@ function fish_prompt
        set failed 1
     end
 
+    set_color green
+    printf "\n"
+    echo -n (prompt_pwd)
+
     set gitstatus (gitstatus_count)
     if test -n "$gitstatus"
-        printf "\n"
         set_color cyan
-        echo -n $gitstatus
+        echo -n " "$gitstatus
     end
 
     if test $failed -eq 0
