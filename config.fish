@@ -279,12 +279,8 @@ function fish_prompt
 end
 
 function fish_right_prompt
-  # set_color green
-  # echo -n (prompt_pwd)
-
-  # set_color white
-  # printf " %s %s" (date +"%H:%M:%S")
- end
+  #intentionally blank
+end
 
 set -gx SVN_EDITOR nvim
 set -gx VISUAL nvim
