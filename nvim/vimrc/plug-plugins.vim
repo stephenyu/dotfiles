@@ -61,7 +61,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'RRethy/vim-illuminate'
 
 " Spell Checking
-Plug 'kamykn/spelunker.vim'
+" Plug 'kamykn/spelunker.vim'
 
 " WordMotion
 Plug 'chaoren/vim-wordmotion'
