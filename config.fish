@@ -15,6 +15,8 @@ alias rand="head -c 12 /dev/urandom | base64"
 
 function anon
   set -lx GIT_COMMITTER_DATE (gitdate)
+  set -lx GIT_COMMITTER_NAME "Stephen"
+  set -lx GIT_COMMITTER_EMAIL "959786+stephenyu@users.noreply.github.com"
   command git commit --author="Stephen <959786+stephenyu@users.noreply.github.com>" --date="\""(gitdate)"\"" $argv
 end
 
