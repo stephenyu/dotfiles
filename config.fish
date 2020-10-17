@@ -294,8 +294,8 @@ case Darwin
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
     # update Slack Status on WFH or Office
-    if slack_status_home_office
-      slack_status_home_office
+    if slackstatus
+      slackstatus
     end
 case Linux
     setxkbmap -option caps:escape
