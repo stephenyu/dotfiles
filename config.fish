@@ -263,7 +263,7 @@ function fish_prompt
     printf "\n"
     echo -n (prompt_pwd)
 
-    set gitstatus (gitstatus_count)
+    set gitstatus (gitstatus)
     if test -n "$gitstatus"
         set_color cyan
         echo -n " "$gitstatus

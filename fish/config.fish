@@ -1,1 +1,1 @@
-/Users/stephenyu/Documents/dotfiles/config.fish
+../config.fish
