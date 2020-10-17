@@ -9,6 +9,7 @@ alias cat="bat"
 alias checkout="git checkout $argv"
 alias green="git checkout green"
 alias master="git checkout master"
+alias main="git checkout main"
 alias push="git push $argv"
 
 # Work Specific
