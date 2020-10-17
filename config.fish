@@ -11,6 +11,12 @@ alias green="git checkout green"
 alias master="git checkout master"
 alias main="git checkout main"
 alias push="git push $argv"
+alias rand="head -c 12 /dev/urandom | base64"
+
+function anon
+  set -lx GIT_COMMITTER_DATE (gitdate)
+  command git commit --author="Stephen <959786+stephenyu@users.noreply.github.com>" --date="\""(gitdate)"\"" $argv
+end
 
 # Work Specific
 alias storybook="yarn storybook:single (f)"

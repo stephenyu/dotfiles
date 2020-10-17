@@ -1,6 +1,7 @@
 [user]
 	name = stephenyu
 	email = stephen@canva.com
+	signingkey = F37DBC16AB5D2B68
 [protocol]
 	version = 2
 [filter "lfs"]
@@ -28,3 +29,5 @@
 	adpi = add -pi
 [pull]
 	rebase = false
+[gpg]
+	program = gpg
