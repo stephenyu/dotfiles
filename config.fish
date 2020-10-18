@@ -62,6 +62,16 @@ end
 
 function gh
     switch $argv[1]
+        case commit
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo -n 'Setting Date to: '
+            set_color blue
+            echo (gitdate)
+            set_color normal
+            set -lx GIT_COMMITTER_DATE (gitdate)
+            git commit --date="\""(gitdate)"\""
         case diff2html
             set_color green
             echo -n '>> '
@@ -302,25 +312,25 @@ case Darwin
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
     # update Slack Status on WFH or Office
-    if slackstatus
-      slackstatus
-    end
+    #if slackstatus
+    #  slackstatus &
+    #end
 case Linux
     setxkbmap -option caps:escape
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 
     alias pbcopy='xsel --clipboard --input'
 end
-
+#
 if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
   fenv source '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
 end
-
-
+#
+#
 # fnm
 set PATH /home/stephenyu/.fnm $PATH
-
+#
 # Cargo
 set PATH ~/.cargo/bin $PATH
-
-fnm env --multi | source
+#
+#fnm env --multi | source
