@@ -1,6 +1,6 @@
 let mapleader=" "
 
-nmap <F3> :Files<cr>
+nmap <F3> :GFiles<cr>
 nmap <leader>b :Buffers<cr>
 nnoremap <leader><leader> :b#<cr>
 
@@ -42,10 +42,6 @@ vmap <Down> ]egv
 nnoremap o o<ESC>
 nnoremap O O<ESC>
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-
 " Delete Windows Carriage Returns
 nnoremap <Leader>dwcr :%s/\r\+$//e<CR>
 vnoremap <Leader>dwcr :%s/\r\+$//e<CR>
@@ -53,7 +49,9 @@ vnoremap <Leader>dwcr :%s/\r\+$//e<CR>
 " Copy and Paste using the Clipboard
 vnoremap <Leader>c "+y
 vnoremap <Leader>v "+p
-nnoremap <Leader>v "+p
+
+" Delete line and anything between parentheses
+nnoremap da% $d0d%
 
 " Path File Path
 map <leader>pwd :put %<CR>

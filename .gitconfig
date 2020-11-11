@@ -31,3 +31,5 @@
 	rebase = false
 [gpg]
 	program = gpg
+[worktree]
+	guessRemote = true

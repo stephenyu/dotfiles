@@ -16,6 +16,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'stephenyu/vim-tomorrow-theme'
 Plug 'morhetz/gruvbox'
 
+" Show Marks
+Plug 'kshenoy/vim-signature'
+
 " fzf vim
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

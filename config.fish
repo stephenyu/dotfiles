@@ -11,7 +11,125 @@ alias green="git checkout green"
 alias master="git checkout master"
 alias main="git checkout main"
 alias push="git push $argv"
-alias rand="head -c 12 /dev/urandom | base64"
+
+function rand
+  command bat /usr/share/dict/words | awk '{ if (length($0) < 6) print }' | shuf -n3 | awk '{printf S"''"$0"''";S="-"}' | tr '[:upper:]' '[:lower:]'
+end
+
+function cdb
+   if count $argv > /dev/null
+      set target $argv[1]
+      set basename (basename $PWD)
+      while not string match $target $basename
+        cd ..
+        set basename (basename $PWD)
+      end
+   else
+      echo "cdb [FOLDER_NAME]"
+   end
+end
+
+function branch
+  set target (git branch | grep -v "*" | fzf | awk '{$1=$1;print}')
+
+  switch $target
+        case "+*"
+            set worktree_name (echo $target | awk '{print $2}')
+            set folder (git worktree list | rg $worktree_name | awk '{print $1}')
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo -n 'cd '
+            set_color blue
+            echo -n $folder
+            set_color normal
+            echo -n '@'
+            set_color red
+            echo $worktree_name
+            set_color normal
+            cd $folder
+        case '*'
+            git checkout $target
+  end
+end
+
+function worktree
+    switch $argv[1]
+        case add
+            set words (rand)
+            set main_dir (git worktree list | awk '{print $1}' | sort -n | head -n1)
+            set short_date (date +'%d-%m-%Y')
+            set directory $main_dir"-"$short_date"-"$words
+
+            set_color green
+            echo -n '>> '
+            set_color normal
+
+            switch $argv[2]
+                case -b
+                    echo ' '$argv[3]
+                    set_color normal
+                    echo -n 'git worktree add '$directory' -b '$argv[3]
+                    git worktree add $directory -b $argv[3]
+                case '*'
+                    echo ' '$argv[2]
+                    set_color normal
+                    echo -n 'git worktree add '$directory $argv[2]
+                    git worktree add $directory $argv[2]
+            end
+
+            cd $directory
+        case rm
+            set_color red
+            set_color normal
+            set target (git worktree list | fzf)
+            set directory (echo $target | awk '{print $1}')
+            set_color green
+            echo -n '>> '
+            set_color red
+            echo -n 'Deleting Directory: '
+            set_color normal
+            echo $directory
+            sleep 3
+
+            rm -r $directory
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo 'rm -r' $directory
+
+            git worktree prune
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo 'git worktree prune'
+        case main
+            set main_dir (git worktree list | awk '{print $1}' | sort -n | head -n1)
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo -n 'cd '
+            set_color blue
+            echo $main_dir
+            set_color normal
+            cd $main_dir
+        case ''
+            set worktree_name (git worktree list | awk '{print $3}' | sed 's/[][]//g' | fzf)
+            set folder (git worktree list | rg $worktree_name | awk '{print $1}')
+            set_color green
+            echo -n '>> '
+            set_color normal
+            echo -n 'cd '
+            set_color blue
+            echo -n $folder
+            set_color normal
+            echo -n '@'
+            set_color red
+            echo $worktree_name
+            set_color normal
+            cd $folder
+    end
+end
 
 function anon
   set -lx GIT_COMMITTER_DATE (gitdate)
@@ -20,13 +138,29 @@ function anon
   command git commit --author="Stephen <959786+stephenyu@users.noreply.github.com>" --date="\""(gitdate)"\"" $argv
 end
 
+function cplast
+  set PREV_CMD (history | head -1)
+  set PREV_OUTPUT (eval $PREV_CMD)
+  echo '; ' $PREV_CMD "\n" $PREV_OUTPUT
+end
+
 # Work Specific
 alias storybook="yarn storybook:single (f)"
 alias rbgreen="git checkout green; git pull; git checkout -; git rebase origin/green"
+alias rbmaster="git checkout master; git pull; git checkout -; git rebase origin/master"
 
-function fixup
-  command yarn lint:deps:fix
+function rb
+    set branch ($argv[1])
+    command git checkout $branch
+    command git pull
+    command git checkout -
+    command git rebase origin/$branch
+end
+
+function lintall
+  command yarn lint:deps:changed:fix
   command yarn lint:format:changed:fix
+  command yarn lint:ts:changed:fix
   command unvar
 end
 
@@ -173,7 +307,12 @@ complete --command mov2gif -f -a "(ls -t *.mov)"
 alias f='ag -g "" | fzf'
 
 function cdf
-    set filepath (f)
+    if count $argv > /dev/null
+        set filepath (f --query $argv[1])
+    else
+        set filepath (f)
+    end
+
     echo -n 'Filename: '
     set_color green
     echo $filepath
@@ -332,5 +471,3 @@ set PATH /home/stephenyu/.fnm $PATH
 #
 # Cargo
 set PATH ~/.cargo/bin $PATH
-#
-#fnm env --multi | source

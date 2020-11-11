@@ -2,7 +2,7 @@ let g:spelunker_highlight_type = 1
 highlight SpelunkerSpellBad cterm=underline gui=underline
 let g:spelunker_disable_acronym_checking = 1
 
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" let $FZF_DEFAULT_COMMAND = '--tiebreak=index'
 
 let g:gruvbox_contrast_dark='hard'
 
