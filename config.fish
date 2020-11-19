@@ -16,19 +16,6 @@ function rand
   command bat /usr/share/dict/words | awk '{ if (length($0) < 6) print }' | shuf -n3 | awk '{printf S"''"$0"''";S="-"}' | tr '[:upper:]' '[:lower:]'
 end
 
-function cdb
-   if count $argv > /dev/null
-      set target $argv[1]
-      set basename (basename $PWD)
-      while not string match $target $basename
-        cd ..
-        set basename (basename $PWD)
-      end
-   else
-      echo "cdb [FOLDER_NAME]"
-   end
-end
-
 function branch
   set target (git branch | grep -v "*" | fzf | awk '{$1=$1;print}')
 
