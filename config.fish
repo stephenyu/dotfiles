@@ -11,22 +11,16 @@ alias green="git checkout green"
 alias master="git checkout master"
 alias main="git checkout main"
 alias push="git push $argv"
+alias please="sudo"
+alias pls="sudo"
 
 function rand
   command bat /usr/share/dict/words | awk '{ if (length($0) < 6) print }' | shuf -n3 | awk '{printf S"''"$0"''";S="-"}' | tr '[:upper:]' '[:lower:]'
 end
 
 function cdb
-   if count $argv > /dev/null
-      set target $argv[1]
-      set basename (basename $PWD)
-      while not string match $target $basename
-        cd ..
-        set basename (basename $PWD)
-      end
-   else
-      echo "cdb [FOLDER_NAME]"
-   end
+     set path (cdback $argv)
+     cd $path
 end
 
 function branch
@@ -79,7 +73,7 @@ function worktree
             end
 
             cd $directory
-        case rm
+        case delete
             set_color red
             set_color normal
             set target (git worktree list | fzf)
@@ -161,7 +155,6 @@ function lintall
   command yarn lint:deps:changed:fix
   command yarn lint:format:changed:fix
   command yarn lint:ts:changed:fix
-  command unvar
 end
 
 function ghv
@@ -299,7 +292,7 @@ end
 complete --command mov2mp4 -f -a "(ls -t *.mov)"
 
 function mov2gif
-   command ffmpeg -i "$argv[1]"  -vf scale=$argv[2]:-1 -pix_fmt rgb8 -r 30 -f gif - | gifsicle --optimize=9 --delay=3 > "$argv[3]"
+   command ffmpeg -i "$argv[1]"  -vf scale=$argv[2]:-1 -pix_fmt rgb8 -r 30 -f gif - | gifsicle --optimize=9 --delay=3 > "$argv[2]"
 end
 
 complete --command mov2gif -f -a "(ls -t *.mov)"
@@ -464,10 +457,10 @@ end
 if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
   fenv source '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
 end
-#
-#
+
+
 # fnm
-set PATH /home/stephenyu/.fnm $PATH
-#
+#set PATH /home/stephenyu/.fnm $PATH
+
 # Cargo
 set PATH ~/.cargo/bin $PATH

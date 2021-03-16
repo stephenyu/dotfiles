@@ -5,9 +5,13 @@ SETUVAR FZF_LEGACY_KEYBINDINGS:1
 SETUVAR FZF_PREVIEW_DIR_CMD:ls
 SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX_HEIGHT:40\x25
+SETUVAR __async_prompt_fish_prompt_text_1252:\x1b\x5b32m\x0a\x7e/W/c/web\x1b\x5b36m\x20green\x20origin/green\x20\u2713\x1b\x5b31m\x0a\x3b\x20\x1b\x5bm\x0f
+SETUVAR __async_prompt_fish_prompt_text_6855:\x1b\x5b32m\x0a\x7e/W/c/web\x1b\x5b36m\x20green\x20origin/green\x20\u2713\x1b\x5bm\x0f\x0a\x3b\x20
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_initialized:3100
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/stephenyu/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/stephenyu/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:\x2d\x2dbold

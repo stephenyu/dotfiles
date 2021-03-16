@@ -4,7 +4,7 @@ const child_process = require("child_process");
 
 const exec = (command) => {
   return new Promise((resolve, reject) => {
-    child_process.exec(command, {maxBuffer: 1024 * 500}, (error, stdout, stderr) => {
+    child_process.exec(command, {maxBuffer: 1024 * 9000}, (error, stdout, stderr) => {
       if (error || stderr) reject(error);
       resolve(stdout);
     });
@@ -37,6 +37,7 @@ const constructGitStatus = (gitStatusOutput) => {
   // https://git-scm.com/docs/git-status#_short_format
   let updated = 0; // ' M'
   let deleted = 0; // ' D'
+  let untracked = 0; // '??'
 
   gitStatusOutput.split('\n').forEach(line => {
     const indicator = line.substring(0, 2);
@@ -62,6 +63,10 @@ const constructGitStatus = (gitStatusOutput) => {
 
   if (deleted > 0) {
     message += `x${deleted}`;
+  }
+
+    if (untracked > 0) {
+    message += `n${untracked}`;
   }
 
   if (message.length === 0)

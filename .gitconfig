@@ -32,4 +32,20 @@
 [gpg]
 	program = gpg
 [worktree]
-	guessRemote = true
+    guessRemote = true
+
+[core]
+    pager = delta
+	fsmonitor = rs-git-fsmonitor
+
+[diff]
+    colorMoved = default
+
+[delta]
+    line-numbers = true
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = Monokai Extended
+
+[interactive]
+    diffFilter = delta --color-only

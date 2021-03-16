@@ -1,6 +1,7 @@
 let mapleader=" "
 
 nmap <F3> :GFiles<cr>
+nmap <leader><F3> :Files<cr>
 nmap <leader>b :Buffers<cr>
 nnoremap <leader><leader> :b#<cr>
 
