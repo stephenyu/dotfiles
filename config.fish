@@ -18,11 +18,6 @@ function rand
   command bat /usr/share/dict/words | awk '{ if (length($0) < 6) print }' | shuf -n3 | awk '{printf S"''"$0"''";S="-"}' | tr '[:upper:]' '[:lower:]'
 end
 
-function cdb
-     set path (cdback $argv)
-     cd $path
-end
-
 function branch
   set target (git branch | grep -v "*" | fzf | awk '{$1=$1;print}')
 
@@ -132,13 +127,6 @@ function anon
   command git commit --author="Stephen <959786+stephenyu@users.noreply.github.com>" --date="\""(gitdate)"\"" $argv
 end
 
-function cplast
-  set PREV_CMD (history | head -1)
-  set PREV_OUTPUT (eval $PREV_CMD)
-  echo '; ' $PREV_CMD "\n" $PREV_OUTPUT
-end
-
-# Work Specific
 alias storybook="yarn storybook:single (f)"
 alias rbgreen="git checkout green; git pull; git checkout -; git rebase origin/green"
 alias rbmaster="git checkout master; git pull; git checkout -; git rebase origin/master"
