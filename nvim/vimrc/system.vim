@@ -29,11 +29,11 @@ set updatetime=10
 set previewheight=40
 
 " Set Clipboard
-if has('unix')
-    set clipboard=unnamedplus " Standard Ctrl+C Clipboard, *not* Copy on Select
-else
-    set clipboard=unnamed
-endif
+" if has('unix')
+    set clipboard+=unnamedplus " Standard Ctrl+C Clipboard, *not* Copy on Select
+" else
+"     set clipboard=unnamed
+" endif
 
 " Live Substitutions
 " http://vimcasts.org/episodes/neovim-eyecandy/

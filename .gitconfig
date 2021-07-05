@@ -4,11 +4,6 @@
 	signingkey = F37DBC16AB5D2B68
 [protocol]
 	version = 2
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	s = status -uno --short --branch
@@ -34,10 +29,6 @@
 [worktree]
     guessRemote = true
 
-[core]
-    pager = delta
-	fsmonitor = rs-git-fsmonitor
-
 [diff]
     colorMoved = default
 
@@ -49,3 +40,8 @@
 
 [interactive]
     diffFilter = delta --color-only
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

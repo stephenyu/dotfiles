@@ -272,9 +272,9 @@ end
 function mov2mp4
    set_color green
    echo -n 'File Details: '
-   command ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1 "$argv[1]"
+   #command ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1 "$argv[1]"
    set_color normal
-   command ffmpeg -i "$argv[1]" -vcodec h264 -acodec an "$argv[2]"
+   command ffmpeg -i "$argv[1]" -vcodec h264 -an "$argv[2]"
 end
 
 complete --command mov2mp4 -f -a "(ls -t *.mov)"
@@ -442,10 +442,6 @@ case Linux
     alias pbcopy='xsel --clipboard --input'
 end
 #
-if test -e '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
-  fenv source '/Users/stephenyu/.nix-profile/etc/profile.d/nix.sh'
-end
-
 
 # fnm
 #set PATH /home/stephenyu/.fnm $PATH
