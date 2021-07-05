@@ -1,21 +1,31 @@
 Stephen's Dotfiles
 ==================
 
-Basically all my dotfiles in one handy repository, storing all my settings for the following tools:
+All my dotfiles in one handy repository, storing all my settings for the following tools:
 
- * vim
+ * neovim
  * tmux
- * zsh
- * screen
- * bash
-
-There are a few _duplicate_ programs in there, which complete the same tasks: basically I work on a lot of legacy
-servers which simply do not have the alternatives - nor can I install my prefered work-stack.
-
-However, the installation method will only attempt installation in a single way:
-
+ * fish
  * git
 
-This actually limits me in places where git isn't installed (I know, I know)
+There will be some legacy dotfiles here and there, but those 3 are my day-to-day tools.
 
-bash <(curl --silent https://raw.githubusercontent.com/stephenyu/dotfiles/master/install.sh)
+## Neovim
+
+Using the built-in LSP Client so this needs a bit of setup to get going
+
+### Eslint
+
+Using [eslint_d](https://github.com/mantoni/eslint_d.js/) rather than eslint.
+
+```
+npm install -g eslint_d
+```
+
+### Typescript
+
+Install the Typescript LSP
+```
+npm install -g typescript-language-server
+```
+

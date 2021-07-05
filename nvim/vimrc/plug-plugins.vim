@@ -33,9 +33,6 @@ Plug 'tpope/vim-unimpaired'
 " Multiple Cursors
 Plug 'terryma/vim-multiple-cursors'
 
-" Easy Motion
-Plug 'Lokaltog/vim-easymotion'
-
 " Matching of Elements using %
 Plug 'tmhedberg/matchit'
 
@@ -63,11 +60,11 @@ Plug 'justinmk/vim-sneak'
 " Highlight Word
 Plug 'RRethy/vim-illuminate'
 
-" Spell Checking
-" Plug 'kamykn/spelunker.vim'
-
 " WordMotion
 Plug 'chaoren/vim-wordmotion'
+
+" Language Server Protocol (LSP)
+Plug 'neovim/nvim-lspconfig'
 
 " ---
 " LANGUAGE SPECIFICS
@@ -76,14 +73,6 @@ Plug 'chaoren/vim-wordmotion'
 " Rust
 Plug 'rust-lang/rust.vim'
 
-" TypeScript
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-snippets']
-
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
-"Plug 'leafgarland/typescript-vim'
-"Plug 'stephenyu/vim-jsx-typescript'
 
 " Proto
 Plug 'uarun/vim-protobuf'

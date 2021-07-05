@@ -8,3 +8,4 @@ source $HOME/.config/nvim/vimrc/plugin-config.vim
 source $HOME/.config/nvim/vimrc/gui.vim
 source $HOME/.config/nvim/vimrc/keymaps.vim
 source $HOME/.config/nvim/vimrc/indent.vim
+lua require("luaconfig")
