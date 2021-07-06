@@ -66,13 +66,15 @@ Plug 'chaoren/vim-wordmotion'
 " Language Server Protocol (LSP)
 Plug 'neovim/nvim-lspconfig'
 
+" Treesitter (Neovim Syntax Highlighting System)
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
 
 " Rust
 Plug 'rust-lang/rust.vim'
-
 
 " Proto
 Plug 'uarun/vim-protobuf'
