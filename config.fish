@@ -18,6 +18,16 @@ function rand
   command bat /usr/share/dict/words | awk '{ if (length($0) < 6) print }' | shuf -n3 | awk '{printf S"''"$0"''";S="-"}' | tr '[:upper:]' '[:lower:]'
 end
 
+function cdb
+  set path (getcdb $argv)
+  set_color green
+  echo -n '>> '
+  set_color normal
+  echo $path
+  cd $path
+end
+
+
 function branch
   set target (git branch | grep -v "*" | fzf | awk '{$1=$1;print}')
 
@@ -335,8 +345,8 @@ function dnginx
     set_color green
     echo -n '→ '
     set_color normal
-    echo 'Starting Docker nginx:alpine at :'$port
-    command docker run -it --rm -p $port:80 -v (pwd):/usr/share/nginx/html nginx:1.18.0-alpine
+    echo 'Starting Docker nginx:stable-alpine at :'$port
+    command docker run -it --rm -p $port:80 -v (pwd):/usr/share/nginx/html nginx:stable-alpine
 end
 
 function dnginx:h2
@@ -448,3 +458,9 @@ end
 
 # Cargo
 set PATH ~/.cargo/bin $PATH
+
+if status is-login
+and not set -q TMUX
+  echo "eEh?"
+  exec startx -- -keeptty
+end

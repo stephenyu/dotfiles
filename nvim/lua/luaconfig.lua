@@ -56,7 +56,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- When in Visual, show the Diagnostics Message
-vim.cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+-- vim.cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 
 -- When in Insert, show the signature
-vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
+-- vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
