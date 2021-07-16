@@ -69,6 +69,9 @@ Plug 'neovim/nvim-lspconfig'
 " Treesitter (Neovim Syntax Highlighting System)
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Autocomplete
+Plug 'nvim-lua/completion-nvim'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
