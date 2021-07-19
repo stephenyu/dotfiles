@@ -450,6 +450,10 @@ case Linux
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 
     alias pbcopy='xsel --clipboard --input'
+    if status is-login
+    and not set -q TMUX
+      exec startx -- -keeptty
+    end
 end
 #
 
@@ -459,8 +463,3 @@ end
 # Cargo
 set PATH ~/.cargo/bin $PATH
 
-if status is-login
-and not set -q TMUX
-  echo "eEh?"
-  exec startx -- -keeptty
-end
