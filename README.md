@@ -10,17 +10,15 @@ All my dotfiles in one handy repository, storing all my settings for the followi
 
 There will be some legacy dotfiles here and there, but those 3 are my day-to-day tools.
 
+## Tmux
+
+Tmux Plugin Manager
+
+`https://github.com/tmux-plugins/tpm`
+
 ## Neovim
 
 Using the built-in LSP Client so this needs a bit of setup to get going
-
-### Eslint
-
-Using [eslint_d](https://github.com/mantoni/eslint_d.js/) rather than eslint.
-
-```
-npm install -g eslint_d
-```
 
 ### Typescript
 
