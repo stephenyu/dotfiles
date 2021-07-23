@@ -287,6 +287,11 @@ function mov2mp4
    command ffmpeg -i "$argv[1]" -vcodec h264 -an "$argv[2]"
 end
 
+function dot2png
+   command dot -Tpng "$argv[1]" -o "$argv[2]"
+end
+
+
 complete --command mov2mp4 -f -a "(ls -t *.mov)"
 
 function mov2gif
