@@ -24,6 +24,11 @@ Using the built-in LSP Client so this needs a bit of setup to get going
 
 Install the Typescript LSP
 ```
-npm install -g typescript-language-server
+; npm install -g typescript typescript-language-server diagnostic-languageserver
 ```
 
+```
+:LspInfo
+```
+
+To verify it's all working.  Any complaints? You probably didn't install anything...
