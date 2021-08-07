@@ -19,7 +19,7 @@ function rand
 end
 
 function cdb
-  set path (getcdb $argv)
+  set path (cdback $argv)
   set_color green
   echo -n '>> '
   set_color normal

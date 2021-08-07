@@ -10,6 +10,14 @@ All my dotfiles in one handy repository, storing all my settings for the followi
 
 There will be some legacy dotfiles here and there, but those are my day-to-day tools.
 
+## CD Back
+
+To get `cdb` functional, install my rust crate.
+
+```
+cargo install cdback
+```
+
 ## Neovim
 
 Using the built-in LSP Client so this needs a bit of setup to get going
