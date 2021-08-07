@@ -8,13 +8,7 @@ All my dotfiles in one handy repository, storing all my settings for the followi
  * fish
  * git
 
-There will be some legacy dotfiles here and there, but those 3 are my day-to-day tools.
-
-## Tmux
-
-Tmux Plugin Manager
-
-`https://github.com/tmux-plugins/tpm`
+There will be some legacy dotfiles here and there, but those are my day-to-day tools.
 
 ## Neovim
 
@@ -25,24 +19,24 @@ Using the built-in LSP Client so this needs a bit of setup to get going
 First install a Language Server i.e. https://github.com/mattn/efm-langserver
 
 ```
-; brew install efm-langserver
+$ brew install efm-langserver
 ```
 
 ```
-; npm install -g eslint_d
+$ npm install -g eslint_d eslint
 ```
 
+There needs to be an `.eslint*` file
 
+```
+$ eslint --init
+```
 
 ### Typescript
 
 Install the Typescript LSP
 ```
-; npm install -g typescript typescript-language-server diagnostic-languageserver
+$ npm install -g typescript typescript-language-server diagnostic-languageserver
 ```
 
-```
-:LspInfo
-```
-
-To verify it's all working.  Any complaints? You probably didn't install anything...
+In Vim use `:LspInfo` to verify everything is working.
