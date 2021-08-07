@@ -20,6 +20,20 @@ Tmux Plugin Manager
 
 Using the built-in LSP Client so this needs a bit of setup to get going
 
+### Eslint
+
+First install a Language Server i.e. [https://github.com/mattn/efm-langserver](efm-langserver)
+
+```
+; brew install efm-langserver
+```
+
+```
+; npm install -g eslint_d
+```
+
+
+
 ### Typescript
 
 Install the Typescript LSP
