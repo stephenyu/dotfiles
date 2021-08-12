@@ -57,6 +57,8 @@ local on_attach = function(client, bufnr)
 
     buf_map(bufnr, "n", "gd", ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", {silent = true})
 
+    buf_map(bufnr, "n", "ca", ":lua vim.lsp.buf.code_action()<CR>", {silent = true})
+
     vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
     buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>", {silent = true})
 
