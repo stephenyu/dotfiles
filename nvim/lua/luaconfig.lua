@@ -55,6 +55,8 @@ local on_attach = function(client, bufnr)
     buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>", {silent = true})
     buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>", {silent = true})
 
+    buf_map(bufnr, "n", "gd", ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", {silent = true})
+
     vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
     buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>", {silent = true})
 
@@ -66,6 +68,11 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.tsserver.setup {
+    init_options = {
+      preferences = {
+        importModuleSpecifierPreference = "absolute"
+      }
+    },
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
         on_attach(client)

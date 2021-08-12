@@ -48,3 +48,4 @@ function! HighlightWordUnderCursor()
 endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
