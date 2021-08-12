@@ -25,8 +25,6 @@ local function eslint_config_exists()
   return false
 end
 
-
-
 local on_attach = function(client, bufnr)
     local buf_map = vim.api.nvim_buf_set_keymap
     vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
@@ -67,6 +65,11 @@ local on_attach = function(client, bufnr)
 
     vim.cmd("command! LspOrganize lua lsp_organize_imports()")
     buf_map(bufnr, "n", "gs", ":LspOrganize<CR>", {silent = true})
+
+    -- Format file in buffer on save
+    if client.resolved_capabilities.document_formatting then
+      vim.api.nvim_command('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+    end
 end
 
 nvim_lsp.tsserver.setup {
