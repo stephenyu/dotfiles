@@ -48,6 +48,9 @@ Plug 'tpope/vim-fugitive'
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
 
+" Nerdtree
+Plug 'preservim/nerdtree'
+
 " Github
 Plug 'ruanyl/vim-gh-line'
 
@@ -77,7 +80,12 @@ Plug 'nvim-lua/completion-nvim'
 " ---
 
 " Rust
-Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" Rust Debugging (needs plenary from above as well)
+Plug 'mfussenegger/nvim-dap'
 
 " Proto
 Plug 'uarun/vim-protobuf'

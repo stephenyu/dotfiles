@@ -10,8 +10,9 @@ nnoremap <Leader>i i_<Esc>r
 " Insert a Single Char in Normal
 nnoremap <Leader>a a_<Esc>r
 
-nmap <F2> :Lexplore<CR>
-nmap <F1> :Explore<CR>
+nmap <F2> :NERDTreeToggle<CR>
+map <F1> :NERDTreeFind<cr>
+
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 2
 let g:netrw_altv = 1

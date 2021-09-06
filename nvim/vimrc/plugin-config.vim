@@ -47,3 +47,6 @@ set shortmess+=c
 " tab to autocomplete
 imap <tab> <Plug>(completion_smart_tab)
 imap <s-tab> <Plug>(completion_smart_s_tab)
+
+" Rust Tool
+" nmap gh :lua require'rust-tools.hover_actions'.hover_actions()<cr>
