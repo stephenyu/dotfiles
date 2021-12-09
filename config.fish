@@ -13,6 +13,8 @@ alias main="git checkout main"
 alias push="git push $argv"
 alias please="sudo"
 alias pls="sudo"
+alias find="echo 'Use fd'"
+alias branches="git branch -vv | rg -v '\*' | awk '{print $1}'"
 
 function rand
   command bat /usr/share/dict/words | awk '{ if (length($0) < 6) print }' | shuf -n3 | awk '{printf S"''"$0"''";S="-"}' | tr '[:upper:]' '[:lower:]'
@@ -282,7 +284,7 @@ end
 function mov2mp4
    set_color green
    echo -n 'File Details: '
-   #command ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1 "$argv[1]"
+   command ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1 "$argv[1]"
    set_color normal
    command ffmpeg -i "$argv[1]" -vcodec h264 -an "$argv[2]"
 end
@@ -290,7 +292,6 @@ end
 function dot2png
    command dot -Tpng "$argv[1]" -o "$argv[2]"
 end
-
 
 complete --command mov2mp4 -f -a "(ls -t *.mov)"
 
