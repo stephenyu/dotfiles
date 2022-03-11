@@ -8,8 +8,6 @@ local rust_tools = require("rust-tools")
 --     end
 -- }
 
-
-
 local eslint = {
   lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
