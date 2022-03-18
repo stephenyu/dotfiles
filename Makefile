@@ -20,3 +20,4 @@ dotfiles: directories
 	sudo ln -snf $(CURDIR)/nvim $(HOME)/.config/nvim
 	sudo ln -snf $(CURDIR)/fish $(HOME)/.config/fish
 	sudo ln -snf $(CURDIR)/.tmux.conf $(HOME)/.tmux.conf
+	sudo ln -snf $(CURDIR)/.alacritty.yml $(HOME)/.alacritty.yml

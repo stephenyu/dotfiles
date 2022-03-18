@@ -9,6 +9,9 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
+" Coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Status Bar
 Plug 'itchyny/lightline.vim'
 

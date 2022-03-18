@@ -463,8 +463,6 @@ case Linux
 end
 #
 
-# fnm
-#set PATH /home/stephenyu/.fnm $PATH
 
 # Cargo
 set PATH ~/.cargo/bin $PATH
