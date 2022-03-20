@@ -21,3 +21,5 @@ dotfiles: directories
 	sudo ln -snf $(CURDIR)/fish $(HOME)/.config/fish
 	sudo ln -snf $(CURDIR)/.tmux.conf $(HOME)/.tmux.conf
 	sudo ln -snf $(CURDIR)/.alacritty.yml $(HOME)/.alacritty.yml
+	sudo ln -snf $(CURDIR)/.gitconfig $(HOME)/.gitconfig
+	sudo ln -snf $(CURDIR)/.gitignore $(HOME)/.gitignore
