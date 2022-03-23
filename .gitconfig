@@ -12,7 +12,6 @@
 	c- = checkout -
 	rb = rebase --interactive
 	ap = add --patch
-	cam = commit -am
 	diffc = diff --cached
 	l1 = log --pretty=format:\"%Cblue%h%Creset - %an, %Cred%ar%Creset : %Cgreen%s\" --color=always
 	ci = ci-status -v
@@ -21,7 +20,9 @@
 	ct = commit -m
 	df = diff
 	pl = pull
-	adpi = add -pi
+    adpi = add -pi
+	cam = !git commit --date=\"$(date -u +%Y-%m-%dT%H:%M:%S%z)\" -am
+
 [pull]
 	rebase = false
 [gpg]
