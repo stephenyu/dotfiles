@@ -16,10 +16,6 @@ alias pls="sudo"
 alias find="echo 'Use fd'"
 alias branches="git branch -vv | rg -v '\*' | awk '{print $1}'"
 
-function rand
-  command bat /usr/share/dict/words | awk '{ if (length($0) < 6) print }' | shuf -n3 | awk '{printf S"''"$0"''";S="-"}' | tr '[:upper:]' '[:lower:]'
-end
-
 function cdb
   set path (cdback $argv)
   set_color green
@@ -28,7 +24,6 @@ function cdb
   echo $path
   cd $path
 end
-
 
 function branch
   set target (git branch | grep -v "*" | fzf | awk '{$1=$1;print}')
@@ -132,38 +127,7 @@ function worktree
     end
 end
 
-function anon
-  set -lx GIT_COMMITTER_DATE (gitdate)
-  set -lx GIT_COMMITTER_NAME "Stephen"
-  set -lx GIT_COMMITTER_EMAIL "959786+stephenyu@users.noreply.github.com"
-  command git commit --author="Stephen <959786+stephenyu@users.noreply.github.com>" --date="\""(gitdate)"\"" $argv
-end
-
 alias storybook="yarn storybook:single (f)"
-alias rbgreen="git checkout green; git pull; git checkout -; git rebase origin/green"
-alias rbmaster="git checkout master; git pull; git checkout -; git rebase origin/master"
-
-function rb
-    set branch ($argv[1])
-    command git checkout $branch
-    command git pull
-    command git checkout -
-    command git rebase origin/$branch
-end
-
-function lintall
-  command yarn lint:deps:changed:fix
-  command yarn lint:format:changed:fix
-  command yarn lint:ts:changed:fix
-end
-
-function ghv
-   if count $argv > /dev/null
-      command gh pr view $argv -w
-   else
-      command gh pr view -w
-   end
-end
 
 function pull
     switch $argv[1]
@@ -181,10 +145,6 @@ function pull
         case '*'
             command git pull $argv
     end
-end
-
-function gitfiles
-    command git status --short | awk '{print $2}' | fzf $argv
 end
 
 function gh
@@ -271,14 +231,6 @@ function vipe
     end
 
    command sh /tmp/vipe
-end
-
-function gcal
-    if count $argv > /dev/null
-        command gcalcli $argv
-    else
-        command gcalcli --default-calendar=stephen@canva.com#green agenda --details=location --details=end
-    end
 end
 
 function mov2mp4
@@ -379,12 +331,6 @@ function tm
 end
 
 complete --command tm --no-files --arguments '(tmux ls | awk -F ":" \'{print $1}\')'
-
-function spotify
-    command docker run -d -v /etc/localtime:/etc/localtime:ro -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY \
-    --device /dev/snd:/dev/snd -v $HOME/.spotify/config:/home/spotify/.config/spotify -v $HOME/.spotify/cache:/home/spotify/spotify \
-    r.j3ss.co/spotify
-end
 
 # Docker Tweaks
 
