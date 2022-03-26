@@ -20,7 +20,6 @@
 	ct = commit -m
 	df = diff
 	pl = pull
-    adpi = add -pi
 	cam = !git commit --date=\"$(date -u +%Y-%m-%dT%H:%M:%S%z)\" -am
 
 [pull]
