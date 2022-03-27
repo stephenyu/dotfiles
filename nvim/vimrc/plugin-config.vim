@@ -32,7 +32,7 @@ set signcolumn=yes
 
 let g:ale_html_tidy_options = '-q -e -config ~/tidy.conf -language en'
 
-autocmd BufEnter * lua require'completion'.on_attach()
+" autocmd BufEnter * lua require'completion'.on_attach()
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

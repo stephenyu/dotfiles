@@ -1,6 +1,9 @@
 set hidden
 set history=100
 
+" Python Locations
+let g:python3_host_prog  = '/opt/homebrew/bin/python3'
+
 " remove whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 

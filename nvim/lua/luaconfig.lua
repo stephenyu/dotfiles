@@ -1,42 +1,43 @@
-local nvim_lsp = require("lspconfig")
-local rust_tools = require("rust-tools")
+local lsp = require("lspconfig")
+--local rust_tools = require("rust-tools")
+--local coq = require "coq"
+--
+-- Tell Neovim to use plugins installed through Homebrew
+vim.cmd [[set runtimepath+=/opt/homebrew/share/nvim/site]]
 
--- rust_tools.setup({})
--- rust_tools.setup {
---     on_attach = function(client)
---         on_attach(client)
---     end
--- }
+--
+--nvim_lsp.tsserver.setup(coq.lsp_ensure_capabilities{})
+--vim.cmd('COQnow -s')
 
-local eslint = {
-  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
-  lintStdin = true,
-  lintFormats = {"%f:%l:%c: %m"},
-  lintIgnoreExitCode = true,
-  formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-  formatStdin = true
-}
-
-local function eslint_config_exists()
-  local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
-
-  if not vim.tbl_isempty(eslintrc) then
-    return true
-  end
-
-  if vim.fn.filereadable("package.json") then
-    if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
-      return true
-    end
-  end
-
-  return false
-end
+--local eslint = {
+--  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+--  lintStdin = true,
+--  lintFormats = {"%f:%l:%c: %m"},
+--  lintIgnoreExitCode = true,
+--  formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+--  formatStdin = true
+--}
+--
+--local function eslint_config_exists()
+--  local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
+--
+--  if not vim.tbl_isempty(eslintrc) then
+--    return true
+--  end
+--
+--  -- if vim.fn.filereadable("package.json") then
+--  --   if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
+--  --     return true
+--  --   end
+--  -- end
+--
+--  return false
+--end
 
 local on_attach = function(client, bufnr)
-    local buf_map = vim.api.nvim_buf_set_keymap
-    vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
-    buf_map(bufnr, "n", "gh", ":LspHover<CR>", {silent = true})
+   local buf_map = vim.api.nvim_buf_set_keymap
+   vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
+   buf_map(bufnr, "n", "gh", ":LspHover<CR>", {silent = true})
 
     vim.cmd("command! LspRename lua vim.lsp.buf.rename()")
     buf_map(bufnr, "n", "gr", ":LspRename<CR>", {silent = true})
@@ -68,7 +69,7 @@ local on_attach = function(client, bufnr)
     vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
     buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>", {silent = true})
 
-    vim.cmd("command! LspDiagLine lua vim.lsp.diagnostic.show_line_diagnostics()")
+    vim.cmd("command! LspDiagLine lua vim.diagnostic.open_float({\"line\"})")
     buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>", {silent = true})
 
     vim.cmd("command! LspOrganize lua lsp_organize_imports()")
@@ -80,53 +81,122 @@ local on_attach = function(client, bufnr)
     end
 end
 
-nvim_lsp.tsserver.setup {
-    init_options = {
-      preferences = {
-        importModuleSpecifierPreference = "absolute"
-      }
-    },
-    on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
-        on_attach(client)
-    end
-}
+-- Setup nvim-cmp.
+local cmp = require'cmp'
 
-nvim_lsp.efm.setup {
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = true
-    client.resolved_capabilities.goto_definition = false
-    on_attach(client)
-  end,
-  root_dir = function()
-    if not eslint_config_exists() then
-      return nil
-    end
-    return vim.fn.getcwd()
-  end,
-  settings = {
-    languages = {
-      javascript = {eslint},
-      javascriptreact = {eslint},
-      ["javascript.jsx"] = {eslint},
-      typescript = {eslint},
-      ["typescript.tsx"] = {eslint},
-      typescriptreact = {eslint}
-    }
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+    end,
   },
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact"
+  mapping = {
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
-}
-
-require('rust-tools').setup({
-  server = { on_attach = on_attach }
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' }, -- For vsnip users.
+    -- { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, {
+    { name = 'buffer' },
+  })
 })
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+-- Setup .
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- OnAttach Loop
+local servers = { 'tsserver' }
+for _, lsp in pairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
+    }
+  }
+end
+
+-- https://quick-lint-js.com/install/neovim/homebrew/
+require('lspconfig/quick_lint_js').setup {}
+
+--
+--nvim_lsp.efm.setup {
+--  on_attach = function(client)
+--    client.resolved_capabilities.document_formatting = true
+--    client.resolved_capabilities.goto_definition = false
+--    on_attach(client)
+--  end,
+--  root_dir = function()
+--    if not eslint_config_exists() then
+--      return nil
+--    end
+--    return vim.fn.getcwd()
+--  end,
+--  settings = {
+--    languages = {
+--      javascript = {eslint},
+--      javascriptreact = {eslint},
+--      ["javascript.jsx"] = {eslint},
+--      typescript = {eslint},
+--      ["typescript.tsx"] = {eslint},
+--      typescriptreact = {eslint}
+--    }
+--  },
+--  filetypes = {
+--    "javascript",
+--    "javascriptreact",
+--    "javascript.jsx",
+--    "typescript",
+--    "typescript.tsx",
+--    "typescriptreact"
+--  },
+--}
+--
+--require('rust-tools').setup({
+--  server = { on_attach = on_attach }
+--})
+--
 
 -- Hide Diagnostics issues and put them on the side
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -138,8 +208,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
--- When in Visual, show the Diagnostics Message
--- vim.cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
-
--- When in Insert, show the signature
--- vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
+--
+---- When in Visual, show the Diagnostics Message
+---- vim.cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+--
+---- When in Insert, show the signature
+---- vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
