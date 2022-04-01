@@ -5,6 +5,12 @@ local lsp = require("lspconfig")
 -- Tell Neovim to use plugins installed through Homebrew
 vim.cmd [[set runtimepath+=/opt/homebrew/share/nvim/site]]
 
+
+-- If you want insert `(` after select function or method item
+-- when using nvim-cmp
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 --
 --nvim_lsp.tsserver.setup(coq.lsp_ensure_capabilities{})
 --vim.cmd('COQnow -s')
@@ -88,9 +94,6 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
       vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },

@@ -86,6 +86,8 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'SirVer/ultisnips'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
+Plug 'windwp/nvim-autopairs'
+
 " Autocomplete
 "Plug 'nvim-lua/completion-nvim'
 "
