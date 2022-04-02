@@ -390,16 +390,8 @@ set -gx EDITOR nvim
 set -gx TF_VAR_AWS_USER stephen
 
 switch (uname -s)
-case Darwin
-    [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
-
-    # update Slack Status on WFH or Office
-    #if slackstatus
-    #  slackstatus &
-    #end
 case Linux
     setxkbmap -option caps:escape
-    [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 
     alias pbcopy='xsel --clipboard --input'
     if status is-login
@@ -407,9 +399,10 @@ case Linux
       exec startx -- -keeptty
     end
 end
-#
-
 
 # Cargo
 set PATH ~/.cargo/bin $PATH
+
+# Setup Jump
+jump shell fish | source
 
