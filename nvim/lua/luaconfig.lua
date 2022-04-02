@@ -1,5 +1,5 @@
 local nvim_lsp = require("lspconfig")
-local rust_tools = require("rust-tools")
+-- local rust_tools = require("rust-tools")
 
 -- rust_tools.setup({})
 -- rust_tools.setup {
@@ -124,9 +124,9 @@ nvim_lsp.efm.setup {
   },
 }
 
-require('rust-tools').setup({
-  server = { on_attach = on_attach }
-})
+-- require('rust-tools').setup({
+--   server = { on_attach = on_attach }
+-- })
 
 -- Hide Diagnostics issues and put them on the side
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
