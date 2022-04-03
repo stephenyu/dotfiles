@@ -413,3 +413,4 @@ end
 # Cargo
 set PATH ~/.cargo/bin $PATH
 
+jump shell fish | source
