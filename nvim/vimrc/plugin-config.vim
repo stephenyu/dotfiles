@@ -1,5 +1,3 @@
-let g:gruvbox_contrast_dark='hard'
-
 let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_settings = {
 \  'typescript' : {

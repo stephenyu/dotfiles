@@ -3,6 +3,8 @@ filetype on
 syntax on
 
 set background=dark
+
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 highlight Normal ctermfg=223 ctermbg=234 guifg=#ebdbb2 guibg=#1c1c1c
 

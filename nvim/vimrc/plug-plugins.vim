@@ -78,6 +78,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Autocomplete
 Plug 'nvim-lua/completion-nvim'
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " ---
 " LANGUAGE SPECIFICS
 " ---
