@@ -10,7 +10,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Status Bar
 Plug 'itchyny/lightline.vim'
@@ -82,33 +82,10 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
-" For ultisnips users.
-Plug 'SirVer/ultisnips'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+" Snippets
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 Plug 'windwp/nvim-autopairs'
-
-" Autocomplete
-"Plug 'nvim-lua/completion-nvim'
-"
-
-" Completion https://github.com/ms-jpq/coq_nvim
-"Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-"Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-
-" ---
-" LANGUAGE SPECIFICS
-" ---
-
-" Rust
-"Plug 'simrat39/rust-tools.nvim'
-"Plug 'nvim-lua/popup.nvim'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
-"" Rust Debugging (needs plenary from above as well)
-"Plug 'mfussenegger/nvim-dap'
-"
-"" Proto
-"Plug 'uarun/vim-protobuf'
 
 call plug#end()

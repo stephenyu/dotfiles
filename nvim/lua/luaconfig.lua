@@ -87,25 +87,30 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup nvim-cmp.
-local cmp = require'cmp'
-
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
     end,
   },
   mapping = {
-    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ['<C-e>'] = cmp.mapping({
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    }),
+    ['<Down>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end, { 'i', 's', }),
+    ['<Up>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end, { 'i', 's', }),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -161,44 +166,6 @@ end
 
 -- https://quick-lint-js.com/install/neovim/homebrew/
 require('lspconfig/quick_lint_js').setup {}
-
---
---nvim_lsp.efm.setup {
---  on_attach = function(client)
---    client.resolved_capabilities.document_formatting = true
---    client.resolved_capabilities.goto_definition = false
---    on_attach(client)
---  end,
---  root_dir = function()
---    if not eslint_config_exists() then
---      return nil
---    end
---    return vim.fn.getcwd()
---  end,
---  settings = {
---    languages = {
---      javascript = {eslint},
---      javascriptreact = {eslint},
---      ["javascript.jsx"] = {eslint},
---      typescript = {eslint},
---      ["typescript.tsx"] = {eslint},
---      typescriptreact = {eslint}
---    }
---  },
---  filetypes = {
---    "javascript",
---    "javascriptreact",
---    "javascript.jsx",
---    "typescript",
---    "typescript.tsx",
---    "typescriptreact"
---  },
---}
---
---require('rust-tools').setup({
---  server = { on_attach = on_attach }
---})
---
 
 -- Hide Diagnostics issues and put them on the side
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
