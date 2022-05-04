@@ -10,7 +10,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Status Bar
 Plug 'itchyny/lightline.vim'
@@ -58,7 +58,7 @@ Plug 'preservim/nerdtree'
 Plug 'ruanyl/vim-gh-line'
 
 " Snippets
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " Quick Motion
 Plug 'justinmk/vim-sneak'
@@ -69,31 +69,26 @@ Plug 'RRethy/vim-illuminate'
 " WordMotion
 Plug 'chaoren/vim-wordmotion'
 
-" Language Server Protocol (LSP)
-Plug 'neovim/nvim-lspconfig'
-
 " Treesitter (Neovim Syntax Highlighting System)
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Language Server Protocol (LSP)
+Plug 'neovim/nvim-lspconfig'
+
 " Autocomplete
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 " ---
-" LANGUAGE SPECIFICS
-" ---
+" Snippets
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
-" Rust
-Plug 'simrat39/rust-tools.nvim'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-" Rust Debugging (needs plenary from above as well)
-Plug 'mfussenegger/nvim-dap'
-
-" Proto
-Plug 'uarun/vim-protobuf'
+Plug 'windwp/nvim-autopairs'
 
 call plug#end()
