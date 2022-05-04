@@ -1,39 +1,8 @@
 local nvim_lsp = require("lspconfig")
--- local rust_tools = require("rust-tools")
 
--- If you want insert `(` after select function or method item
--- when using nvim-cmp
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
---
---nvim_lsp.tsserver.setup(coq.lsp_ensure_capabilities{})
---vim.cmd('COQnow -s')
-
---local eslint = {
---  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
---  lintStdin = true,
---  lintFormats = {"%f:%l:%c: %m"},
---  lintIgnoreExitCode = true,
---  formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
---  formatStdin = true
---}
---
---local function eslint_config_exists()
---  local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
---
---  if not vim.tbl_isempty(eslintrc) then
---    return true
---  end
---
---  -- if vim.fn.filereadable("package.json") then
---  --   if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
---  --     return true
---  --   end
---  -- end
---
---  return false
---end
 
 local on_attach = function(client, bufnr)
    local buf_map = vim.api.nvim_buf_set_keymap
@@ -112,9 +81,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
   }, {
     { name = 'buffer' },
   })
