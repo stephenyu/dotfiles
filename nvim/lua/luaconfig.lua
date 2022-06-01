@@ -1,4 +1,5 @@
 local nvim_lsp = require("lspconfig")
+-- local pyright = require("pyright")
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
@@ -115,7 +116,7 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- OnAttach Loop
-local servers = { 'tsserver' }
+local servers = { 'tsserver', 'pyright' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
