@@ -25,6 +25,16 @@ function cdb
   cd $path
 end
 
+function uz
+    set rootname (echo $argv[1] | sed 's/\.[^.]*$//')
+    mkdir "$rootname"
+    set_color green
+    echo -n 'Created Folder: '
+    set_color normal
+    echo $rootname
+    unzip $argv[1] -d "$rootname"
+end
+
 function branch
   set target (git branch | grep -v "*" | fzf | awk '{$1=$1;print}')
 
