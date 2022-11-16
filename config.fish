@@ -233,6 +233,10 @@ function vipe
    command sh /tmp/vipe
 end
 
+function optmp4
+   command ffmpeg -i "$argv[1]" -an -vcodec libx264 -preset veryslow -movflags +faststart "$argv[2]"
+end
+
 function mov2mp4
    set_color green
    echo -n 'File Details: '
@@ -362,12 +366,7 @@ function fish_prompt
     set_color green
     printf "\n"
     echo -n (prompt_pwd)
-
-    set gitstatus (gitstatus)
-    if test -n "$gitstatus"
-        set_color cyan
-        echo -n " "$gitstatus
-    end
+    prompt_git_status
 
     if test $failed -eq 0
         set_color normal
@@ -378,6 +377,17 @@ function fish_prompt
         set_color normal
     end
 end
+
+function prompt_git_status
+    set gitstatus (gitstatus)
+    if test -n "$gitstatus"
+        set_color cyan
+        echo -n " "$gitstatus
+    end
+end
+
+# Async prompt setup.
+set async_prompt_functions prompt_git_status
 
 function fish_right_prompt
   #intentionally blank
@@ -399,6 +409,12 @@ case Linux
       exec startx -- -keeptty
     end
 end
+
+# Nix
+if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+  fenv source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+end
+# End Nix
 
 # Cargo
 set PATH ~/.cargo/bin $PATH

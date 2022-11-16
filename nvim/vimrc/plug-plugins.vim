@@ -93,4 +93,8 @@ Plug 'windwp/nvim-autopairs'
 
 Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim', 'tag': '2.4.2'}
 
+" Writing
+" Plug 'jose-elias-alvarez/null-ls.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+
 call plug#end()
