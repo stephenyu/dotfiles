@@ -34,7 +34,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
 " Multiple Cursors
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 
 " Matching of Elements using %
 Plug 'tmhedberg/matchit'
