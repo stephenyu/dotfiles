@@ -2,7 +2,6 @@ set hidden
 set history=100
 
 " Python Locations
-"
 let g:python3_host_prog  = 'python3'
 
 " remove whitespaces on save
@@ -69,3 +68,13 @@ endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
+
+function FormatBuffer()
+  if &modified
+    let cursor_pos = getpos('.')
+    :%!clang-format
+    call setpos('.', cursor_pos)
+  endif
+endfunction
+
+autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
