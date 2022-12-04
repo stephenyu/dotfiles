@@ -10,10 +10,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Coc
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Status Bar
-" Plug 'itchyny/lightline.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ColorThemes
 Plug 'stephenyu/vim-tomorrow-theme'
@@ -69,32 +66,7 @@ Plug 'RRethy/vim-illuminate'
 " WordMotion
 Plug 'chaoren/vim-wordmotion'
 
-" Treesitter (Neovim Syntax Highlighting System)
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" Language Server Protocol (LSP)
-" Plug 'neovim/nvim-lspconfig'
-
-" Autocomplete
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/cmp-cmdline'
-" Plug 'hrsh7th/nvim-cmp'
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" ---
-" Snippets
-" Plug 'hrsh7th/cmp-vsnip'
-" Plug 'hrsh7th/vim-vsnip'
-
-" Plug 'windwp/nvim-autopairs'
-
-" Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim', 'tag': '2.4.2'}
-
-" Writing
-" Plug 'jose-elias-alvarez/null-ls.nvim'
-" Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
