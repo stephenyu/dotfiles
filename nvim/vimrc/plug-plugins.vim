@@ -69,4 +69,10 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" https://d2lang.com
+Plug 'terrastruct/d2-vim'
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
