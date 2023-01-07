@@ -349,9 +349,10 @@ complete --command tm --no-files --arguments '(tmux ls | awk -F ":" \'{print $1}
 # Docker Tweaks
 
 alias dr="docker run $argv"
-alias drit="docker run -ti $argv"
+alias drit="docker run --rm -ti $argv"
 alias deit="docker exec -ti $argv"
 alias dm="docker-machine $argv"
+alias db="docker build -t (basename (pwd)) ."
 
 function d
     switch $argv[1]
