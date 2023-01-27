@@ -8,6 +8,5 @@ set shiftwidth=4
 augroup auFileTypes
   autocmd!
 
-  " Markdown specific textwidth
-  autocmd FileType markdown setlocal textwidth=100
+  autocmd FileType markdown setlocal wrap
 augroup end
