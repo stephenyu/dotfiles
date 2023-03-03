@@ -32,6 +32,32 @@
 				<false/>
 			</dict>
 		</array>
+		<key>5BC61D46-D34F-4991-8E43-C65B5A76CF3F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EBE53C34-7E10-4F80-B045-E475D6F317E0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F68C9C21-D1E4-44BF-A751-B5BB03A5CE90</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>11769C1C-EA78-4A41-AC31-974D468EF076</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Stephen</string>
@@ -88,6 +114,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>cal</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Open a Calendar</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>21871B01-46BC-4355-87A0-0882856F55EB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>browser</key>
 				<string></string>
 				<key>skipqueryencode</key>
@@ -109,21 +156,84 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://docs.google.com/document/d/1EPLRVizVxQtGJDK0rwR5EJgP2TzPT5vfg6RB3yl2T5U/edit</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>EBE53C34-7E10-4F80-B045-E475D6F317E0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>keyword</key>
-				<string>cal</string>
+				<string>temp gdoc</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>Open a Calendar</string>
+				<string>Temporary Google Doc</string>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>21871B01-46BC-4355-87A0-0882856F55EB</string>
+			<string>5BC61D46-D34F-4991-8E43-C65B5A76CF3F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://mail.google.com/mail/u/0/#inbox</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>11769C1C-EA78-4A41-AC31-974D468EF076</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>inbox</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Gmail</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F68C9C21-D1E4-44BF-A751-B5BB03A5CE90</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -134,6 +244,13 @@
 Type your keyword into Alfred, followed by your input text if needed, and you'll be on your way to boosting your productivity!</string>
 	<key>uidata</key>
 	<dict>
+		<key>11769C1C-EA78-4A41-AC31-974D468EF076</key>
+		<dict>
+			<key>xpos</key>
+			<real>675</real>
+			<key>ypos</key>
+			<real>500</real>
+		</dict>
 		<key>21871B01-46BC-4355-87A0-0882856F55EB</key>
 		<dict>
 			<key>xpos</key>
@@ -148,6 +265,13 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<key>ypos</key>
 			<real>65</real>
 		</dict>
+		<key>5BC61D46-D34F-4991-8E43-C65B5A76CF3F</key>
+		<dict>
+			<key>xpos</key>
+			<real>240</real>
+			<key>ypos</key>
+			<real>430</real>
+		</dict>
 		<key>81D1711C-7622-4CF3-8D96-1B14873B47E5</key>
 		<dict>
 			<key>xpos</key>
@@ -161,6 +285,20 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 			<real>320</real>
 			<key>ypos</key>
 			<real>215</real>
+		</dict>
+		<key>EBE53C34-7E10-4F80-B045-E475D6F317E0</key>
+		<dict>
+			<key>xpos</key>
+			<real>490</real>
+			<key>ypos</key>
+			<real>310</real>
+		</dict>
+		<key>F68C9C21-D1E4-44BF-A751-B5BB03A5CE90</key>
+		<dict>
+			<key>xpos</key>
+			<real>425</real>
+			<key>ypos</key>
+			<real>620</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
