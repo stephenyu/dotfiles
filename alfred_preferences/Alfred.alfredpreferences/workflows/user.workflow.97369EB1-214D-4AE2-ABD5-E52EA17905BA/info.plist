@@ -36,7 +36,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>EBE53C34-7E10-4F80-B045-E475D6F317E0</string>
+				<string>0059AE3A-D344-458C-B52F-6CE8B97CACFC</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -207,6 +207,27 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
+				<string>https://www.canva.com/design/DAFho-NVAwo/Y9wWp3GCk0foDF3tp2gkYQ/edit?utm_content=DAFho-NVAwo&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>0059AE3A-D344-458C-B52F-6CE8B97CACFC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
 				<string>https://mail.google.com/mail/u/0/#inbox</string>
 			</dict>
 			<key>type</key>
@@ -244,6 +265,13 @@
 Type your keyword into Alfred, followed by your input text if needed, and you'll be on your way to boosting your productivity!</string>
 	<key>uidata</key>
 	<dict>
+		<key>0059AE3A-D344-458C-B52F-6CE8B97CACFC</key>
+		<dict>
+			<key>xpos</key>
+			<real>420</real>
+			<key>ypos</key>
+			<real>430</real>
+		</dict>
 		<key>11769C1C-EA78-4A41-AC31-974D468EF076</key>
 		<dict>
 			<key>xpos</key>
@@ -268,9 +296,9 @@ Type your keyword into Alfred, followed by your input text if needed, and you'll
 		<key>5BC61D46-D34F-4991-8E43-C65B5A76CF3F</key>
 		<dict>
 			<key>xpos</key>
-			<real>240</real>
+			<real>110</real>
 			<key>ypos</key>
-			<real>430</real>
+			<real>380</real>
 		</dict>
 		<key>81D1711C-7622-4CF3-8D96-1B14873B47E5</key>
 		<dict>

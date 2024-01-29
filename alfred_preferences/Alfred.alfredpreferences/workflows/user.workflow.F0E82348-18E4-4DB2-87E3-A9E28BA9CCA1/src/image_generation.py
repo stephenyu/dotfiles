@@ -5,19 +5,21 @@ import sys
 import urllib.request
 from datetime import datetime
 
+from caching_manager import read_from_cache, write_to_cache
 from custom_prompts import error_prompts
-from error_handling import (
+from error_handler import (
     exception_response,
     get_last_error_message,
     log_error_if_needed,
 )
-from global_services import read_from_cache, write_to_cache
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "libs"))
 
 import openai
 
 openai.api_key = os.getenv("api_key")
+if os.getenv("custom_api_url"):
+    openai.api_base = os.getenv("custom_api_url")
 __size = int(os.getenv("image_size") or 512)
 
 
@@ -42,7 +44,6 @@ def prepare_file_name(prompt: str) -> str:
 
 def intercept_custom_prompts(prompt: str):
     """Intercepts custom queries."""
-
     last_request_successful = read_from_cache(
         "last_image_generation_request_successful"
     )
@@ -56,7 +57,6 @@ def intercept_custom_prompts(prompt: str):
 
 def make_request(prompt: str, size: int) -> str:
     """Makes the request to the OpenAI API."""
-
     datetime_string = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     file_path = f"{os.path.expanduser('~')}/ChatFred_{prepare_file_name(prompt)}_{datetime_string}.png"
 
@@ -71,7 +71,7 @@ def make_request(prompt: str, size: int) -> str:
     except Exception as exception:  # pylint: disable=broad-except
         write_to_cache("last_image_generation_request_successful", False)
         log_error_if_needed(
-            model="dall_e-2",
+            model="dall_e-3",
             error_message=exception._message,  # type: ignore  # pylint: disable=protected-access
             user_prompt=prompt,
             parameters={

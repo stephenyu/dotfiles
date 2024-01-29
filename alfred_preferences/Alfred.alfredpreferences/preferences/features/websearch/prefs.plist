@@ -15,6 +15,17 @@
 			<key>url</key>
 			<string>https://canv.am/{query}</string>
 		</dict>
+		<key>0D86A9B4-923F-43BB-84DE-E95DD157E29B</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>vams</string>
+			<key>text</key>
+			<string>Canv.am Search</string>
+			<key>url</key>
+			<string>https://canv.am/search?query={query}&amp;sort=clicks</string>
+		</dict>
 		<key>45C78463-AA5B-4299-9666-F7B14B315844</key>
 		<dict>
 			<key>enabled</key>
@@ -25,6 +36,17 @@
 			<string>Search Canva World for {query}</string>
 			<key>url</key>
 			<string>https://canva.world/search?query={query}</string>
+		</dict>
+		<key>605636F4-5E74-4C31-B0E6-D9EC9B1CD70B</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>projects</string>
+			<key>text</key>
+			<string>Search Canva Projects for {query}</string>
+			<key>url</key>
+			<string>https://www.canva.com/search/designs?q={query}</string>
 		</dict>
 		<key>61C097C4-9E28-4C3A-9A01-B2E88926B8E7</key>
 		<dict>

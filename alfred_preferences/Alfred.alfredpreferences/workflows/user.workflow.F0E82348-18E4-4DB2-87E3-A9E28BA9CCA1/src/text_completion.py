@@ -4,23 +4,25 @@ import json
 import os
 import sys
 
+from caching_manager import read_from_cache, write_to_cache
 from custom_prompts import error_prompts
-from error_handling import (
+from error_handler import (
     env_value_error_if_needed,
     exception_response,
     get_last_error_message,
     log_error_if_needed,
 )
-from global_services import read_from_cache, write_to_cache
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "libs"))
 
 import openai
 
 openai.api_key = os.getenv("api_key")
-__model = os.getenv("model") or "text-davinci-003"
+if os.getenv("custom_api_url"):
+    openai.api_base = os.getenv("custom_api_url")
+__model = os.getenv("instruct_gpt_model") or "text-davinci-003"
 __temperature = float(os.getenv("temperature") or 0.0)
-__max_tokens = int(os.getenv("max_tokens") or 50)
+__max_tokens = int(os.getenv("completion_max_tokens") or 50)
 __top_p = int(os.getenv("top_p") or 1)
 __frequency_penalty = float(os.getenv("frequency_penalty") or 0.0)
 __presence_penalty = float(os.getenv("presence_penalty") or 0.0)
@@ -32,7 +34,7 @@ def get_query() -> str:
 
 
 def prompt_from_query(query: str) -> str:
-    """Creates a suitable prompt for the OpenAI API."""
+    """Creates a suitable prompt for the OpenAI InstructGPT API."""
     return f"Q: {query}\nA:"
 
 
@@ -47,7 +49,7 @@ def stdout_write(output_string: str) -> None:
             {
                 "uid": "null",
                 "type": "default",
-                "title": output_string,
+                "title": output_string.strip(),
                 "subtitle": "⇪, ⌃, ⌥ or ⌘ for options",
                 "arg": output_string,
                 "autocomplete": output_string,
@@ -60,7 +62,6 @@ def stdout_write(output_string: str) -> None:
 
 def intercept_custom_prompts(prompt: str):
     """Intercepts custom queries."""
-
     user_prompt = prompt.replace("Q: ", "").split("\n")[0]
     last_request_successful = read_from_cache("last_text_completion_request_successful")
     if user_prompt in error_prompts and not last_request_successful:
@@ -105,7 +106,7 @@ def make_request(
                 top_p=top_p,
                 frequency_penalty=frequency_penalty,
                 presence_penalty=presence_penalty,
-                stop=["\n", "<|endoftext|>"],
+                stop=["<|endoftext|>"],
             )
             .choices[0]
             .text

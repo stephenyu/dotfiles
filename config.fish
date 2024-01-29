@@ -5,6 +5,9 @@ end
 # Because Bat is awesome, but I keep forgetting :|
 alias cat="bat"
 
+# Chatbot using Llama2
+alias chat="ollama run nous-hermes-llama2"
+
 # Git Tweaks
 alias checkout="git checkout $argv"
 alias green="git checkout green"
@@ -379,6 +382,11 @@ function fish_prompt
     echo -n (prompt_pwd)
     prompt_git_status
 
+    if set -q VIRTUAL_ENV
+      echo -n " "
+      echo -n -s (set_color -db blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+    end
+
     if test $failed -eq 0
         set_color normal
         printf "\n; "
@@ -420,6 +428,7 @@ case Linux
       exec startx -- -keeptty
     end
 end
+
 
 # Nix
 if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
