@@ -4,3 +4,5 @@ nvim/plugged
 .vim/.netrwhist
 nvim/rplugin/
 .DS_Store
+Alfred Workflows
+alfred_preferences
