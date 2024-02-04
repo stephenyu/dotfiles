@@ -446,6 +446,10 @@ if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 end
 # End Nix
 
+if test -f canva_config.fish
+    source canva_config.fish
+end
+
 # Cargo
 set PATH ~/.cargo/bin $PATH
 
