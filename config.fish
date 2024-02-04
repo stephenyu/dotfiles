@@ -1,5 +1,5 @@
 function __fish_describe_command
-  return
+    return
 end
 
 # Because Bat is awesome, but I keep forgetting :|
@@ -20,12 +20,12 @@ alias find="echo 'Use fd'"
 alias branches="git branch -vv | rg -v '\*' | awk '{print $1}'"
 
 function cdb
-  set path (cdback $argv)
-  set_color green
-  echo -n '>> '
-  set_color normal
-  echo $path
-  cd $path
+    set path (cdback $argv)
+    set_color green
+    echo -n '>> '
+    set_color normal
+    echo $path
+    cd $path
 end
 
 function uz
@@ -39,9 +39,9 @@ function uz
 end
 
 function branch
-  set target (git branch | grep -v "*" | fzf | awk '{$1=$1;print}')
+    set target (git branch | grep -v "*" | fzf | awk '{$1=$1;print}')
 
-  switch $target
+    switch $target
         case "+*"
             set worktree_name (echo $target | awk '{print $2}')
             set folder (git worktree list | rg $worktree_name | awk '{print $1}')
@@ -59,7 +59,7 @@ function branch
             cd $folder
         case '*'
             git checkout $target
-  end
+    end
 end
 
 function worktree
@@ -142,22 +142,32 @@ end
 
 alias storybook="yarn storybook:single (f)"
 
-function pull
-    switch $argv[1]
-        case green master
-            set_color green
-            echo -n '>> '
-            set_color normal
-            echo 'git checkout' $argv[1]
-            command git checkout $argv[1]
-            set_color green
-            echo -n '>> '
-            set_color normal
-            echo 'git pull'
-            command git pull
-        case '*'
-            command git pull $argv
+function git
+    # Define a list of blocked paths
+    set -l blocked_paths /Users/stephen/Work/phoenix-sparse
+
+    # Check if the command is 'pull'
+    if [ "$argv[1]" = pull ]
+        # Get the current working directory with a trailing slash
+        set -l current_dir (pwd)"/"
+        #
+        # # Check if the current directory starts with any of the blocked paths
+        for path in $blocked_paths
+            if string match -qr "^$path*" "$current_dir"
+                echo -n "'git pull' is "
+                set_color red
+                echo -n "blocked "
+                set_color normal
+                echo -n "in this repository due to its size."
+                return 1
+            end
+        end
+
+        return 1
     end
+
+    # If not blocked, execute the original git command
+    command git $argv
 end
 
 function gh
@@ -201,13 +211,13 @@ function gh
                         return 0
                 end
             end
-        case 'remove-closed-branches'
-           set_color green
-           echo "The following branches will be removed:"
-           command git fetch --quiet --prune
-           set_color red
-           command git branch -vv | grep 'gone]' | awk '{print $1}'
-           set_color normal
+        case remove-closed-branches
+            set_color green
+            echo "The following branches will be removed:"
+            command git fetch --quiet --prune
+            set_color red
+            command git branch -vv | grep 'gone]' | awk '{print $1}'
+            set_color normal
 
             while true
                 read -l -P 'Do you want to continue? [y/N] ' confirm
@@ -233,39 +243,39 @@ alias vim="nvim $argv"
 alias vipel="vipe l"
 
 function vipe
-   if count $argv > /dev/null
-       switch $argv[1]
-           case l last
-               command nvim /tmp/vipe
-       end
+    if count $argv >/dev/null
+        switch $argv[1]
+            case l last
+                command nvim /tmp/vipe
+        end
     else
-       command rm /tmp/vipe
-       command nvim /tmp/vipe
+        command rm /tmp/vipe
+        command nvim /tmp/vipe
     end
 
-   command sh /tmp/vipe
+    command sh /tmp/vipe
 end
 
 function optmp4
-   command ffmpeg -i "$argv[1]" -an -vcodec libx264 -preset veryslow -movflags +faststart "$argv[2]"
+    command ffmpeg -i "$argv[1]" -an -vcodec libx264 -preset veryslow -movflags +faststart "$argv[2]"
 end
 
 function mov2mp4
-   set_color green
-   echo -n 'File Details: '
-   command ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1 "$argv[1]"
-   set_color normal
-   command ffmpeg -i "$argv[1]" -vcodec h264 -an "$argv[2]"
+    set_color green
+    echo -n 'File Details: '
+    command ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1 "$argv[1]"
+    set_color normal
+    command ffmpeg -i "$argv[1]" -vcodec h264 -an "$argv[2]"
 end
 
 function dot2png
-   command dot -Tpng "$argv[1]" -o "$argv[2]"
+    command dot -Tpng "$argv[1]" -o "$argv[2]"
 end
 
 complete --command mov2mp4 -f -a "(ls -t *.mov)"
 
 function mov2gif
-   command ffmpeg -i "$argv[1]"  -vf scale=$argv[2]:-1 -pix_fmt rgb8 -r 30 -f gif - | gifsicle --optimize=9 --delay=3 > "$argv[2]"
+    command ffmpeg -i "$argv[1]" -vf scale=$argv[2]:-1 -pix_fmt rgb8 -r 30 -f gif - | gifsicle --optimize=9 --delay=3 >"$argv[2]"
 end
 
 complete --command mov2gif -f -a "(ls -t *.mov)"
@@ -273,7 +283,7 @@ complete --command mov2gif -f -a "(ls -t *.mov)"
 alias f='ag -g "" | fzf'
 
 function cdf
-    if count $argv > /dev/null
+    if count $argv >/dev/null
         set filepath (f --query $argv[1])
     else
         set filepath (f)
@@ -311,10 +321,10 @@ function cpf
 end
 
 function dnginx
-    if count $argv > /dev/null
+    if count $argv >/dev/null
         set port $argv[1]
     else
-        set port '8080'
+        set port 8080
     end
 
     set_color green
@@ -338,10 +348,10 @@ function fish_greeting
 end
 
 function tm
-    if count $argv > /dev/null
+    if count $argv >/dev/null
         set sessionname $argv[1]
     else
-        set sessionname 'main'
+        set sessionname main
     end
 
     command tmux -2 attach -t $sessionname; or command tmux -2 new -s $sessionname
@@ -359,22 +369,22 @@ alias db="docker build -t (basename (pwd)) ."
 
 function d
     switch $argv[1]
-    case ls
-        set_color green
-        echo -n '→ '
-        set_color normal
-        echo 'alias for \'docker images\''
-        command docker images
-    case '*'
-        command docker $argv
+        case ls
+            set_color green
+            echo -n '→ '
+            set_color normal
+            echo 'alias for \'docker images\''
+            command docker images
+        case '*'
+            command docker $argv
     end
 end
 
 function fish_prompt
     if test $status -eq 0
-       set failed 0
+        set failed 0
     else
-       set failed 1
+        set failed 1
     end
 
     set_color green
@@ -383,8 +393,8 @@ function fish_prompt
     prompt_git_status
 
     if set -q VIRTUAL_ENV
-      echo -n " "
-      echo -n -s (set_color -db blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+        echo -n " "
+        echo -n -s (set_color -db blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
     end
 
     if test $failed -eq 0
@@ -409,7 +419,7 @@ end
 set async_prompt_functions prompt_git_status
 
 function fish_right_prompt
-  #intentionally blank
+    #intentionally blank
 end
 
 set -gx SVN_EDITOR nvim
@@ -419,27 +429,33 @@ set -gx EDITOR nvim
 set -gx TF_VAR_AWS_USER stephen
 
 switch (uname -s)
-case Linux
-    setxkbmap -option caps:escape
+    case Linux
+        setxkbmap -option caps:escape
 
-    alias pbcopy='xsel --clipboard --input'
-    if status is-login
-    and not set -q TMUX
-      exec startx -- -keeptty
-    end
+        alias pbcopy='xsel --clipboard --input'
+        if status is-login
+            and not set -q TMUX
+            exec startx -- -keeptty
+        end
 end
 
 
 # Nix
 if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-  fenv source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    fenv source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 end
 # End Nix
 
 # Cargo
 set PATH ~/.cargo/bin $PATH
 
-function last_history_item; echo $history[1]; end
+function last_history_item
+    echo $history[1]
+end
 abbr -a !! --position anywhere --function last_history_item
 
 jump shell fish | source
+# CoderEnv
+# DO NOT EDIT: Added by Coder CLI installer (https://coder.canva-internal.com/install.sh)
+[ -e "/Users/stephen/.coder.sh" ] && . "/Users/stephen/.coder.sh"
+# EndCoderEnv
