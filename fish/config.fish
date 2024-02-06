@@ -142,34 +142,6 @@ end
 
 alias storybook="yarn storybook:single (f)"
 
-function git
-    # Define a list of blocked paths
-    set -l blocked_paths /Users/stephen/Work/phoenix-sparse
-
-    # Check if the command is 'pull'
-    if [ "$argv[1]" = pull ]
-        # Get the current working directory with a trailing slash
-        set -l current_dir (pwd)"/"
-        #
-        # # Check if the current directory starts with any of the blocked paths
-        for path in $blocked_paths
-            if string match -qr "^$path*" "$current_dir"
-                echo -n "'git pull' is "
-                set_color red
-                echo -n "blocked "
-                set_color normal
-                echo -n "in this repository due to its size."
-                return 1
-            end
-        end
-
-        return 1
-    end
-
-    # If not blocked, execute the original git command
-    command git $argv
-end
-
 function gh
     switch $argv[1]
         case commit
