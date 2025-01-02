@@ -2,8 +2,9 @@ function __fish_describe_command
     return
 end
 
-# Chatbot using Llama2
-alias chat="ollama run nous-hermes-llama2"
+# Because Bat is awesome, but I keep forgetting :|
+alias cat="bat"
+alias love="/Applications/love.app/Contents/MacOS/love"
 
 # Git Tweaks
 alias checkout="git checkout $argv"
