@@ -140,19 +140,6 @@ end
 alias storybook="yarn storybook:single (f)"
 alias tz='run_tz_script'
 
-<<<<<<< HEAD:fish/config.fish
-function run_tz_script
-    # Activate the virtual environment
-    vf activate timezone
-    # Run the Python script
-    python3 /Users/stephen/Documents/time.py $argv
-    # Deactivate the virtual environment
-    vf deactivate
-end
-
-
-=======
->>>>>>> a37b2ae7ee7e41a6a0819937d142f7e5351d5667:config/fish/config.fish
 function gh
     switch $argv[1]
         case commit
