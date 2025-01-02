@@ -2,9 +2,6 @@ function __fish_describe_command
     return
 end
 
-# Because Bat is awesome, but I keep forgetting :|
-alias cat="bat"
-
 # Chatbot using Llama2
 alias chat="ollama run nous-hermes-llama2"
 
@@ -141,34 +138,17 @@ function worktree
 end
 
 alias storybook="yarn storybook:single (f)"
+alias tz='run_tz_script'
 
-function git
-    # Define a list of blocked paths
-    set -l blocked_paths /Users/stephen/Work/phoenix-sparse
-
-    # Check if the command is 'pull'
-    if [ "$argv[1]" = pull ]
-        # Get the current working directory with a trailing slash
-        set -l current_dir (pwd)"/"
-        #
-        # # Check if the current directory starts with any of the blocked paths
-        for path in $blocked_paths
-            if string match -qr "^$path*" "$current_dir"
-                echo -n "'git pull' is "
-                set_color red
-                echo -n "blocked "
-                set_color normal
-                echo -n "in this repository due to its size."
-                return 1
-            end
-        end
-
-        return 1
-    end
-
-    # If not blocked, execute the original git command
-    command git $argv
+function run_tz_script
+    # Activate the virtual environment
+    vf activate timezone
+    # Run the Python script
+    python3 /Users/stephen/Documents/time.py $argv
+    # Deactivate the virtual environment
+    vf deactivate
 end
+
 
 function gh
     switch $argv[1]
@@ -459,7 +439,5 @@ end
 abbr -a !! --position anywhere --function last_history_item
 
 jump shell fish | source
-# CoderEnv
-# DO NOT EDIT: Added by Coder CLI installer (https://coder.canva-internal.com/install.sh)
-[ -e "/Users/stephen/.coder.sh" ] && . "/Users/stephen/.coder.sh"
-# EndCoderEnv
+
+export PATH="$PATH:/Applications/screenpipe.app/Contents/MacOS"
