@@ -439,9 +439,5 @@ end
 abbr -a !! --position anywhere --function last_history_item
 
 jump shell fish | source
-# CoderEnv
-# DO NOT EDIT: Added by Coder CLI installer (https://coder.canva-internal.com/install.sh)
-[ -e "/Users/stephen/.coder.sh" ] && . "/Users/stephen/.coder.sh"
-# EndCoderEnv
 
 export PATH="$PATH:/Applications/screenpipe.app/Contents/MacOS"
