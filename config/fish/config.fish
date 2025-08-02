@@ -15,6 +15,7 @@ alias push="git push $argv"
 alias please="sudo"
 alias pls="sudo"
 alias find="echo 'Use fd'"
+alias cal="echo 'Use ccal'"
 alias branches="git branch -vv | rg -v '\*' | awk '{print $1}'"
 
 function cdb
@@ -432,3 +433,23 @@ abbr -a !! --position anywhere --function last_history_item
 jump shell fish | source
 
 export PATH="$PATH:/Applications/screenpipe.app/Contents/MacOS"
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+nvm use v22.15.1 --silent
+
+set -gx PATH $HOME/.local/share/nvm/v22.15.1/bin $PATH
+
+# Set for GUI apps via launchctl
+if type -q launchctl
+    launchctl setenv PATH "$HOME/.local/share/nvm/v22.15.1/bin:$PATH"
+end
+
+# pnpm
+set -gx PNPM_HOME /Users/stephenyu/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
