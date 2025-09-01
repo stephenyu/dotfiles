@@ -18,6 +18,17 @@ alias find="echo 'Use fd'"
 alias cal="echo 'Use ccal'"
 alias branches="git branch -vv | rg -v '\*' | awk '{print $1}'"
 
+function less
+    # Check if there's exactly one argument and it's a markdown file (case-insensitive)
+    if test (count $argv) -eq 1 -a (string match -qi "*.md" $argv[1])
+        echo "Markdown file detected, using glow -p"
+        glow -p $argv[1]
+    else
+        # Use command to call the original less binary
+        command less $argv
+    end
+end
+
 function cdb
     set path (cdback $argv)
     set_color green
