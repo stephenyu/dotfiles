@@ -1,0 +1,62 @@
+return {}
+--     {
+--         'milanglacier/minuet-ai.nvim',
+--         dependencies = {
+--             'nvim-lua/plenary.nvim',
+--             'hrsh7th/nvim-cmp',
+--         },
+--         config = function()
+--             require('minuet').setup {
+--                 provider = 'openai',
+--                 provider_options = {
+--                     openai = {
+--                         model = 'gpt-4o-mini',
+--                         api_key = 'OPENAI_API_KEY',
+--                         optional = {
+--                             max_tokens = 256,
+--                             top_p = 0.9,
+--                         },
+--                     },
+--                 },
+--             }
+--
+--             -- Configure nvim-cmp to use Minuet
+--             local cmp = require('cmp')
+--             local current_sources = cmp.get_config().sources or {}
+--
+--             -- Add minuet as the first source with high priority
+--             table.insert(current_sources, 1, { name = 'minuet' })
+--
+--             cmp.setup({
+--                 sources = current_sources,
+--                 performance = {
+--                     fetching_timeout = 2000,
+--                 },
+--                 mapping = cmp.mapping.preset.insert({
+--                     -- Manual AI completion with leader + A
+--                     ["<C-a>"] = require('minuet').make_cmp_map(),
+--                     -- Your existing mappings
+--                     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+--                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+--                     ["<C-Space>"] = cmp.mapping.complete(),
+--                     ["<C-e>"] = cmp.mapping.abort(),
+--                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
+--                     ["<Tab>"] = cmp.mapping(function(fallback)
+--                         if cmp.visible() then
+--                             cmp.select_next_item()
+--                         else
+--                             fallback()
+--                         end
+--                     end, { "i", "s" }),
+--                     ["<S-Tab>"] = cmp.mapping(function(fallback)
+--                         if cmp.visible() then
+--                             cmp.select_prev_item()
+--                         else
+--                             fallback()
+--                         end
+--                     end, { "i", "s" }),
+--                 }),
+--             })
+--         end,
+--     },
+-- }
