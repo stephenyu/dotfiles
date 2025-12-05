@@ -1,0 +1,48 @@
+# Because Bat is awesome, but I keep forgetting :|
+alias cat='bat'
+
+# Git Tweaks
+alias checkout='git checkout'
+alias green='git checkout green'
+alias master='git checkout master'
+alias main='git checkout main'
+alias push='git push'
+alias branches='git branch -vv | rg -v "\*" | awk "{print \$1}"'
+
+# sudo wrappers
+alias please='sudo'
+alias pls='sudo'
+
+# Recommended replacement reminders
+# We use 'echo' here to keep the reminder from executing the original command
+alias find='echo "Use fd"'
+alias cal='echo "Use ccal"'
+
+# Docker Tweaks
+alias dr='docker run'
+alias drit='docker run --rm -ti'
+alias deit='docker exec -ti'
+alias dm='docker-machine'
+
+# Other utilities
+alias f='ag -g "" | fzf'
+alias tz='run_tz_script'
+alias filedate='date +"%d%m%y_%H%m"'
+
+# Tmux Session Manager function (tm) converted to Zsh syntax
+tm() {
+    # Check if an argument was provided ($# is the number of arguments)
+    if [ $# -ge 1 ]; then
+        sessionname=$1
+    else
+        sessionname="main"
+    fi
+
+    # The -A flag on newer tmux versions does exactly this:
+    # attach if exists, otherwise create.
+    # We use 'command tmux' in case 'tmux' itself is aliased.
+    command tmux -2 attach -A -t "$sessionname"
+}
+
+# License Vault URL for activation of Jetbrains products at Canva
+export JETBRAINS_LICENSE_SERVER=https://canva.fls.jetbrains.com/
