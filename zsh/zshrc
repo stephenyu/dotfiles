@@ -183,3 +183,4 @@ _custom_prompt_line() {
 # The `$(...)` executes the function, and $'\n' forces the newline.
 PROMPT='$(_custom_prompt_line)
 ; '
+. "$HOME/.cargo/env"
