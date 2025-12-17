@@ -131,6 +131,8 @@ alias deit='docker exec -ti'
 # Other utilities
 alias filedate='date +"%d%m%y_%H%m"'
 
+alias vim='nvim'
+
 # Flexible Tmux Function: Use argument or default to 'default-session'
 
 # Robust Tmux Function: Attach if exists, otherwise create.
@@ -183,4 +185,7 @@ _custom_prompt_line() {
 # The `$(...)` executes the function, and $'\n' forces the newline.
 PROMPT='$(_custom_prompt_line)
 ; '
+
 . "$HOME/.cargo/env"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
