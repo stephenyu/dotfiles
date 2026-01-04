@@ -184,3 +184,33 @@ _custom_prompt_line() {
 PROMPT='$(_custom_prompt_line)
 ; '
 . "$HOME/.cargo/env"
+
+
+gh() {
+    case "$1" in
+        pu)
+            # Get the current branch name
+            local branchname=$(git rev-parse --abbrev-ref HEAD)
+            
+            # Print the command (Green '>>', then the command)
+            echo -e "\e[32m>> \e[0mgit push -u origin $branchname"
+
+            # Prompt for confirmation (-k1 waits for 1 keypress, -r handles backslashes)
+            echo -n "Do you want to continue? [y/N] "
+            read -r confirm
+
+            case "$confirm" in
+                [Yy]*)
+                    command git push -u origin "$branchname"
+                    ;;
+                *)
+                    return 0
+                    ;;
+            esac
+            ;;
+        *)
+            # Fallback to the actual GitHub CLI for all other commands
+            command gh "$@"
+            ;;
+    esac
+}
