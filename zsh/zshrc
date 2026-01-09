@@ -210,6 +210,10 @@ gh() {
                     ;;
             esac
             ;;
+        cam)
+            git add -A 
+            git commit -m "$@"
+            ;;
         *)
             # Fallback to the actual GitHub CLI for all other commands
             command gh "$@"
