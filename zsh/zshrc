@@ -211,8 +211,21 @@ gh() {
             esac
             ;;
         cam)
+          # Shift away 'cam' so we only look at the message arguments
+            shift
+            
+            # Check if a message was provided
+            if [ -z "$*" ]; then
+                echo -e "\e[31mError:\e[0m No commit message provided."
+                return 1
+            fi
+
+            # Add all files
             git add -A 
-            git commit -m "$@"
+
+            # Commit with your specific timestamp format
+            # %z provides the ±hhmm offset required for the ISO format
+            git commit --date="$(date +%Y-%m-%dT%H:%M:%S%z)" -m "$*"
             ;;
         *)
             # Fallback to the actual GitHub CLI for all other commands
