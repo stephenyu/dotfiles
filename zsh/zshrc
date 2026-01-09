@@ -188,48 +188,61 @@ PROMPT='$(_custom_prompt_line)
 
 . "$HOME/.cargo/env"
 
-gh() {
+git() {
     case "$1" in
-        pu)
-            # Get the current branch name
-            local branchname=$(git rev-parse --abbrev-ref HEAD)
-            
-            # Print the command (Green '>>', then the command)
-            echo -e "\e[32m>> \e[0mgit push -u origin $branchname"
-
-            # Prompt for confirmation (-k1 waits for 1 keypress, -r handles backslashes)
-            echo -n "Do you want to continue? [y/N] "
-            read -r confirm
-
-            case "$confirm" in
-                [Yy]*)
-                    command git push -u origin "$branchname"
-                    ;;
-                *)
-                    return 0
-                    ;;
-            esac
-            ;;
-        cam)
-          # Shift away 'cam' so we only look at the message arguments
-            shift
-            
-            # Check if a message was provided
-            if [ -z "$*" ]; then
-                echo -e "\e[31mError:\e[0m No commit message provided."
+        # CUSTOM COMMAND: git sync
+        # Merges all sibling worktree branches into the current one
+        sync)
+            if ! command git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+                echo -e "\e[31mError:\e[0m Not a git repository."
                 return 1
             fi
 
-            # Add all files
-            git add -A 
+            echo -e "\e[34m==>\e[0m Syncing sibling worktrees..."
+            local current_path=$(pwd)
 
-            # Commit with your specific timestamp format
-            # %z provides the ±hhmm offset required for the ISO format
-            git commit --date="$(date +%Y-%m-%dT%H:%M:%S%z)" -m "$*"
+            # Get paths of all worktrees
+            command git worktree list --porcelain | grep '^worktree ' | cut -d ' ' -f 2 | while read -r path; do
+                if [[ "$path" != "$current_path" ]]; then
+                    local sibling_branch=$(command git -C "$path" rev-parse --abbrev-ref HEAD)
+                    
+                    echo -e "\e[32m>>\e[0m Merging $sibling_branch from $path"
+                    
+                    # Perform the merge
+                    if ! command git merge "$sibling_branch"; then
+                        echo -e "\e[31mError:\e[0m Conflict with $sibling_branch. Resolve manually."
+                        return 1
+                    fi
+                fi
+            done
             ;;
+
+        # CUSTOM COMMAND: git cam "message"
+        cam)
+            shift
+            if [ -z "$*" ]; then
+                echo -e "\e[31mError:\e[0m You must provide a commit message."
+                return 1
+            fi
+            command git add -A 
+            command git commit --date="$(date +%Y-%m-%dT%H:%M:%S%z)" -m "$*"
+            ;;
+
+        # CUSTOM COMMAND: git pu
+        pu)
+            local branchname=$(command git rev-parse --abbrev-ref HEAD)
+            echo -e "\e[32m>> \e[0mgit push -u origin $branchname"
+            echo -n "Do you want to continue? [y/N] "
+            read -r confirm
+            case "$confirm" in
+                [Yy]*) command git push -u origin "$branchname" ;;
+                *) echo "Push cancelled."; return 0 ;;
+            esac
+            ;;
+
+        # CATCH-ALL: Pass everything else to the real git binary
         *)
-            # Fallback to the actual GitHub CLI for all other commands
-            command gh "$@"
+            command git "$@"
             ;;
     esac
 }
