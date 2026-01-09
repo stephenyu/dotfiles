@@ -188,7 +188,7 @@ PROMPT='$(_custom_prompt_line)
 
 . "$HOME/.cargo/env"
 
-git() {
+gh() {
     case "$1" in
         # CUSTOM COMMAND: git sync
         # Merges all sibling worktree branches into the current one
@@ -201,17 +201,25 @@ git() {
             echo -e "\e[34m==>\e[0m Syncing sibling worktrees..."
             local current_path=$(pwd)
 
-            # Get paths of all worktrees
-            command git worktree list --porcelain | grep '^worktree ' | cut -d ' ' -f 2 | while read -r path; do
-                if [[ "$path" != "$current_path" ]]; then
-                    local sibling_branch=$(command git -C "$path" rev-parse --abbrev-ref HEAD)
+            # 1. Use --porcelain for stable parsing
+            # 2. Use 'cut -d " " -f 2-' to handle folder names with spaces
+            # 3. Use 'wt_dir' to avoid overwriting your system PATH
+            command git worktree list --porcelain | grep '^worktree ' | cut -d ' ' -f 2- | while read -r wt_dir; do
+                
+                # Resolve to absolute path to ensure the comparison works
+                local abs_wt_dir=$(cd "$wt_dir" && pwd)
+
+                if [[ "$abs_wt_dir" != "$current_path" ]]; then
+                    local sibling_branch=$(command git -C "$abs_wt_dir" rev-parse --abbrev-ref HEAD)
                     
-                    echo -e "\e[32m>>\e[0m Merging $sibling_branch from $path"
+                    echo -e "\e[32m>>\e[0m Merging $sibling_branch from $abs_wt_dir"
                     
                     # Perform the merge
                     if ! command git merge "$sibling_branch"; then
                         echo -e "\e[31mError:\e[0m Conflict with $sibling_branch. Resolve manually."
-                        return 1
+                        # Note: 'return' here only exits the while loop subshell, 
+                        # but it stops the sync process for that branch.
+                        break 
                     fi
                 fi
             done
@@ -242,7 +250,7 @@ git() {
 
         # CATCH-ALL: Pass everything else to the real git binary
         *)
-            command git "$@"
+            command gh "$@"
             ;;
     esac
 }
