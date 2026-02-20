@@ -6,3 +6,6 @@ nvim/rplugin/
 .DS_Store
 Alfred Workflows
 alfred_preferences
+scripts/google_credentials.json
+scripts/google_token.json
+scripts/get_current_meeting_config.json

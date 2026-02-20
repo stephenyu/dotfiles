@@ -3,60 +3,69 @@ import urllib.parse
 from datetime import datetime
 from pathlib import Path
 
-def create_meeting_note(base_root, filename, template_path):
-    # 1. Get current date components
+def create_meeting_note(base_root, meeting_name, template_path):
+    # 1. Date components
     now = datetime.now()
     year = now.strftime("%Y")
     month = now.strftime("%m-%B")
-    day = now.strftime("%d")
+    date_suffix = now.strftime("%d%m%y")      # DDMMYY
+    date_backlink = now.strftime("%Y-%m-%d") # YYYY-MM-DD
     
-    # 2. Clean names
-    display_name = filename[:-3] if filename.lower().endswith(".md") else filename
-    fs_filename = f"{display_name}.md"
+    # 2. Define Names
+    meeting_title = meeting_name.replace(".md", "")
+    fs_filename = f"{meeting_title} - {date_suffix}.md"
     
-    # 3. Construct target directory
-    target_dir = Path(base_root) / year / month / day
+    # 3. Path Management
+    base_path = Path(base_root).resolve()
+    target_dir = base_path / year / month
     target_dir.mkdir(parents=True, exist_ok=True)
     
-    # 4. Read the template file
-    # If the template exists, we read it and replace the title placeholder
+    # 4. Content Formatting
     try:
-        template_file = Path(template_path)
+        template_file = Path(template_path).resolve()
         if template_file.exists():
-            content = template_file.read_text(encoding="utf-8")
-            # Replace common placeholders if you use them in your template
-            content = content.replace("{{title}}", display_name)
-            content = content.replace("{{date}}", now.strftime("%Y-%m-%d"))
-        else:
-            content = f"# {display_name}\n\n(Template not found at {template_path})"
-    except Exception as e:
-        content = f"# {display_name}\n\nError reading template: {str(e)}"
+            raw_content = template_file.read_text(encoding="utf-8")
+            raw_content = raw_content.replace("{{title}}", meeting_title)
+            raw_content = raw_content.replace("{{date}}", date_backlink)
 
-    # 5. Create the file and write content
+            if raw_content.startswith("---"):
+                parts = raw_content.split("---", 2)
+                if len(parts) >= 3:
+                    yaml_content = parts[1].strip()
+                    body = parts[2].strip()
+                    content = f"---\n{yaml_content}\n---\n# {meeting_title}\n\n{body}\n\n[[{date_backlink}]]"
+                else:
+                    content = f"# {meeting_title}\n\n{raw_content}\n\n[[{date_backlink}]]"
+            else:
+                content = f"# {meeting_title}\n\n{raw_content.strip()}\n\n[[{date_backlink}]]"
+        else:
+            content = f"# {meeting_title}\n\n(Template not found)\n\n[[{date_backlink}]]"
+    except Exception as e:
+        content = f"# {meeting_title}\n\nError: {str(e)}\n\n[[{date_backlink}]]"
+
+    # 5. Save File
     file_path = target_dir / fs_filename
     if not file_path.exists():
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(content)
+        file_path.write_text(content, encoding="utf-8")
     
-    # 6. Construct Obsidian URI
-    path_obj = Path(base_root)
-    vault_name = path_obj.parent.name  
-    folder_name = path_obj.name        
-    relative_path = f"{folder_name}/{year}/{month}/{day}/{display_name}"
+    # 6. URI Generation (Matching your exact format)
+    vault_name = base_path.parent.name
+    folder_name = base_path.name
+    
+    # We create the path string WITHOUT the .md extension for the URI
+    uri_filename = f"{meeting_title} - {date_suffix}"
+    relative_path = f"{folder_name}/{year}/{month}/{uri_filename}"
     
     encoded_path = urllib.parse.quote(relative_path)
-    obsidian_uri = f"obsidian://open?vault={vault_name}&file={encoded_path}"
     
-    return obsidian_uri
+    return f"obsidian://open?vault={vault_name}&file={encoded_path}"
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        print("Usage: python script.py <base_root> <meeting_name> <template_path>")
         sys.exit(1)
 
-    arg_base_root = sys.argv[1]
-    arg_meeting_name = sys.argv[2]
-    arg_template_path = sys.argv[3]
-
-    uri = create_meeting_note(arg_base_root, arg_meeting_name, arg_template_path)
-    print(uri.strip(), end='')
+    uri = create_meeting_note(sys.argv[1], sys.argv[2], sys.argv[3])
+    
+    # sys.stdout.write ensures NO trailing newline character (\n)
+    sys.stdout.write(uri)
+    sys.stdout.flush()
