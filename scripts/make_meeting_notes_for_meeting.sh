@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPTS_DIR="$(dirname "$0")"
-PYTHON="/opt/homebrew/bin/python3"
+PYTHON="$(which python3)"
 MEETINGS_DIR="/Users/stephen/Documents/Obsidian/Canva/06-Meetings"
 TEMPLATE="/Users/stephen/Documents/Obsidian/Canva/99-Templates/meeting_note.md"
 

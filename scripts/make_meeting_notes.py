@@ -6,16 +6,15 @@ from pathlib import Path
 
 
 def slugify(name):
-    """Slugify for Obsidian-safe filenames: punctuation → '-', spaces → '_'."""
-    # Replace spaces with underscores
-    name = name.replace(" ", "_")
-    # Replace any punctuation (non-alphanumeric, non-underscore) with hyphens
-    name = re.sub(r"[^\w]", "-", name)
-    # Collapse consecutive hyphens/underscores
+    """Slugify for Obsidian-safe filenames: spaces and punctuation → '-'."""
+    # Replace spaces with hyphens
+    name = name.replace(" ", "-")
+    # Replace any punctuation (non-alphanumeric, non-hyphen) with hyphens
+    name = re.sub(r"[^\w-]", "-", name)
+    # Collapse consecutive hyphens
     name = re.sub(r"-{2,}", "-", name)
-    name = re.sub(r"_{2,}", "_", name)
-    # Strip leading/trailing hyphens and underscores
-    name = name.strip("-_")
+    # Strip leading/trailing hyphens
+    name = name.strip("-")
     return name
 
 
@@ -30,7 +29,8 @@ def create_meeting_note(base_root, meeting_name, template_path):
     # 2. Define Names
     meeting_title = meeting_name.replace(".md", "")
     safe_title = slugify(meeting_title)
-    fs_filename = f"{safe_title}_-_{date_suffix}.md"
+    fs_title = re.sub(r"[^\w\s]", "-", meeting_title).strip("-")
+    fs_filename = f"{fs_title} {date_suffix}.md"
     
     # 3. Path Management
     base_path = Path(base_root).resolve()
@@ -70,7 +70,7 @@ def create_meeting_note(base_root, meeting_name, template_path):
     folder_name = base_path.name
     
     # We create the path string WITHOUT the .md extension for the URI
-    uri_filename = f"{safe_title}_-_{date_suffix}"
+    uri_filename = f"{safe_title}-{date_suffix}"
     relative_path = f"{folder_name}/{year}/{month}/{uri_filename}"
     
     encoded_path = urllib.parse.quote(relative_path)
