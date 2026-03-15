@@ -101,6 +101,17 @@ def debug(msg):
         print(f"[debug] {msg}", file=sys.stderr)
 
 
+def _is_accepted(event):
+    """Return True if the current user has accepted (or is the organizer with no attendees)."""
+    attendees = event.get("attendees", [])
+    if not attendees:
+        return True
+    for a in attendees:
+        if a.get("self"):
+            return a.get("responseStatus") == "accepted"
+    return True
+
+
 def get_current_meeting():
     """Return the title of the meeting currently in progress, or None."""
     debug("Getting credentials...")
@@ -142,7 +153,8 @@ def get_current_meeting():
     current_events = [
         e for e in all_events
         if e.get("start", {}).get("dateTime") and
-        datetime.fromisoformat(e["start"]["dateTime"]) <= now
+        datetime.fromisoformat(e["start"]["dateTime"]) <= now and
+        _is_accepted(e)
     ]
 
     debug(f"Found {len(current_events)} current event(s):")
@@ -154,6 +166,13 @@ def get_current_meeting():
         debug("No current events found.")
         return None
 
+    # Prefer the shortest meeting (avoids returning long blocker events)
+    current_events.sort(
+        key=lambda e: (
+            datetime.fromisoformat(e["end"]["dateTime"]) -
+            datetime.fromisoformat(e["start"]["dateTime"])
+        )
+    )
     return current_events[0].get("summary", "(No title)").strip()
 
 
