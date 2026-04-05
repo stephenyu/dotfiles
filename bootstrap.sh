@@ -3,19 +3,22 @@ set -euo pipefail
 
 DOTFILES_REPO="https://github.com/stephenyu/dotfiles.git"
 DOTFILES_DIR="$HOME/dotfiles"
+OS="$(uname -s)"
 
 echo ""
-echo "==> Starting bootstrap..."
+echo "==> Starting bootstrap ($OS)..."
 echo ""
 
-# ── 1. Homebrew ────────────────────────────────────────────────────────────────
-if ! command -v brew &>/dev/null; then
-  echo "==> Installing Homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# ── 1. Homebrew (macOS only) ───────────────────────────────────────────────────
+if [ "$OS" = "Darwin" ]; then
+  if ! command -v brew &>/dev/null; then
+    echo "==> Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+
+  # Ensure brew is on PATH (Apple Silicon path)
+  eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || eval "$(/usr/local/bin/brew shellenv)"
 fi
-
-# Ensure brew is on PATH (Apple Silicon path)
-eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || eval "$(/usr/local/bin/brew shellenv)"
 
 # ── 2. Clone dotfiles ──────────────────────────────────────────────────────────
 if [ ! -d "$DOTFILES_DIR" ]; then
@@ -26,9 +29,11 @@ else
   git -C "$DOTFILES_DIR" pull
 fi
 
-# ── 3. Install packages ────────────────────────────────────────────────────────
-echo "==> Installing packages from Brewfile..."
-brew bundle --file="$DOTFILES_DIR/Brewfile"
+# ── 3. Install packages (macOS only) ──────────────────────────────────────────
+if [ "$OS" = "Darwin" ]; then
+  echo "==> Installing packages from Brewfile..."
+  brew bundle --file="$DOTFILES_DIR/Brewfile"
+fi
 
 # ── 4. Oh My Zsh ──────────────────────────────────────────────────────────────
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

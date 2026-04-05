@@ -284,7 +284,9 @@ gh() {
     esac
 }
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ "$(uname)" == "Darwin" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 . "$HOME/.local/bin/env"
 
