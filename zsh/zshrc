@@ -293,3 +293,8 @@ export PATH=/Users/stephenyu/.opencode/bin:$PATH
 
 # Added by Antigravity
 export PATH="/Users/stephenyu/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+PROMPT_EOL_MARK=""
+
+# License Vault URL for activation of Jetbrains products at Canva
+export JETBRAINS_LICENSE_SERVER=https://canva.fls.jetbrains.com/

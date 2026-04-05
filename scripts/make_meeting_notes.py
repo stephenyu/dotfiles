@@ -1,55 +1,88 @@
+import re
 import sys
 import urllib.parse
 from datetime import datetime
 from pathlib import Path
 
-def create_meeting_note(base_root, filename):
-    # 1. Get current date components
+
+def slugify(name):
+    """Slugify for Obsidian-safe filenames: spaces and punctuation → '-'."""
+    # Replace spaces with hyphens
+    name = name.replace(" ", "-")
+    # Replace any punctuation (non-alphanumeric, non-hyphen) with hyphens
+    name = re.sub(r"[^\w-]", "-", name)
+    # Collapse consecutive hyphens
+    name = re.sub(r"-{2,}", "-", name)
+    # Strip leading/trailing hyphens
+    name = name.strip("-")
+    return name
+
+
+def create_meeting_note(base_root, meeting_name, template_path):
+    # 1. Date components
     now = datetime.now()
     year = now.strftime("%Y")
     month = now.strftime("%m-%B")
-    day = now.strftime("%d")
+    date_suffix = now.strftime("%d%m%y")      # DDMMYY
+    date_backlink = now.strftime("%Y-%m-%d") # YYYY-MM-DD
+
+    # 2. Define Names
+    meeting_title = meeting_name.replace(".md", "")
+    safe_title = slugify(meeting_title)
+    fs_title = re.sub(r"[^\w\s]", "-", meeting_title).strip("-")
+    fs_filename = f"{fs_title} {date_suffix}.md"
     
-    # 2. Clean names for file system vs Obsidian URI
-    display_name = filename[:-3] if filename.lower().endswith(".md") else filename
-    fs_filename = f"{display_name}.md"
-    
-    # 3. Construct the target directory path
-    target_dir = Path(base_root) / year / month / day
+    # 3. Path Management
+    base_path = Path(base_root).resolve()
+    target_dir = base_path / year / month
     target_dir.mkdir(parents=True, exist_ok=True)
     
-    # 4. Create the empty file
+    # 4. Content Formatting
+    try:
+        template_file = Path(template_path).resolve()
+        if template_file.exists():
+            raw_content = template_file.read_text(encoding="utf-8")
+            raw_content = raw_content.replace("{{title}}", meeting_title)
+            raw_content = raw_content.replace("{{date}}", date_backlink)
+
+            if raw_content.startswith("---"):
+                parts = raw_content.split("---", 2)
+                if len(parts) >= 3:
+                    yaml_content = parts[1].strip()
+                    body = parts[2].strip()
+                    content = f"---\n{yaml_content}\n---\n# {meeting_title}\n\n{body}\n\n[[{date_backlink}]]"
+                else:
+                    content = f"# {meeting_title}\n\n{raw_content}\n\n[[{date_backlink}]]"
+            else:
+                content = f"# {meeting_title}\n\n{raw_content.strip()}\n\n[[{date_backlink}]]"
+        else:
+            content = f"# {meeting_title}\n\n(Template not found)\n\n[[{date_backlink}]]"
+    except Exception as e:
+        content = f"# {meeting_title}\n\nError: {str(e)}\n\n[[{date_backlink}]]"
+
+    # 5. Save File
     file_path = target_dir / fs_filename
     if not file_path.exists():
-        file_path.touch()
+        file_path.write_text(content, encoding="utf-8")
     
-    # 5. Extract Vault Name and Relative Path for URI
-    # Logic: Extracts the folder name containing 'Meetings'
-    path_obj = Path(base_root)
-    vault_name = path_obj.parent.name  # Gets 'Core'
-    folder_name = path_obj.name        # Gets 'Meetings'
-
-    # Relative path starts from the folder name provided in base_root
-    relative_path = f"{folder_name}/{year}/{month}/{day}/{display_name}"
+    # 6. URI Generation (Matching your exact format)
+    vault_name = base_path.parent.name
+    folder_name = base_path.name
     
-    # 6. Construct the Obsidian URI
+    # We create the path string WITHOUT the .md extension for the URI
+    uri_filename = f"{safe_title}-{date_suffix}"
+    relative_path = f"{folder_name}/{year}/{month}/{uri_filename}"
+    
     encoded_path = urllib.parse.quote(relative_path)
-    obsidian_uri = f"obsidian://open?vault={vault_name}&file={encoded_path}"
     
-    return obsidian_uri
+    return f"obsidian://open?vault={vault_name}&file={encoded_path}"
 
 if __name__ == "__main__":
-    # Check if correct number of arguments are provided
-    if len(sys.argv) < 3:
-        print("Usage: python script.py <base_root> <meeting_name>")
+    if len(sys.argv) < 4:
         sys.exit(1)
 
-    # Assign arguments from command line
-    # argv[0] is the script name itself
-    arg_base_root = sys.argv[1]
-    arg_meeting_name = sys.argv[2]
-
-    uri = create_meeting_note(arg_base_root, arg_meeting_name)
+    uri = create_meeting_note(sys.argv[1], sys.argv[2], sys.argv[3])
     
-    # Output only the URI so it can be easily captured by other scripts/terminal
-    print(uri.strip(), end='')
+    # sys.stdout.write ensures NO trailing newline character (\n)
+    sys.stdout.write(uri)
+    sys.stdout.flush()
