@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  # ── Lint shell scripts (Ubuntu, fast) ────────────────────────────────────────
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install shellcheck
+        run: sudo apt-get install -y shellcheck
+      - name: Lint scripts
+        run: shellcheck bootstrap.sh
+
+  # ── Verify dotfile symlinks (Ubuntu, always runs) ────────────────────────────
+  dotfiles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run make dotfiles
+        run: make dotfiles
+      - name: Verify symlinks
+        run: |
+          test -L "$HOME/.zshrc"          && echo "✓ .zshrc"
+          test -L "$HOME/.zprofile"       && echo "✓ .zprofile"
+          test -L "$HOME/.tmux.conf"      && echo "✓ .tmux.conf"
+          test -L "$HOME/.gitconfig"      && echo "✓ .gitconfig"
+          test -L "$HOME/.alacritty.toml" && echo "✓ .alacritty.toml"
+          test -L "$HOME/.config/nvim"    && echo "✓ nvim"
+
+  # ── Detect Brewfile changes ───────────────────────────────────────────────────
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      brewfile: ${{ steps.filter.outputs.brewfile }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            brewfile:
+              - 'Brewfile'
+
+  # ── Validate Brewfile (macOS, only when Brewfile changes) ────────────────────
+  brewfile:
+    needs: changes
+    if: needs.changes.outputs.brewfile == 'true'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install from Brewfile
+        run: brew bundle --file=Brewfile
