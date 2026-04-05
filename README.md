@@ -1,50 +1,53 @@
 Stephen's Dotfiles
 ==================
 
-All my dotfiles in one handy repository, storing all my settings for the following tools:
+Dotfiles for my day-to-day setup, managed with symlinks and a Makefile.
 
- * neovim
- * tmux
- * fish
- * git
+- neovim
+- tmux
+- alacritty
+- zsh (oh-my-zsh)
+- git
 
-There will be some legacy dotfiles here and there, but those are my day-to-day tools.
+## Fresh machine setup
 
-## CD Back
+Run the bootstrap script. It will install Homebrew, clone this repo, install all packages, set up Rust, and symlink everything into place.
 
-To get `cdb` functional, install my rust crate.
-
-```
-cargo install cdback
-```
-
-## Neovim
-
-Using the built-in LSP Client so this needs a bit of setup to get going
-
-### Eslint
-
-First install a Language Server i.e. https://github.com/mattn/efm-langserver
-
-```
-$ brew install efm-langserver
+```sh
+curl -fsSL https://raw.githubusercontent.com/stephenyu/dotfiles/master/bootstrap.sh | bash
 ```
 
-```
-$ npm install -g eslint_d eslint
+Then open a new terminal.
+
+## Manual setup
+
+If you've already cloned the repo, you can just run:
+
+```sh
+make
 ```
 
-There needs to be an `.eslint*` file
+This symlinks all config files to their expected locations in `$HOME`.
 
-```
-$ eslint --init
-```
+## Packages
 
-### Typescript
+Homebrew packages are declared in `Brewfile`. To install:
 
-Install the Typescript LSP
-```
-$ npm install -g typescript typescript-language-server diagnostic-languageserver
+```sh
+brew bundle
 ```
 
-In Vim use `:LspInfo` to verify everything is working.
+To add a new package, edit `Brewfile` and run `brew bundle` again.
+
+## Rust crates
+
+Two CLI tools are installed via cargo:
+
+- [`gitstatus`](https://crates.io/crates/gitstatus) — used in the shell prompt
+- [`ccal`](https://crates.io/crates/ccal) — terminal calendar
+
+To install manually:
+
+```sh
+cargo install gitstatus ccal
+```
