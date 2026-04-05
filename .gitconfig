@@ -22,6 +22,7 @@
   unstage = reset HEAD --
   last = log -1 HEAD --stat
   wip = !git add -A && git commit -m "wip" --no-verify
+  cam = "!f() { git add -A && git commit -m \"$1\"; }; f"
 
 [pull]
 	rebase = false

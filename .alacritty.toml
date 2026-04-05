@@ -22,7 +22,7 @@ yellow = "0xe78a4e"
 TERM = "xterm-256color"
 
 [font]
-size = 16.0
+size = 15.0
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
@@ -31,6 +31,16 @@ family = "JetBrainsMono Nerd Font"
 chars = "#"
 key = "Key3"
 mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001bb"
+key = "Left"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001bf"
+key = "Right"
+mods = "Control"
 
 [mouse]
 hide_when_typing = true
