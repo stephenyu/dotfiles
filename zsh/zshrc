@@ -300,3 +300,8 @@ PROMPT_EOL_MARK=""
 
 # License Vault URL for activation of Jetbrains products at Canva
 export JETBRAINS_LICENSE_SERVER=https://canva.fls.jetbrains.com/
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/stephen/.lmstudio/bin"
+# End of LM Studio CLI section
