@@ -2,7 +2,14 @@
 set -euo pipefail
 
 DOTFILES_REPO="https://github.com/stephenyu/dotfiles.git"
-DOTFILES_DIR="$HOME/dotfiles"
+# If we're already running inside the cloned repo (e.g. Coder), use that.
+# Otherwise fall back to ~/dotfiles (curl | bash fresh-machine install).
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if git -C "$SCRIPT_DIR" rev-parse --is-inside-work-tree &>/dev/null; then
+  DOTFILES_DIR="$SCRIPT_DIR"
+else
+  DOTFILES_DIR="$HOME/dotfiles"
+fi
 OS="$(uname -s)"
 
 echo ""
@@ -29,10 +36,13 @@ else
   git -C "$DOTFILES_DIR" pull
 fi
 
-# ── 3. Install packages (macOS only) ──────────────────────────────────────────
+# ── 3. Install packages ───────────────────────────────────────────────────────
 if [ "$OS" = "Darwin" ]; then
   echo "==> Installing packages from Brewfile..."
   brew bundle --file="$DOTFILES_DIR/Brewfile"
+elif [ "$OS" = "Linux" ] && command -v apt-get &>/dev/null; then
+  echo "==> Installing Linux essentials via apt-get..."
+  sudo apt-get install -y zsh tmux neovim make ripgrep
 fi
 
 # ── 4. Oh My Zsh ──────────────────────────────────────────────────────────────
@@ -47,9 +57,9 @@ if ! command -v cargo &>/dev/null; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 fi
 
-# Ensure cargo is on PATH
+# Ensure cargo is on PATH (only exists when installed via rustup, not apt)
 # shellcheck source=/dev/null
-source "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # ── 6. Cargo crates ────────────────────────────────────────────────────────────
 echo "==> Installing cargo crates..."

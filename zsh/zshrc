@@ -196,7 +196,7 @@ _custom_prompt_line() {
 PROMPT='$(_custom_prompt_line)
 ; '
 
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 gh() {
     case "$1" in
@@ -288,20 +288,19 @@ if [[ "$(uname)" == "Darwin" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-. "$HOME/.local/bin/env"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
 # opencode
-export PATH=/Users/stephenyu/.opencode/bin:$PATH
+[ -d "$HOME/.opencode/bin" ] && export PATH="$HOME/.opencode/bin:$PATH"
 
 # Added by Antigravity
-export PATH="/Users/stephenyu/.antigravity/antigravity/bin:$PATH"
+[ -d "$HOME/.antigravity/antigravity/bin" ] && export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 PROMPT_EOL_MARK=""
 
 # License Vault URL for activation of Jetbrains products at Canva
 export JETBRAINS_LICENSE_SERVER=https://canva.fls.jetbrains.com/
-export PATH="$HOME/.local/bin:$PATH"
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/stephen/.lmstudio/bin"
+[ -d "$HOME/.lmstudio/bin" ] && export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
