@@ -1,6 +1,7 @@
 import sys
 import os
 import json
+import re
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -96,6 +97,13 @@ def choose_calendar(service):
         print("Invalid choice, please try again.", file=sys.stderr)
 
 
+def sanitize_title(title):
+    """Strip emojis/symbols, keeping only alphanumerics and spaces, then trim."""
+    cleaned = re.sub(r"[^0-9A-Za-z ]+", " ", title)
+    cleaned = re.sub(r" +", " ", cleaned)
+    return cleaned.strip()
+
+
 def debug(msg):
     if DEBUG:
         print(f"[debug] {msg}", file=sys.stderr)
@@ -173,7 +181,7 @@ def get_current_meeting():
             datetime.fromisoformat(e["start"]["dateTime"])
         )
     )
-    return current_events[0].get("summary", "(No title)").strip()
+    return sanitize_title(current_events[0].get("summary", "No title"))
 
 
 if __name__ == "__main__":
